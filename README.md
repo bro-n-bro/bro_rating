@@ -14,7 +14,7 @@ This category will check validators in government involvement. Rating will track
 
 This category will check validators uptime. Who had the best uptime will get max points.
 
-3. Voting power (Max 15 points)
+3. Voting power (Max 10 points)
 
 **To discuss**: This category will check validators voting power. The more stake you have the more/less point you will have. (To lead for decentralisation)
 
@@ -22,13 +22,18 @@ This category will check validators uptime. Who had the best uptime will get max
 
 This category will check validators self delegation. The more you have, the more points you will get.
 
-5. Commission (Max 15 points)
+5. Commission (Max 10 points)
 
 This category will check validators commission. The bigger commission you have, the less points you will get.
 
+6. Jail (Max 10 points)
+
+This category will check how many time validator was jailed. The bigger time you was jailed, the less points you will get.
+
+
 Max point (100) will have validator who will be on the top of all categories.
 
-All of these categories show your resposibility (Government  participation), reliability (Pre-commit), power (Voting power) , interest (Self stake) , generosity (Commission).
+All of these categories show your resposibility (Government  participation), reliability (Pre-commit), power (Voting power) , interest (Self stake) , generosity (Commission), law abiding (Jail)
 
 These parameters are valuable for chain consensistenty and their "power" can be discussed, but for now we want to stay with such metrics/points.
 
