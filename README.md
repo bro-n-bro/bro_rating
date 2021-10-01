@@ -14,7 +14,7 @@ This category will check validators in government involvement. Rating will track
 
 This category will check validators uptime. Who had the best uptime will get max points.
 
-3. Voting power (Max 10 points)
+3. Voting power (Max 10 points) - Median proportion
 
 **To discuss**: This category will check validators voting power. The more stake you have the more/less point you will have. (To lead for decentralisation)
 
