@@ -1,0 +1,101 @@
+,moniker,operator_address,self_delegator_address,proposals_voted,self_delegation,tokens,tokens_bluring,identity,website,security_contact,details,commission_rate,max_commission_rate,max_commission_change_rate,min_self_delegation
+0, BlockNgine 100% slash protected,osmovaloper1pxphtfhqnx9ny27d53z4052e3r76e7qq495ehm,osmo1pxphtfhqnx9ny27d53z4052e3r76e7qq0ju6qu,0.0,8426979.0,143496554865.0,1.0,1.0,1.0,0.0,1.0,0.05,0.1,0.01,1.0
+1,Secure Secrets,osmovaloper1pgl5usqpelz3a4c04g6t3yyvlrc9yseylmtcnt,osmo1pgl5usqpelz3a4c04g6t3yyvlrc9ysey9vrmyv,2.0,1000000.0,92549599693.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.02,1.0
+2,Bi23 Labs,osmovaloper1pfh243e50apq0zut00vyhd3sqek0jthc8wvxws,osmo1pfh243e50apq0zut00vyhd3sqek0jthcaey9eh,0.0,188316862.0,48197375091.0,1.0,1.0,1.0,0.0,1.0,0.05,1.0,0.05,1.0
+3,Cypher Core,osmovaloper1pjmngrwcsatsuyy8m3qrunaun67sr9x74vvvdk,osmo1pjmngrwcsatsuyy8m3qrunaun67sr9x70my063,0.0,60537277695.0,166835107834.0,1.0,1.0,1.0,0.0,1.0,0.1,0.2,0.01,1.0
+4,Inotel,osmovaloper1z89utvygweg5l56fsk8ak7t6hh88fd0axx2fya,osmo1z89utvygweg5l56fsk8ak7t6hh88fd0au3z2n6,0.0,15000000000.0,1169165060751.0,1.0,1.0,1.0,0.0,1.0,0.06,0.3,0.3,1.0
+5,SkyNet | Validators,osmovaloper1zfcmwh56kmz4wqqg2t8pxrm228dx2c6hhzhtx7,osmo1zfcmwh56kmz4wqqg2t8pxrm228dx2c6hd4lg3e,5.0,94000000.0,77348214988.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.05,1.0
+6,[ block pane ],osmovaloper1z0sh4s80u99l6y9d3vfy582p8jejeeu6tcucs2,osmo1z0sh4s80u99l6y9d3vfy582p8jejeeu6305m8d,4.0,16341000000.0,290217774248.0,1.0,1.0,1.0,0.0,1.0,0.05,0.1,0.01,1.0
+7,Stakely-io,osmovaloper1z5xyynz9ewuf044uaweswldut34z34z3cwpt7y,osmo1z5xyynz9ewuf044uaweswldut34z34z3zefgfr,4.0,1200000.0,48751034691.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.01,1.0
+8,strangelove-ventures,osmovaloper1r2u5q6t6w0wssrk6l66n3t2q3dw2uqny4gj2e3,osmo1r2u5q6t6w0wssrk6l66n3t2q3dw2uqny0l6fwk,1.0,132403000000.0,642627597298.0,1.0,1.0,1.0,0.0,1.0,0.05,1.0,0.5,1.0
+9,artifact,osmovaloper1rhjvcesshc833dqwdlwskwcjz08gcnxq73dnqc,osmo1rhjvcesshc833dqwdlwskwcjz08gcnxqyx9shl,1.0,2719992992.0,71730485925.0,1.0,1.0,0.0,0.0,0.0,0.05,0.2,0.02,1.0
+10,in3s.com,osmovaloper1rcp29q3hpd246n6qak7jluqep4v006cd8q9sme,osmo1rcp29q3hpd246n6qak7jluqep4v006cdahdnv7,3.0,31114321870.0,31167321870.0,1.0,1.0,1.0,0.0,1.0,0.1,1.0,1.0,1.0
+11,Staky.io,osmovaloper1rmdzkje2eh34fgerdq75lwgzy44u43erqdnnh3,osmo1rmdzkje2eh34fgerdq75lwgzy44u43er66msqk,0.0,4000000.0,50566000000.0,1.0,1.0,1.0,1.0,1.0,0.05,1.0,0.05,1.0
+12,Swiss Staking,osmovaloper1y0us8xvsvfvqkk9c6nt5cfyu5au5tww24nrlnx,osmo1y0us8xvsvfvqkk9c6nt5cfyu5au5tww20ytuyp,0.0,10000000.0,102048237382.0,1.0,1.0,1.0,0.0,1.0,0.05,0.25,0.025,1.0
+13,fissionlabs,osmovaloper1y6y38g5pxcu3ca2v8merufs9eagnqd9u2yf5ng,osmo1y6y38g5pxcu3ca2v8merufs9eagnqd9usnphy0,0.0,1789648506.0,107789648506.0,1.0,0.0,1.0,1.0,0.0,0.1,0.2,0.01,1.0
+14,Validatus,osmovaloper19v94c3z7ckarwsum76kaagma0wqsqhh54xucdk,osmo19v94c3z7ckarwsum76kaagma0wqsqhh5035m63,0.0,1000000.0,31435430686.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.1,1.0
+15,syncnode,osmovaloper19j2hd230c3hw6ds843yu8akc0xgvdvyu4arf82,osmo19j2hd230c3hw6ds843yu8akc0xgvdvyu02t2sd,3.0,19170000000.0,34950887933.0,1.0,1.0,1.0,0.0,1.0,0.05,0.9,0.05,1.0
+16,SG-1,osmovaloper196ax4vc0lwpxndu9dyhvca7jhxp70rmcmmarz7,osmo196ax4vc0lwpxndu9dyhvca7jhxp70rmcpv4q4e,1.0,49100000000.0,2197514586961.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.05,1.0
+17,Cephalopod Equipment Corp,osmovaloper1x20lytyf6zkcrv5edpkfkn8sz578qg5s833swz,osmo1x20lytyf6zkcrv5edpkfkn8sz578qg5saxene9,0.0,100000000.0,890169464079.0,1.0,1.0,1.0,1.0,1.0,0.0811,0.42,0.0118,100000.0
+18,iqlusion,osmovaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x7uy20c,osmo1grgelyng2v6v3t8z87wu3sxgt9m5s03xytvfcl,0.0,10000000000.0,455410904025.0,1.0,1.0,1.0,0.0,0.0,0.07,0.2,0.01,10000000000.0
+19,Provalidator,osmovaloper1gy0nyn2hscxxayj2pdyu8axmfvv75nnvhc079s,osmo1gy0nyn2hscxxayj2pdyu8axmfvv75nnvd08ajh,0.0,1000000.0,152204487699.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.1,1.0
+20,16psyche,osmovaloper1gwmw0w4gul7885f9ce84ersp5thdnqceesr052,osmo1gwmw0w4gul7885f9ce84ersp5thdnqcer8tvrd,0.0,324855647.0,29864997572.0,1.0,1.0,0.0,0.0,1.0,0.05,0.8,0.1,1.0
+21,Simply Staking,osmovaloper1feh2keupglep6mvxf5c96eulh3puujjryj2h8v,osmo1feh2keupglep6mvxf5c96eulh3puujjr79z5st,2.0,17200000000.0,105429894489.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.01,1000000.0
+22,Plural,osmovaloper1f6taewxze2sxang7293dff6qju4r4uwg7znp6j,osmo1f6taewxze2sxang7293dff6qju4r4uwgy4mzd4,1.0,1000000.0,31169010000.0,1.0,1.0,1.0,0.0,1.0,0.05,1.0,1.0,1.0
+23,OmniFlix Network,osmovaloper12zwq8pcmmgwsl95rueqsf65avfg5zcj047ucw6,osmo12zwq8pcmmgwsl95rueqsf65avfg5zcj00f5mea,0.0,6730000000.0,315250762754.0,1.0,1.0,1.0,0.0,1.0,0.05,0.5,0.1,1.0
+24,Stakecito,osmovaloper12rzd5qr2wmpseypvkjl0spusts0eruw2g35lkn,osmo12rzd5qr2wmpseypvkjl0spusts0eruw2jxuup5,2.0,10000000.0,249780271705.0,1.0,1.0,0.0,0.0,1.0,0.05,0.2,0.02,1.0
+25,B-Harvest,osmovaloper123nfq6m8f88m4g3sky570unsnk4zng4u6mkmvq,osmo123nfq6m8f88m4g3sky570unsnk4zng4uqv7cm8,4.0,1022000000.0,1186282356869.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.01,1.0
+26,Coverlet,osmovaloper1273zsxhxd5dlgcr2zjf5x25275hjcp3udgkz9z,osmo1273zsxhxd5dlgcr2zjf5x25275hjcp3uhl7pj9,0.0,31363642336.0,46219397114.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.1,1.0
+27,Imperator.co,osmovaloper1t8qckan2yrygq7kl9apwhzfalwzgc2429p8f0s,osmo1t8qckan2yrygq7kl9apwhzfalwzgc242lk02ch,4.0,10000000.0,1174011715645.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.01,1.0
+28,wosmongton,osmovaloper1thsw3n94lzxy0knhss9n554zqp4dnfzx78j7sq,osmo1thsw3n94lzxy0knhss9n554zqp4dnfzxys6a88,0.0,3000000.0,2261736765280.0,1.0,1.0,0.0,0.0,1.0,0.05,0.2,0.01,1.0
+29,BasBlock,osmovaloper1vzcxcv9v4cymknqyj8a7qqp45apt7kyrvuwhxr,osmo1vzcxcv9v4cymknqyj8a7qqp45apt7kyrktx53y,0.0,5871407417.0,172720753597.0,1.0,1.0,0.0,0.0,0.0,0.05,0.5,0.1,1000000.0
+30,Zero Knowledge Validator (ZKV),osmovaloper1v5y0tg0jllvxf5c3afml8s3awue0ymjusax93d,osmo1v5y0tg0jllvxf5c3afml8s3awue0ymju22wxx2,0.0,179000000.0,349553728487.0,1.0,1.0,1.0,1.0,1.0,0.07,1.0,0.05,1.0
+31,blitz,osmovaloper1vkfmegxrsveefn2wmudh7apxuzu2n77654ad62,osmo1vkfmegxrsveefn2wmudh7apxuzu2n776wz4wdd,0.0,2000000.0,110162855078.0,1.0,0.0,1.0,0.0,1.0,0.06,0.2,0.1,1.0
+32,samurai,osmovaloper1dpwecca283m0c20dmsfzztp4mma8h9ajxwvx52,osmo1dpwecca283m0c20dmsfzztp4mma8h9ajuey9rd,0.0,1708188047.0,42784739577.0,1.0,0.0,0.0,0.0,1.0,0.05,0.2,0.01,1.0
+33,Witval,osmovaloper1ddle9tczl87gsvmeva3c48nenyng4n56yscals,osmo1ddle9tczl87gsvmeva3c48nenyng4n5678s7gh,0.0,25000000000.0,489549297240.0,1.0,1.0,1.0,0.0,1.0,0.05,0.15,0.02,1.0
+34,Validating Chaos,osmovaloper1d4pn8f3q5dn0g4uwr2egh5mgzrnf7fhh53tuu4,osmo1d4pn8f3q5dn0g4uwr2egh5mgzrnf7fhhwxrltj,4.0,1312042069.0,532641728921.0,1.0,1.0,0.0,0.0,0.0,0.05,1.0,0.01,1.0
+35,Alex (Bambarello) Validator,osmovaloper1de86y3vdphqe904xyh6eh0fftw0283tnezqmug,osmo1de86y3vdphqe904xyh6eh0fftw0283tnr4gct0,0.0,1000000.0,32113587091.0,1.0,1.0,1.0,1.0,1.0,0.05,0.3,0.02,1.0
+36,c29r3,osmovaloper1d7vvatc4rqwqf99z90rqf6dlc484p02q9pc0em,osmo1d7vvatc4rqwqf99z90rqf6dlc484p02qlksvwu,0.0,2962731371.0,76921200116.0,1.0,1.0,1.0,0.0,0.0,0.05,0.12,0.01,1.0
+37,kytzu,osmovaloper1wtv0kp6ydt03edd8kyr5arr4f3yc52vpxy9qu6,osmo1wtv0kp6ydt03edd8kyr5arr4f3yc52vpundrta,2.0,5000000000.0,35006000000.0,1.0,1.0,1.0,0.0,1.0,0.1,0.2,0.01,1.0
+38,AUDIT.one,osmovaloper1w4x44ek799hvg97x0mfwu6gg5dww2r8fdpqql4,osmo1w4x44ek799hvg97x0mfwu6gg5dww2r8fhkgrgj,0.0,1000000.0,89072708481.0,1.0,1.0,1.0,0.0,1.0,0.07,0.2,0.01,1.0
+39,Cat Boss,osmovaloper1wke3ev9ja6rxsngld75r3vppcpet94xxwcmk4v,osmo1wke3ev9ja6rxsngld75r3vppcpet94xx50n4zt,4.0,1000000.0,90929658627.0,1.0,1.0,1.0,0.0,1.0,0.05,1.0,1.0,1.0
+40,mp20,osmovaloper1whdjuaspv2y3v02pjywncs7xmzpeudkfg9ukjw,osmo1whdjuaspv2y3v02pjywncs7xmzpeudkfjj549f,0.0,10000000.0,49402570000.0,1.0,1.0,1.0,0.0,1.0,0.05,1.0,0.02,1.0
+41,DSRV,osmovaloper1wlagucxdxvsmvj6330864x8q3vxz4x025rraa6,osmo1wlagucxdxvsmvj6330864x8q3vxz4x02w5t72a,0.0,1000000.0,478049864116.0,1.0,1.0,1.0,1.0,1.0,0.1,0.2,0.05,1.0
+42,AC Validator 🚀,osmovaloper10rsjwrcj7maz4f0l8dh3smjd022n9ya8ycuyg7,osmo10rsjwrcj7maz4f0l8dh3smjd022n9ya87058le,0.0,300000000.0,122405228332.0,1.0,1.0,1.0,0.0,1.0,0.05,0.5,0.5,1.0
+43,Chandra Station ,osmovaloper10ymws40tepmjcu3a2wuy266ddna4ktas0zuzm4,osmo10ymws40tepmjcu3a2wuy266ddna4ktas445pvj,0.0,1000000.0,504286711874.0,1.0,1.0,1.0,0.0,1.0,0.05,0.1,0.01,1.0
+44,notional,osmovaloper1083svrca4t350mphfv9x45wq9asrs60c6rv0j5,osmo1083svrca4t350mphfv9x45wq9asrs60cq5yv9n,0.0,25140000000.0,351424037467.0,1.0,1.0,1.0,0.0,1.0,0.0969,0.2,0.01,1.0
+45,ztake.org,osmovaloper102ruvpv2srmunfffxavttxnhezln6fncrdjd27,osmo102ruvpv2srmunfffxavttxnhezln6fnce66wae,0.0,2935052094.0,209388952094.0,1.0,1.0,1.0,0.0,1.0,0.07,1.0,1.0,1.0
+46,Staking Fund,osmovaloper1000ya26q2cmh399q4c5aaacd9lmmdqp9cwpvl4,osmo1000ya26q2cmh399q4c5aaacd9lmmdqp9zef0gj,1.0,4170800000.0,141776904547.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.2,1.0
+47,commercio.network,osmovaloper103s29j7dyc3utljce802m38p2kk89taj0r2hxa,osmo103s29j7dyc3utljce802m38p2kk89taj45z536,0.0,1000000.0,316409478586.0,1.0,1.0,1.0,0.0,1.0,0.05,0.3,0.02,1.0
+48,NosNode,osmovaloper10jm8fvdyqlj78w0j5nawc76wsn4pqmdxgzgh4c,osmo10jm8fvdyqlj78w0j5nawc76wsn4pqmdxj4q5zl,4.0,12395807138.0,294248562375.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.05,1.0
+49,e-Money.com // validator.network,osmovaloper1sxx9mszve0gaedz5ld7qdkjkfv8z992a3z2szp,osmo1sxx9mszve0gaedz5ld7qdkjkfv8z992at4zn4x,1.0,1000000000.0,432661506274.0,1.0,1.0,1.0,0.0,1.0,0.05,1.0,1.0,1000000.0
+50,dimi 🦙,osmovaloper1s33zct2zhhaf60x4a90cpe9yquw99jj0x8t08z,osmo1s33zct2zhhaf60x4a90cpe9yquw99jj0usrvs9,2.0,7907000000.0,97560410293.0,1.0,1.0,1.0,1.0,1.0,0.05,1.0,0.1,1.0
+51,🐠stake.fish,osmovaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9ua8h4lf,osmo1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u8slkgw,1.0,6000000.0,257516904342.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.01,1.0
+52,blockscape,osmovaloper13x77yexvf6qexfjg9czp6jhpv7vpjdwwpuclc8,osmo13x77yexvf6qexfjg9czp6jhpv7vpjdwwmtsu0q,1.0,21225432926.0,137537635556.0,1.0,1.0,1.0,0.0,1.0,0.1,0.2,0.01,1.0
+53,SRU-OSMO,osmovaloper13gvqalusnmapjgp3e6gnk9q832qv3g3ug7lcuh,osmo13gvqalusnmapjgp3e6gnk9q832qv3g3ujfhmts,0.0,12126000000.0,33781000000.0,1.0,0.0,1.0,0.0,1.0,0.06,0.2,0.01,1.0
+54,bro_n_bro,osmovaloper13tk45jkxgf7w0nxquup3suwaz2tx483xe832ge,osmo13tk45jkxgf7w0nxquup3suwaz2tx483xrsefl7,5.0,210000000.0,76270821117.0,1.0,1.0,1.0,0.0,1.0,0.05,0.3,0.01,1.0
+55,天照☀,osmovaloper133va8vgy0ygfjmvzy64pgay5w6lg4239nagwnk,osmo133va8vgy0ygfjmvzy64pgay5w6lg4239f2qdy3,4.0,871648317.0,29729916423.0,1.0,1.0,0.0,0.0,0.0,0.05,0.2,0.1,1000000.0
+56,ping,osmovaloper1jxv0u20scum4trha72c7ltfgfqef6nscqx0u46,osmo1jxv0u20scum4trha72c7ltfgfqef6nsc638lza,0.0,22687000000.0,34343908804.0,1.0,1.0,1.0,0.0,0.0,0.05,0.2,0.1,1.0
+57,jetlife,osmovaloper1jfqaxtg8g9ad80crl0rg2reg7mrje8qp258xsk,osmo1jfqaxtg8g9ad80crl0rg2reg7mrje8qpsr0983,0.0,2718000000.0,34482127587.0,1.0,1.0,1.0,0.0,0.0,0.05,0.2,0.01,1.0
+58,Chainflow,osmovaloper1j0vaeh27t4rll7zhmarwcuq8xtrmvqhu6m87mz,osmo1j0vaeh27t4rll7zhmarwcuq8xtrmvqhuqv0av9,0.0,12183000000.0,155870966985.0,1.0,1.0,1.0,0.0,0.0,0.05,1.0,0.1,1.0
+59,ITA Stakers,osmovaloper1juczud9nep06t0khghvm643hf9usw45r3jxhxn,osmo1juczud9nep06t0khghvm643hf9usw45rt9w535,0.0,7526787434.0,95463062285.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.01,1.0
+60,Komikuri,osmovaloper1j7euyj85fv2jugejrktj540emh9353ltnz0lvc,osmo1j7euyj85fv2jugejrktj540emh9353ltf48uml,4.0,10000008.0,86521432000.0,1.0,0.0,0.0,0.0,1.0,0.05,0.2,0.1,1.0
+61,SolidStake,osmovaloper1n24z8k7w8lxej8xe7uvpn3qc654n43c05unug6,osmo1n24z8k7w8lxej8xe7uvpn3qc654n43c0wtmlla,0.0,4459132500.0,29307881731.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.02,1.0
+62,0base.vc,osmovaloper1n3mhyp9fvcmuu8l0q8qvjy07x0rql8q4d3kvts,osmo1n3mhyp9fvcmuu8l0q8qvjy07x0rql8q4hx70uh,0.0,4051000000.0,4384645898481.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.01,1.0
+63,binary_holdings,osmovaloper15czt5nhlnvayqq37xun9s9yus0d6y26d5jws45,osmo15czt5nhlnvayqq37xun9s9yus0d6y26dw9xnzn,0.0,9500071393.0,828895212293.0,1.0,1.0,1.0,0.0,0.0,0.05,0.5,0.02,800.0
+64,Chorus One,osmovaloper15urq2dtp9qce4fyc85m6upwm9xul3049wh9czc,osmo15urq2dtp9qce4fyc85m6upwm9xul30495qdm4l,2.0,142657061734.0,1299916607560.0,1.0,1.0,1.0,1.0,1.0,0.075,0.3,0.1,1.0
+65,Tuzem,osmovaloper14g9r3rwutmpc80e8kqnnq8uvdcptdusc0nm3gc,osmo14g9r3rwutmpc80e8kqnnq8uvdcptdusc4ynjll,0.0,28873000000.0,29078211065.0,1.0,1.0,0.0,0.0,1.0,0.05,0.2,0.01,1.0
+66,StakeThat,osmovaloper14suzzfw7rkz7uke8w9lhttnvewku7sd06djndg,osmo14suzzfw7rkz7uke8w9lhttnvewku7sd0q66s60,0.0,34000000.0,30475427285.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.1,1.0
+67,BwareLabs,osmovaloper14k3fu4yqlu3ddwe342mr2q0dz465vxyprvj3cw,osmo14k3fu4yqlu3ddwe342mr2q0dz465vxypem6j0f,0.0,1000000.0,29016885663.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.05,1.0
+68,Forbole,osmovaloper14kn0kk33szpwus9nh8n87fjel8djx0y0fhtak5,osmo14kn0kk33szpwus9nh8n87fjel8djx0y0nqr7pn,2.0,22504555628.0,518140859595.0,1.0,1.0,1.0,0.0,1.0,0.05,1.0,1.0,1.0
+69,Little_Cryptoman,osmovaloper14amduhjazqhwtkhm6kutdcy4ux5zazf5k803tq,osmo14amduhjazqhwtkhm6kutdcy4ux5zazf5vs8ju8,4.0,100000000.0,284327661916.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.02,1.0
+70,ChainLayer,osmovaloper1kgddca7qj96z0qcxr2c45z73cfl0c75pf37k8l,osmo1kgddca7qj96z0qcxr2c45z73cfl0c75pnxk4sc,0.0,50610000000.0,178202617002.0,1.0,1.0,1.0,0.0,1.0,0.05,0.1,0.01,1.0
+71,CryptoCrew Validators ✅,osmovaloper1h2c47vd943scjlfum6yc5frvu2l279lwjep5d6,osmo1h2c47vd943scjlfum6yc5frvu2l279lwgwfh6a,3.0,1000938163.0,293180068458.0,1.0,1.0,1.0,0.0,1.0,0.05,0.1,0.08,3000000.0
+72,Figment,osmovaloper1hjct6q7npsspsg3dgvzk3sdf89spmlpf6t4agt,osmo1hjct6q7npsspsg3dgvzk3sdf89spmlpfqua7lv,2.0,87891000000.0,2968375179470.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.01,1.0
+73,ushakov,osmovaloper1crg24mgm8l3qe7ej9l8t7tsttp40aaas4xmkhx,osmo1crg24mgm8l3qe7ej9l8t7tsttp40aaas03n4qp,0.0,2623000000.0,28922430693.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.05,1.0
+74,Sentinel,osmovaloper1cyw4vw20el8e7ez8080md0r8psg25n0cq98a9n,osmo1cyw4vw20el8e7ez8080md0r8psg25n0c6j07j5,3.0,5000000000.0,5138922638871.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.05,1.0
+75,wave,osmovaloper1cyepvt5kayjzsa76ft98ud8mrpvh3acxv83pwv,osmo1cyepvt5kayjzsa76ft98ud8mrpvh3acxksezet,4.0,250000000.0,30406341216.0,1.0,1.0,1.0,0.0,0.0,0.05,0.2,0.01,1.0
+76,StakeWithUs,osmovaloper1c9ye54e3pzwm3e0zpdlel6pnavrj9qqv5qgdz9,osmo1c9ye54e3pzwm3e0zpdlel6pnavrj9qqvwhqw4z,0.0,610000000.0,175230784643.0,1.0,1.0,1.0,0.0,1.0,0.1,0.2,0.01,1.0
+77,Mandragora,osmovaloper1ceurjtrgxf0hfd4r0hez6fenevazenfhym7s4q,osmo1ceurjtrgxf0hfd4r0hez6fenevazenfh7vknz8,0.0,7984565936.0,86513196882.0,1.0,1.0,0.0,0.0,1.0,0.1,0.2,0.01,1000000.0
+78,nonce classic,osmovaloper1cmqh34lt9d457ajk9g94eg2pswrpr08rxqwsyy,osmo1cmqh34lt9d457ajk9g94eg2pswrpr08ruhxnnr,0.0,1000000.0,104767732637.0,1.0,1.0,1.0,1.0,1.0,0.1,0.2,0.05,1.0
+79,Cosmostation,osmovaloper1clpqr4nrk4khgkxj78fcwwh6dl3uw4ep88n0y4,osmo1clpqr4nrk4khgkxj78fcwwh6dl3uw4epasmvnj,4.0,65922070000.0,4746289651099.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.2,1.0
+80,POSTHUMAN ∞ DVS,osmovaloper1e8238v24qccht9mqc2w0r4luq462yxttfpaeam,osmo1e8238v24qccht9mqc2w0r4luq462yxttnk462u,0.0,350506894.0,129735595805.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.1,1.0
+81,Stargaze,osmovaloper1et77usu8q2hargvyusl4qzryev8x8t9weceqyk,osmo1et77usu8q2hargvyusl4qzryev8x8t9wr03rn3,0.0,8277056000.0,87866276790.0,1.0,1.0,1.0,0.0,1.0,0.1,0.5,0.05,1.0
+82,BouBouNode,osmovaloper1eh5mwu044gd5ntkkc2xgfg8247mgc56f4dlt9h,osmo1eh5mwu044gd5ntkkc2xgfg8247mgc56f06hgjs,0.0,63277311057.0,791992719657.0,1.0,0.0,1.0,0.0,1.0,0.061,0.25,0.1,1.0
+83,KalpaTech,osmovaloper1ehkfl7palwrh6w2hhr2yfrgrq8jetguct4ddyl,osmo1ehkfl7palwrh6w2hhr2yfrgrq8jetguc3z9wnc,4.0,6100000000.0,264064277139.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.1,1.0
+84,StakeLab,osmovaloper16q8xd335y38xk2ul67mjg27vdnrcnklt4wx6kt,osmo16q8xd335y38xk2ul67mjg27vdnrcnklt0ewepv,2.0,52032111.0,2852925550972.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.01,1.0
+85,SpacePotato,osmovaloper16gm3cvhluf9xfurkx9qgxq7pldvd479l0j6zms,osmo16gm3cvhluf9xfurkx9qgxq7pldvd479l49jpvh,0.0,3811414600.0,108671917731.0,1.0,1.0,1.0,0.0,1.0,0.1,0.2,0.01,1.0
+86,Klub Staking,osmovaloper16vnsrhxsyamf4f4eln6g587qwwd39fte2m2ysc,osmo16vnsrhxsyamf4f4eln6g587qwwd39ftesvz88l,0.0,1000000.0,58395561826.0,1.0,1.0,1.0,0.0,1.0,0.05,0.1,0.01,1.0
+87,SOLAR Validator,osmovaloper16jn3383fn4v4vuuvgclr3q7rumeglw8kdq6e48,osmo16jn3383fn4v4vuuvgclr3q7rumeglw8khhj6zq,0.0,8374500000.0,68946656491.0,1.0,1.0,1.0,1.0,1.0,0.05,1.0,0.01,1.0
+88,SmartNodes,osmovaloper16j5hsdrcaa6950ks0rf944rgmncukl74cs7yw6,osmo16j5hsdrcaa6950ks0rf944rgmncukl74z8k8ea,0.0,1776138670.0,53840548659.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.01,1.0
+89,WhisperNode,osmovaloper1md9f5524vtmrn64lyv2pdfn7cnkjkklf44vtjz,osmo1md9f5524vtmrn64lyv2pdfn7cnkjkklf0zyg99,3.0,1000000.0,31176254892.0,1.0,1.0,1.0,1.0,1.0,0.05,0.2,0.05,1.0
+90,hydrogen18,osmovaloper1mwg6lt5eumhpnyx6gzwxaesj7lymyh8erj3xqq,osmo1mwg6lt5eumhpnyx6gzwxaesj7lymyh8ee9e9h8,1.0,1100000.0,72073407819.0,1.0,0.0,0.0,0.0,0.0,0.05,0.1,0.1,1.0
+91,#decentralizehk,osmovaloper1m73mgwn3cm2e8x9a9axa0kw8nqz8a492vg4hp4,osmo1m73mgwn3cm2e8x9a9axa0kw8nqz8a492kla5kj,4.0,1782000000.0,80569431635.0,1.0,1.0,1.0,0.0,1.0,0.05,0.721,0.05,1.0
+92,Skystar Capital,osmovaloper1uxn3xw4xzyvu3xka0fr7krsfzyp8af3eyyurzh,osmo1uxn3xw4xzyvu3xka0fr7krsfzyp8af3e7n5q4s,0.0,3000000000.0,518282610370.0,1.0,0.0,0.0,0.0,0.0,0.05,0.1,0.01,1.0
+93,Cros-nest,osmovaloper1u6jr0pztvsjpvx77rfzmtw49xwzu9kas05lk04,osmo1u6jr0pztvsjpvx77rfzmtw49xwzu9kas4rh4cj,1.0,7991000000.0,331889540750.0,1.0,1.0,1.0,0.0,0.0,0.05,0.2,0.01,1.0
+94,stake.systems,osmovaloper1ualhu3fjgg77g485gmyswkq3w0dp7gysdcdgw2,osmo1ualhu3fjgg77g485gmyswkq3w0dp7gysh09ted,0.0,4471000000.0,34477602342.0,1.0,1.0,1.0,0.0,1.0,0.1,0.2,0.01,1.0
+95,01node,osmovaloper17mggn4znyeyg25wd7498qxl7r2jhgue8td054x,osmo17mggn4znyeyg25wd7498qxl7r2jhgue8368hzp,0.0,23000000000.0,36839373744.0,1.0,1.0,1.0,0.0,1.0,0.05,0.6,0.5,1.0
+96,Citadel.one,osmovaloper1lzhlnpahvznwfv4jmay2tgaha5kmz5qxwmj9we,osmo1lzhlnpahvznwfv4jmay2tgaha5kmz5qx5v6xe7,2.0,26640000000.0,991607803439.0,1.0,1.0,1.0,0.0,1.0,0.05,0.2,0.03,1.0
+97,Delicious,osmovaloper1ltch7uamdats4lphq6r6gl8ftyzhwzgvlnd38v,osmo1ltch7uamdats4lphq6r6gl8ftyzhwzgv9y9jst,0.0,871500000.0,30148567607.0,1.0,1.0,0.0,1.0,1.0,0.1,0.2,0.01,1.0
+98,macrocarpa,osmovaloper1ls4kmz5v7ytwcqmmchkex970565j8q3d5s6gdw,osmo1ls4kmz5v7ytwcqmmchkex970565j8q3dw8jt6f,4.0,30100000000.0,36869000000.0,1.0,1.0,1.0,0.0,1.0,0.055,0.055,0.005,1.0
+99,Smart Stake - osmosis.smartstake.io,osmovaloper1l7hln0l79erqaw6jdfdwx0hkfmj3dp27gr77ja,osmo1l7hln0l79erqaw6jdfdwx0hkfmj3dp27j5ka96,1.0,5792000000.0,357210659303.0,1.0,1.0,1.0,1.0,1.0,0.05,0.1,0.01,1.0
