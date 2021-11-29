@@ -1,48 +1,81 @@
 import pandas as pd
 import requests
-import time
+from tqdm import tqdm
 
-from config import LCD_API
+from config import LCD_API, GRAPHQL_API, HEADERS, QUERY
 from cyberpy._wallet import address_to_address
 from functools import reduce
+import base64
+import bech32
 
 MAX_TOTAL_POINTS = 100
 
 criteria_weight_ascending_max_value_list = [
-    ('proposals_voted', 0.25, False, 5),
-    ('self_delegation', 0.13, False),
-    ('tokens', 0.10, False),
-    ('tokens_bluring', 0.20, False),
+    ('proposals_voted', 0.45, False, 5),
+    ('self_delegation', 0.06, False),
+    ('tokens', 0.06, False),
+    ('tokens_bluring', 0.10, False),
     ('identity', 0.02, False, 1),
     ('website', 0.01, False, 1),
     ('security_contact', 0.01, False, 1),
     ('details', 0.01, False, 1),
     ('commission_rate', 0.05, True),
     ('max_commission_rate', 0.03, False),
-    ('max_commission_change_rate', 0.01, True),
-    ('min_self_delegation', 0.03, False)
-    # todo add precommits
+    ('max_commission_change_rate', 0.02, True),
+    ('min_self_delegation', 0.03, False),
+    ('pre_commits', 0.15, False)
 ]
 
 
 criteria_function_dict = {
-    'points_rank_average_scheme': ['min_self_delegation', 'tokens_bluring', 'commission_rate', 'max_commission_rate', 'max_commission_change_rate'],
-    'points_weighted_by_max': ['self_delegation', 'tokens'],
-    'points_weighed_by_max_available': ['proposals_voted', 'identity', 'website', 'security_contact', 'details']
+    'points_rank_average_scheme': [
+        'min_self_delegation',
+        'tokens_bluring',
+        'commission_rate',
+        'max_commission_rate',
+        'max_commission_change_rate',
+        'pre_commits'
+    ],
+    'points_weighted_by_max': [
+        'self_delegation',
+        'tokens'
+    ],
+    'points_weighed_by_max_available': [
+        'proposals_voted',
+        'identity',
+        'website',
+        'security_contact',
+        'details'
+    ]
 }
+
+def run_query(query):  # A simple function to use requests.post to make the API call. Note the json= section.
+    request = requests.post(GRAPHQL_API, json={'query': query}, headers=HEADERS)
+    if request.status_code == 200:
+        return request.json()
+    else:
+        raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
+
+
+def b64_to_cons(cons):
+    cons = bytes(cons, 'utf-8')
+    cons = base64.b64decode(cons)
+    five_bit_r = bech32.convertbits(cons, 8, 5)
+    return bech32.bech32_encode('osmovalconspub', five_bit_r)
 
 
 def get_validators_df():
     url = LCD_API + '/staking/validators'
     validators_raw = requests.get(url).json()['result']
     validators_list = []
-    for validator in validators_raw:
+    for validator in tqdm(validators_raw):
         self_delegator_address = address_to_address(validator['operator_address'], 'osmo')
         self_delegation = get_self_delegation(self_delegator_address, validator['operator_address'])
         proposals_voted = get_address_voted(self_delegator_address, 5)
         temp = (
             validator['description']['moniker'],
             validator['operator_address'],
+            b64_to_cons(validator['consensus_pubkey']['value']),
             self_delegator_address,
             float(proposals_voted),
             float(self_delegation),
@@ -59,11 +92,13 @@ def get_validators_df():
             float(validator['min_self_delegation'])
         )
         validators_list.append(temp)
-        time.sleep(2)
-    # todo add precommits
-    columns = ['moniker', 'operator_address', 'self_delegator_address'] + \
-              [criterion[0] for criterion in criteria_weight_ascending_max_value_list]
-    return pd.DataFrame(validators_list, columns=columns)
+    columns = ['moniker', 'operator_address', 'consensus_pubkey', 'self_delegator_address'] + \
+              [criterion[0] for criterion in criteria_weight_ascending_max_value_list][:12]
+    validators_df = pd.DataFrame(validators_list, columns=columns)
+    pre_commits = run_query(QUERY)['data']['pre_commits_50000']
+    pre_commits_df = pd.DataFrame([(x['operator_address'], x['pre_commits']) for x in pre_commits],
+                                  columns=['operator_address', 'pre_commits'])
+    return validators_df.merge(pre_commits_df, on='operator_address', how='outer')
 
 
 def get_self_delegation(delegator_address: str, validator_address: str):
@@ -82,7 +117,7 @@ def get_last_n_proposal_id(n: int):
 
 
 def get_address_votes(address: str):
-    url = LCD_API + f'/txs?message.action=vote&message.sender={address}'
+    url = LCD_API + f'/txs?message.action=vote&message.sender={address}&limit=1000'
     res = requests.get(url).json()
     if 'txs' not in res.keys():
         voted_ids = []
@@ -138,6 +173,7 @@ def get_points_list(df, max_points: float):
 
 def get_ranked_df():
     df = get_validators_df()
+    df.to_csv('./criteria.csv')
     criterion_dfs_list = []
     for criterion in criteria_weight_ascending_max_value_list:
         if criterion[0] in criteria_function_dict['points_rank_average_scheme']:
@@ -155,5 +191,6 @@ def get_ranked_df():
     result['result'] = result.sum(axis=1)
     result = result.sort_values(by=['result'], ascending=False).reset_index(drop=True)
     result.to_csv('./result.csv')
-    df.to_csv('./criteria.csv')
     return result
+
+res = get_ranked_df()
