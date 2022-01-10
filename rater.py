@@ -2,8 +2,10 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 
-from config import LCD_API, GRAPHQL_API, HEADERS, QUERY
+from config import LCD_API, GRAPHQL_API, HEADERS, QUERY, POSTGRES_USER_NAME, POSTGRES_DB_NAME, POSTGRES_DB_HOST, \
+    POSTGRES_DB_PORT, POSTGRES_DB_PASSWORD
 from cyberpy._wallet import address_to_address
+from sqlalchemy import create_engine
 from functools import reduce
 import base64
 import bech32
@@ -117,7 +119,7 @@ def get_last_n_proposal_id(n: int):
 
 
 def get_address_votes(address: str):
-    url = LCD_API + f'/txs?message.action=vote&message.sender={address}&limit=1000'
+    url = LCD_API + f'/txs?message.action=%2Fcosmos.gov.v1beta1.MsgVote&message.sender={address}&limit=1000000000'
     res = requests.get(url).json()
     if 'txs' not in res.keys():
         voted_ids = []
@@ -173,7 +175,7 @@ def get_points_list(df, max_points: float):
 
 def get_ranked_df():
     df = get_validators_df()
-    df.to_csv('./criteria.csv')
+    df = df[:118]
     criterion_dfs_list = []
     for criterion in criteria_weight_ascending_max_value_list:
         if criterion[0] in criteria_function_dict['points_rank_average_scheme']:
@@ -190,7 +192,11 @@ def get_ranked_df():
                                                     how='inner'), criterion_dfs_list)
     result['result'] = result.sum(axis=1)
     result = result.sort_values(by=['result'], ascending=False).reset_index(drop=True)
-    result.to_csv('./result.csv')
-    return result
+    result['rank'] = result['result'].rank(ascending=False)
+    result = result[['rank', 'moniker', 'proposals_voted', 'self_delegation', 'tokens', 'tokens_bluring', 'identity', 'website', 'security_contact', 'commission_rate', 'max_commission_rate', 'max_commission_change_rate', 'min_self_delegation', 'pre_commits', 'result']]
+    engine = create_engine(f'postgresql://{POSTGRES_USER_NAME}:{POSTGRES_DB_PASSWORD}@{POSTGRES_DB_HOST}:{POSTGRES_DB_PORT}/{POSTGRES_DB_NAME}')
+    result.to_sql('bro_rating', engine, if_exists='replace', index=False)
 
-res = get_ranked_df()
+
+if __name__ == "__main__":
+    get_ranked_df()
