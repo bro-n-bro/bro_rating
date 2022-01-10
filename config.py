@@ -1,5 +1,5 @@
-LCD_API = 'http://136.243.176.155:1317'
-GRAPHQL_API = 'http://195.201.168.245:8080/v1/graphql'
+LCD_API = ':1317'
+GRAPHQL_API = ':8080/v1/graphql'
 HEADERS = {
         'content-type': 'application/json',
         "authorization": ''
@@ -10,3 +10,9 @@ QUERY = '''{
     pre_commits
   }
 }'''
+
+POSTGRES_USER_NAME = ''
+POSTGRES_DB_NAME = ''
+POSTGRES_DB_PORT = ''
+POSTGRES_DB_HOST = ''
+POSTGRES_DB_PASSWORD = ''
