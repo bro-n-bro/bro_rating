@@ -492,9 +492,71 @@ header .logo img
 
 
 
-header .choose_network
+header .notifications
 {
+    width: calc(100% - 519px);
+    margin-right: auto;
     margin-left: auto;
+}
+
+
+header .notifications .data
+{
+    font-size: 14px;
+    line-height: 150%;
+
+    display: flex;
+
+    padding: 20px;
+
+    border-radius: 20px;
+    background: #141414;
+
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+
+.notifications .icon
+{
+    display: flex;
+
+    width: 52px;
+    height: 52px;
+
+    border: 1px solid hsla(0, 0%, 85%, .1);
+    border-radius: 50%;
+
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.notifications .icon svg
+{
+    display: block;
+
+    width: 30px;
+    height: 30px;
+}
+
+
+.notifications .icon + *
+{
+    display: -webkit-box;
+    overflow: hidden;
+
+    width: calc(100% - 67px);
+    margin-left: auto;
+
+    text-overflow: ellipsis;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 
@@ -1073,6 +1135,98 @@ header .choose_network .mini_modal .scroll
 }
 
 
+.rating .search .tips
+{
+    position: absolute;
+    z-index: 9;
+    top: 100%;
+    left: 0;
+
+    display: none;
+
+    width: 100%;
+    margin-top: 10px;
+    padding: 6px 4px;
+
+    border-radius: 12px;
+    background: #141414;
+}
+
+.rating .search .tips.show
+{
+    display: block;
+}
+
+.rating .search .tips > * + *
+{
+    margin-top: 6px;
+}
+
+
+.rating .search .tip
+{
+    font-size: 12px;
+    line-height: 15px;
+
+    display: flex;
+
+    width: 100%;
+    padding: 6px 4px;
+
+    cursor: pointer;
+    transition: background .2s linear;
+
+    border-radius: 6px;
+
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.rating .search .tip .logo
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+
+    border-radius: 50%;
+}
+
+.rating .search .tip .logo img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.rating .search .tip span
+{
+    display: block;
+
+    width: calc(100% - 22px);
+}
+
+.rating .search .tip:hover
+{
+    background: #191919;
+}
+
+
 
 .rating .filter
 {
@@ -1414,7 +1568,7 @@ header .choose_network .mini_modal .scroll
 {
     overflow: auto;
 
-    max-height: calc(100vh - 295px);
+    max-height: calc(100vh - 317px);
     padding-right: 4px;
 
     flex: 1 0 auto;
@@ -1627,6 +1781,352 @@ header .choose_network .mini_modal .scroll
 .rating .validator sup.red
 {
     color: #eb5757;
+}
+
+
+
+/*-------------
+    Compare
+-------------*/
+.compare
+{
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+
+    flex: 1 0 auto;
+}
+
+
+.compare .cont
+{
+    display: flex;
+    flex-direction: column;
+
+    flex: 1 0 auto;
+}
+
+
+.compare .data
+{
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+
+    padding: 14px 20px;
+
+    border-radius: 20px;
+    background: #0d0d0d;
+
+    flex: 1 0 auto;
+}
+
+
+.compare .head
+{
+    position: relative;
+    z-index: 10;
+
+    display: flex;
+
+    margin-bottom: 20px;
+
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+
+.compare .block_title
+{
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+
+
+.compare .info
+{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+.compare .col_left
+{
+    width: 235px;
+    max-width: 100%;
+}
+
+
+
+.compare .filter
+{
+    display: flex;
+    flex-direction: column;
+
+    height: 124px;
+    padding: 10px;
+
+    border-radius: 20px;
+    background: #141414;
+}
+
+
+.compare .filter .btn
+{
+    display: flex;
+
+    width: 52px;
+    height: 45px;
+
+    transition: .2s linear;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 12px;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.compare .filter .btn .icon
+{
+    display: block;
+
+    width: 24px;
+    height: 24px;
+}
+
+
+.compare .filter .identical_options
+{
+    margin-top: auto;
+    padding: 14px 0;
+}
+
+
+.compare .filter .identical_options label
+{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+
+    position: relative;
+
+    display: flex;
+
+    min-height: 17px;
+    padding-left: 24px;
+
+    cursor: pointer;
+
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+.compare .filter .identical_options input
+{
+    display: none;
+}
+
+
+.compare .filter .identical_options .check
+{
+    color: #000;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+
+    width: 14px;
+    height: 14px;
+    margin: auto;
+
+    transition: .2s linear;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 2px;
+
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.compare .filter .identical_options .check svg
+{
+    display: block;
+
+    width: 10px;
+    height: 10px;
+}
+
+.compare .filter .identical_options input:checked + .check
+{
+    border-color: transparent;
+    background: #fff;
+}
+
+
+
+.compare .features
+{
+    margin-top: 20px;
+}
+
+
+.compare .features > *
+{
+    font-size: 12px;
+    line-height: 15px;
+
+    padding: 13px 10px;
+
+    border-radius: 10px;
+    background: #141414;
+}
+
+.compare .features > * + *
+{
+    margin-top: 6px;
+}
+
+
+
+.compare .col_main
+{
+    width: 735px;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.compare .col_main .row
+{
+    margin-bottom: -20px;
+    margin-left: -20px;
+
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.compare .col_main .row > *
+{
+    width: calc(33.333% - 20px);
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+
+.compare .validator .top
+{
+    display: flex;
+
+    height: 124px;
+    padding: 12px 10px;
+
+    text-align: center;
+
+    border-radius: 20px;
+    background: #141414;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+.compare .validator .logo
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 10px;
+
+    border-radius: 50%;
+}
+
+.compare .validator .logo img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+.compare .validator .name
+{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+
+    width: 100%;
+}
+
+
+.compare .validator .vals
+{
+    margin-top: 20px;
+}
+
+
+.compare .validator .vals > *
+{
+    font-size: 12px;
+    line-height: 15px;
+
+    padding: 13px 10px;
+
+    transition: background .2s linear;
+    text-align: center;
+
+    border-radius: 10px;
+    background: #141414;
+}
+
+.compare .validator .vals > *.red
+{
+    background: rgba(235, 87, 87, .1);
+}
+
+.compare .validator .vals > *.green
+{
+    background: rgba(27, 197, 98, .1);
+}
+
+.compare .validator .vals > * + *
+{
+    margin-top: 6px;
 }
 
 

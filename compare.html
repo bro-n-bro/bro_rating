@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<!-- Адаптирование страницы для мобильных устройств -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!-- Запрет распознования номера телефона -->
+		<meta name="format-detection" content="telephone=no">
+		<meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+
+		<!-- Заголовок страницы -->
+		<title>Bro_n_Bro rating</title>
+
+		<!-- Данное значение часто используют(использовали) поисковые системы -->
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+
+		<!-- Изменение цвета панели моб. браузера -->
+		<meta name="msapplication-TileColor" content="#950FFF">
+		<meta name="theme-color" content="#950FFF">
+
+		<!-- Подключение файлов стилей -->
+		<link rel="stylesheet" href="css/styles.css" async>
+		<link rel="stylesheet" href="css/response.css" async>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+		<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+		<link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#950FFF">
+		<link rel="shortcut icon" href="images/favicon-16x16.png">
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="main">
+				<header>
+					<div class="cont row">
+						<a href="https://bronbro.io" class="logo">
+							<img src="images/logo.svg" alt="">
+						</a>
+
+						<div class="notifications animate fadeInUp">
+							<div class="data">
+								<div class="icon">
+									<svg><use xlink:href="/sprite.svg#ic_notification"></use></svg>
+								</div>
+
+								<div>Bro_n_Bro foundation has come to light at early 2021 as a Validator for Cosmos Ecosystem. Some time after we started relaying and expanding other services to networks and projects. </div>
+							</div>
+						</div>
+
+						<div class="choose_network modal_cont animate fadeInRight">
+							<button class="btn mini_modal_btn" data-modal-id="choose_network_modal">
+								<div class="logo">
+									<img data-src="images/gravity_bridge_logo.png" alt="" class="lazyload">
+								</div>
+
+								<div>
+									<div class="name">Gravity bridge</div>
+									<div class="token">GRAVITON</div>
+								</div>
+
+								<svg class="arr"><use xlink:href="images/sprite.svg#ic_arr_ver"></use></svg>
+							</button>
+
+							<div class="mini_modal" id="choose_network_modal">
+								<div class="scroll">
+									<div><a href="network.html?network=cosmos_hub" class="network">
+										<div class="logo">
+											<img data-src="images/atom_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Cosmos Hub</div>
+											<div class="token">ATOM</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=bostrom" class="network">
+										<div class="logo">
+											<img data-src="images/bostrom_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Bostrom</div>
+											<div class="token">BOOT</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=evmos" class="network">
+										<div class="logo">
+											<img data-src="images/evmos_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Evmos</div>
+											<div class="token">EVMOS</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=stargaze" class="network">
+										<div class="logo">
+											<img data-src="images/stargaze_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Stargaze</div>
+											<div class="token">STARS</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=juno" class="network">
+										<div class="logo">
+											<img data-src="images/juno_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Juno</div>
+											<div class="token">JUNO</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=crescent" class="network">
+										<div class="logo">
+											<img data-src="images/crescent_logo.jpg" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Crescent hub</div>
+											<div class="token">CRE</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a class="network active">
+										<div class="logo">
+											<img data-src="images/gravity_bridge_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Gravity bridge</div>
+											<div class="token">GRAVITION</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=osmosis" class="network">
+										<div class="logo">
+											<img data-src="images/osmosis_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Osmosis</div>
+											<div class="token">OSMO</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=emoney" class="network">
+										<div class="logo bg_white">
+											<img data-src="images/emoney_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">E-money</div>
+											<div class="token">NGM</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=desmos" class="network">
+										<div class="logo">
+											<img data-src="images/desmos_logo.png" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">Desmos</div>
+											<div class="token">DSM</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+
+									<div><a href="network.html?network=omniflix" class="network">
+										<div class="logo">
+											<img data-src="images/omniflix_logo.jpg" alt="" class="lazyload">
+										</div>
+
+										<div>
+											<div class="name">OmniFlix network</div>
+											<div class="token">FLIX</div>
+										</div>
+
+										<svg class="icon"><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+									</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
+
+
+				<section class="compare">
+					<div class="cont">
+						<div class="data">
+							<div class="head animate fadeInUp">
+								<div class="block_title">Comparison result</div>
+							</div>
+
+							<div class="info">
+								<div class="col_left animate fadeInLeft">
+									<div class="filter">
+										<button class="btn">
+											<svg class="icon"><use xlink:href="images/sprite.svg#ic_filter"></use></svg>
+										</button>
+
+										<div class="identical_options">
+											<label>
+												<input type="checkbox" name="">
+
+												<div class="check">
+													<svg><use xlink:href="images/sprite.svg#ic_check"></use></svg>
+												</div>
+
+												<div>Hide identical options</div>
+											</label>
+										</div>
+									</div>
+
+									<div class="features">
+										<div>Gillette</div>
+										<div>Starbucks</div>
+										<div>IBM</div>
+										<div>Louis Vuitton</div>
+										<div>Mitsubishi</div>
+										<div>Apple</div>
+										<div>Starbucks</div>
+										<div>Nintendo</div>
+										<div>Pizza Hut</div>
+										<div>eBay</div>
+										<div>McDonald's</div>
+									</div>
+								</div>
+
+								<div class="col_main">
+									<div class="row">
+										<div class="validator animate fadeInRight delay2">
+											<div class="top">
+												<div class="logo">
+													<img data-src="images/tmp/.jpg" alt="" class="lazyload">
+												</div>
+
+												<div class="name">Cosmostation</div>
+											</div>
+
+											<div class="vals">
+												<div>130</div>
+												<div>798</div>
+												<div>453</div>
+												<div>492</div>
+												<div>540</div>
+												<div>647</div>
+												<div>583</div>
+												<div>600</div>
+												<div>447</div>
+												<div>185</div>
+												<div>196</div>
+											</div>
+										</div>
+
+										<div class="validator animate fadeInRight delay3">
+											<div class="top">
+												<div class="logo">
+													<img data-src="images/tmp/.jpg" alt="" class="lazyload">
+												</div>
+
+												<div class="name">Cosmostation</div>
+											</div>
+
+											<div class="vals">
+												<div>130</div>
+												<div>798</div>
+												<div>453</div>
+												<div class="red">492</div>
+												<div>540</div>
+												<div>647</div>
+												<div>583</div>
+												<div>600</div>
+												<div>447</div>
+												<div>185</div>
+												<div>196</div>
+											</div>
+										</div>
+
+										<div class="validator animate fadeInRight delay4">
+											<div class="top">
+												<div class="logo">
+													<img data-src="images/tmp/.jpg" alt="" class="lazyload">
+												</div>
+
+												<div class="name">Cosmostation</div>
+											</div>
+
+											<div class="vals">
+												<div>130</div>
+												<div>798</div>
+												<div>453</div>
+												<div>492</div>
+												<div>540</div>
+												<div>647</div>
+												<div class="green">583</div>
+												<div>600</div>
+												<div>447</div>
+												<div>185</div>
+												<div>196</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+
+		<div class="supports_error">
+			Ваш браузер устарел рекомендуем обновить его до последней версии<br> или использовать другой более современный.
+		</div>
+
+
+		<!-- Подключение javascript файлов -->
+		<script src="js/scripts.js"></script>
+		<script src="js/network.js"></script>
+	</body>
+</html>
