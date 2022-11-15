@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, abort, request
-from config import API_HOST, API_PORT, NETWORKS
+from config import API_HOST, API_PORT, NETWORKS, SCHEMA
 from db import get_network_api_data, get_validator_api_data
 
 
@@ -14,7 +14,7 @@ def get_network():
     if not validator:
         network_data = get_network_api_data(network, limit)
         return jsonify({
-            "schema": ['moniker', 'operator_address', 'staked', 'greed', 'ownership', 'voted', 'validator_rank', 'total', 'rank', 'diff'],
+            "schema": SCHEMA,
             "result": network_data[1],
             "last_update": network_data[0]
         })
@@ -25,7 +25,7 @@ def get_network():
     else:
         validator_data = get_validator_api_data(network, validator)
         return jsonify({
-            "schema": ['moniker', 'operator_address', 'staked', 'greed', 'ownership', 'voted', 'validator_rank', 'total', 'rank', 'diff'],
+            "schema": SCHEMA,
             "result": validator_data[1],
             "last_update": validator_data[0]
         })

@@ -81,3 +81,29 @@ NETWORKS = [
     },
 ]
 
+
+SCHEMA = [
+            'moniker',
+            'opeartor_address' ,
+            'staked',
+            'delegator_shares',
+            'greed',
+            'ownership',
+            'voted',
+            'isjailed',
+            'validator_rank',
+            'cost_optimization',
+            'cost_endorsement',
+            'decentralization',
+            'decentralization_endorsement',
+            'confidence',
+            'confidence_endorsement',
+            'participation',
+            'participation_endorsement',
+            'reliability',
+            'reliability_endorsement',
+            'total',
+            'rank',
+            'diff'
+        ]
+

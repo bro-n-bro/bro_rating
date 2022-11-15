@@ -62,7 +62,7 @@ def get_network_data(network):
 def get_network_api_data(network, limit) -> tuple:
     con = sqlite3.connect(SQL_PATH)
     df = pd.read_sql_query(
-        f"SELECT moniker, operator_address, staked, greed, ownership, voted, validator_rank, total, rank, diff, timestamp FROM {network} LIMIT {limit}", con)
+        f"SELECT * FROM {network} LIMIT {limit}", con)
     timestamp = df['timestamp'].loc[0]
     df = df.drop(['timestamp'], axis=1)
     con.commit()
@@ -73,7 +73,7 @@ def get_network_api_data(network, limit) -> tuple:
 def get_validator_api_data(network, validator) -> tuple:
     con = sqlite3.connect(SQL_PATH)
     df = pd.read_sql_query(
-        f"SELECT moniker, operator_address, staked, greed, ownership, voted, validator_rank, total, rank, diff, timestamp FROM {network} WHERE operator_address=\"{validator}\"", con)
+        f"SELECT * FROM {network} WHERE operator_address=\"{validator}\"", con)
     timestamp = df['timestamp'].loc[0]
     df = df.drop(['timestamp'], axis=1)
     con.commit()
