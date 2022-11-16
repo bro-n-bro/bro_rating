@@ -1,37 +1,35 @@
-# Delegation strategy for cyber~congress
+# Bro score by Bro_n_Bro
 
-The toolkit provides a delegation strategy for `bostrom` heroes from cyber~congress multisig.
+The qualitative validator set of each network from the cosmos ecosystem is the guarantee of sustainability and growth for each network. Validators have to produce blocks, keep uptime, vote on proposals. In addition, validators can submit proposals, develop new projects regarding the ecosystem and contribute to it. They get commission rewards from inflation according to the number of tokens are delegated to them. Moreover, the validator's voting power increases with delegated tokens.
 
-The aim is to build a strong hero set by endorsing their stake with cyber\~congress power. According to cyber\~congress values, decentralization, confidence, reliability, and superintelligence will be encouraged. Also, additional delegations from cyber~congress will help cover maintainance of validators running costs.
+The question is how to develop a qualitative validator set? How to distribute tokens for the Greate Justice? These questions will be clarified in this post. The provided rating should help to make decisions about delegation as for the newcomers and, also, for the oldfags.
 
-The toolkit should help distribute multisig tokens in the correct way and to automatize the delegation/redelegation/unbonding processes.
+It is a big deal for newcomers to choose a validator from the active validator set. All data is transparent but it is complex to find all parameters and make a conclusion manually. Experience has shown, however, that most newcomers are delegating their tokens for validators from top descended by voting power with a minimal possible commission. This is not a totally wrong decision, but there are more criteria for decision-making. Let's define them:
 
-The result of the tool execution is a pivot table with all calculations in detail and unsigned transaction files for signing and broadcasting.
+- cost optimization
+- decentralization
+- confidence
+- reliability
+- participation
+
+These criteria are a summary of the validator activity.
 
 ## Criteria
 
-The allocation of the delegation strategy programm is 92 TBOOT.
+The allocation of the delegation strategy programm is 100 points.
 
 ```python
-ALLOCATION = 92_000_000_000_000
+ALLOCATION = 100
 ```
 
 The criteria shares are:
 
 ```python
-COST_OPTIMIZATION = 0.30
+COST_OPTIMIZATION = 0.20
 DECENTRALIZATION = 0.20
 CONFIDENCE = 0.20
-RELIABILITY = 0.15
-SUPERINTELLIGENCE = 0.15
-```
-
-```python
-JAILED_WINDOW = 200_000 # blocks
-NUMBER_OF_JAILS_FOR_KICKOFF = 2
-BLACK_LIST = []
-MSGS_IN_TX = 3 # maximum for Ledger nano x with cybercli
-DELEGATOR_ADDRESS = 'bostrom1xszmhkfjs3s00z2nvtn7evqxw3dtus6yr8e4pw'
+RELIABILITY = 0.20
+PARTICIPATION = 0.20
 ```
 
 ## Cost optimization
@@ -58,7 +56,7 @@ def get_cost_optimization(commission: float):
         return 0
 ```
 
-This is a very easy function that gives a hero `1 / (commission**2)` if his commission rate is between 1% and 10% and gives 0 points otherwise. 
+This is a very easy function that gives a hero `1 / (commission**2)` if his commission rate is between 1% and 10% and gives 0 points otherwise.
 
 ## Decentralization
 
@@ -72,8 +70,10 @@ The idea is to rank validators descending by staked tokens and to give them weig
 
 ```python
 def get_decentralization(rank):
-    return rank
+    return math.log(rank + 1)
 ```
+
+![decentralization](./img/decentralization.png)
 
 Then, distribute tokens:
 
@@ -84,12 +84,18 @@ def get_decentralization_endorsement(decentralization, decentralization_sum):
 
 ## Confidence
 
-The hero's confidence shows the relationship between the tokens that the hero has delegated to himself and the tokens that are delegated to him by the community. If the hero is not ready to put tokens on the validator he supports, then his confidence level is low. That is why only those heroes who believe in themselves will be encouraged.
+The hero's confidence shows the relationship between the tokens that the hero has delegated to himself and the tokens that are delegated to him by the community. If the hero is not ready to put tokens on the validator he supports, then his confidence level is low. That is why only those heroes who believe in themselves will be encouraged. But, this is not very good if validator's tokens share more than 20%, like super newcomers shares or CEXes.
 
 ```python
 def get_confidence(ownership):
-    return 1 - (1 / (1e-32 ** (-ownership)))
+    if 0.0 < ownership < 0.2:
+        confidence = 0.000768996 * math.exp(35.8517 * ownership)
+    else:
+        confidence = 1.41667 - 2.25 * ownership + 0.833333 * ownership**2
+    return confidence
 ```
+
+![confidence](./img/confidence.png)
 
 And the distribution is:
 
@@ -98,9 +104,29 @@ def get_confidence_endorsement(confidence, confidence_sum):
     return int((confidence / confidence_sum) * ALLOCATION * CONFIDENCE)
 ```
 
-## Superintelligence
+## Reliability
 
-This criterion shows the power of the hero or the product of Volts and Amperes owned by the validator.
+This criterion should help to understand the sustainability of the hero node set-up.
+
+`tokens blurring` is the ratio between `staked` and `delegator_shares` tokens. It shows how many tokens a validator lost because of slashing. 
+
+```python
+def get_reliability(staked, delegator_shares):
+    return staked / delegator_shares
+```
+
+The token loss is very serious misconduct. If the validator didn't lose anything, the `tokens_blurring` will be equal to 1.
+
+The distribution is:
+
+```python
+def get_reliability_endorsement(reliability, reliability_sum):
+    return int((reliability / reliability_sum) * ALLOCATION * RELIABILITY)
+```
+
+## Participation
+
+This criterion shows the participation of the validator in governance proposals for the last 5 ended proposals for keeping rotation.
 
 ```python
 import math
@@ -116,79 +142,8 @@ def get_superintelligence_endorsement(superintelligence, superintelligence_sum):
     return int((superintelligence / superintelligence_sum) * ALLOCATION * SUPERINTELLIGENCE)
 ```
 
-## Reliability
+## Services
 
-The most complex criteria. It should help to understand the sustainability of the hero node set-up.
+`main.py` - the script collects and calculates all data from networks defined in `config.py`
 
-Here the subcriteria will be defined:
-
-- jails
-- tokens blurring
-
-`jails` is the amount of `unjail` transactions from the hero. In other words, this subcriterion is about how many times the validator was jailed for some kind of misbehavior in the `JAILED_WINDOW`.
-
-`tokens blurring` is the ratio between `staked` and `delegator_shares` tokens. It shows how many tokens a validator lost because of slashing. 
-
-The sum of the normed of that subcriteria forms reliability criteria:
-
-```python
-def get_reliability(jails, staked, delegator_shares):
-    tokens_bluring = staked / delegator_shares
-    if tokens_bluring == 1 and jails == 0:
-        return 3
-    else:
-        return 1 / 2 ** jails + tokens_bluring ** 2
-```
-
-The token loss is very serious misconduct. If the validator didn't lose anything, the `tokens_blurring` will be equal to 1. Also, if the amount of `jails` during the `JAILED_WINDOW` is `0`, validator gets 3 points. Otherwise the halving function for jails and square for `tokens_blurring` are using.
-
-The distribution is:
-
-```python
-def get_reliability_endorsement(reliability, reliability_sum):
-    return int((reliability / reliability_sum) * ALLOCATION * RELIABILITY)
-```
-
-## Black list
-
-In that list heroes who are quitting will be placed.
-
-## Usage (python3 required)
-
-0. Install requirements
-
-```bash
-pip3 install -r requirements.txt
-```
-
-1. Fill `config.py`
-
-2. Run script
-
-```bash
-python3 main.py
-```
-
-The result of the script execution is .csv file with pivot table
-
-## What's going on???
-
-1. The script gets all validators from the network
-
-2. Ranks them by tokens (voting power)
-
-3. Kicks off jailed validators
-
-4. Kicks off validators with number of jails in `JAILED_WINDOW` more than `NUMBER_OF_JAILS_FOR_KICKOFF`.
-
-5. Kicks off heroes from the `BLACK_LIST`
-
-6. Calculates endorsments and sorts heroes descending by total
-
-7. Saves pivot table in `./delegation_strategy.csv`
-
-8. Generates unsigned transactions by `MSGS_IN_TX` messages in transaction from `DELEGATOR_ADDRESS` address. 
-
-## Example calculations
-
-[here](./delegation_strategy.csv) is the result of script execution for 2022-05-17
+`api.py` - flask api service for serving it for frontend app
