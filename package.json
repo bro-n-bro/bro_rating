@@ -1,0 +1,29 @@
+{
+	"name": "bro_rating",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build"
+	},
+	"dependencies": {
+		"core-js": "^3.8.3",
+		"mitt": "^3.0.0",
+		"pinia": "^2.0.18",
+		"vue": "^3.2.13",
+		"vue-i18n": "^9.2.2",
+		"vue-router": "^4.1.6",
+		"vue-timeago3": "^2.3.0"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "~5.0.0",
+		"@vue/cli-plugin-router": "~5.0.0",
+		"@vue/cli-service": "~5.0.0"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead",
+		"not ie 11"
+	]
+}
