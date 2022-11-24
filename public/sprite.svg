@@ -40,4 +40,7 @@
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 25" id="ic_search">
     <path d="M15.5 16L19 19.5M5 11.5C5 12.2879 5.15519 13.0681 5.45672 13.7961C5.75825 14.5241 6.20021 15.1855 6.75736 15.7426C7.31451 16.2998 7.97595 16.7417 8.7039 17.0433C9.43185 17.3448 10.2121 17.5 11 17.5C11.7879 17.5 12.5681 17.3448 13.2961 17.0433C14.0241 16.7417 14.6855 16.2998 15.2426 15.7426C15.7998 15.1855 16.2417 14.5241 16.5433 13.7961C16.8448 13.0681 17 12.2879 17 11.5C17 9.9087 16.3679 8.38258 15.2426 7.25736C14.1174 6.13214 12.5913 5.5 11 5.5C9.4087 5.5 7.88258 6.13214 6.75736 7.25736C5.63214 8.38258 5 9.9087 5 11.5V11.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
   </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" id="ic_sort">
+    <path d="M2 5.5L5 2.5M5 2.5L8 5.5M5 2.5V11.5M14 11.5L11 14.5M11 14.5L8 11.5M11 14.5V5.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+  </symbol>
 </svg>

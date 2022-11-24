@@ -83,13 +83,42 @@ export const useGlobalStore = defineStore('global', {
 
         // Add to compare
         addToCompare(valoper) {
-            this.compareValidators.push(valoper)
+            this.ratingData.result.forEach((el, i) => {
+                if (this.ratingData.result[i].indexOf(valoper) != -1) {
+                    this.compareValidators.push(this.ratingData.result[i])
+                    this.ratingData.result[i].pinned = true
+                }
+            })
         },
 
 
         // Remove from compare
         removeFromCompare(valoper) {
-            this.compareValidators.push(valoper)
+            this.compareValidators.forEach((el, i) => {
+                if (this.compareValidators[i].indexOf(valoper) != -1) {
+                    this.compareValidators.splice(i, 1)
+                }
+            })
+
+            this.ratingData.result.forEach((el, i) => {
+                if (this.ratingData.result[i].indexOf(valoper) != -1) {
+                    this.ratingData.result[i].pinned = false
+                }
+            })
+        },
+
+
+        // Sort data
+        sortData(column, direction) {
+            let arr = this.ratingData.result.sort((a, b) => {
+                if (a[column] > b[column]) { return 1 }
+                if (a[column] < b[column]) { return -1 }
+                return 0
+            })
+
+            if (direction == 'DESC') { arr.reverse() }
+
+            return arr
         }
     }
 })

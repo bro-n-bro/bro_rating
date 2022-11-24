@@ -24,7 +24,7 @@
                 <!-- Table head -->
                 <TableHead />
 
-                <div class="list">
+                <div class="list" :class="{ 'mini': store.compareValidators.length }">
                     <!-- Validator -->
                     <Validator v-for="(validator, index) in store.ratingData.result" :key="index" :validator="validator" :schema="store.ratingData.schema" />
                 </div>
@@ -155,21 +155,27 @@
 
 
 
-    .rating .col_numb
+    .rating .col_score
     {
-        width: 88px;
-        min-width: 88px;
+        width: 110px;
+        min-width: 110px;
     }
 
-    .rating .col_rank,
-    .rating .col_identity,
-    .rating .col_website,
-    .rating .col_security,
-    .rating .col_proposals,
-    .rating .col_result
+    .rating .col_power
     {
-        width: 80px;
-        min-width: 80px;
+        width: 130px;
+        min-width: 130px;
+    }
+
+    .rating .col_cost,
+    .rating .col_decentralization,
+    .rating .col_confidence,
+    .rating .col_participation,
+    .rating .col_reliability,
+    .rating .col_total
+    {
+        width: 162px;
+        min-width: 162px;
     }
 
     .rating .col_moniker
@@ -177,15 +183,21 @@
         width: 100%;
     }
 
-    .rating .col_tokens,
-    .rating .col_self_delegation,
-    .rating .col_min_self_del,
-    .rating .col_tokens_bluring,
-    .rating .col_commission_rate,
-    .rating .col_pre_commits
+
+    .rating .list
     {
-        width: 120px;
-        min-width: 120px;
+        overflow: auto;
+
+        max-height: calc(100vh - 318px);
+        padding-right: 4px;
+
+        flex: 1 0 auto;
+        overscroll-behavior-y: contain;
+    }
+
+    .rating .list.mini
+    {
+        max-height: calc(100vh - 379px);
     }
 
 </style>
