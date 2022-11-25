@@ -27,6 +27,8 @@ export default {
             'title_col_reliability': 'Reliability',
             'title_col_total': 'Total',
 
+            'filter_title': 'Change visibility of columns',
+
             // Search
             'search_placeholder': 'Validator name',
 

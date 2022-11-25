@@ -35,7 +35,9 @@ router.beforeEach((to, from, next) => {
 	if (to.query.network) {
 		const store = useGlobalStore()
 
-		store.currentNetwork = to.query.network
+		if (store.currentNetwork != to.query.network) {
+			store.currentNetwork = to.query.network
+		}
 	}
 
 	next()

@@ -15,15 +15,22 @@
         </div>
 
         <div class="col_power">
-            <div>{{ getValidatorInfo('validator_rank') }}</div>
+            <div>{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
         </div>
 
-        <div class="col_moniker">
+        <a :href="`https://www.mintscan.io/cosmos/validators/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'">
             <div class="logo">
-                <img src="images/tmp/.jpg" alt="">
+                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
             </div>
             <div>{{ getValidatorInfo('moniker') }}</div>
-        </div>
+        </a>
+
+        <a :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-else>
+            <div class="logo">
+                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="">
+            </div>
+            <div>{{ getValidatorInfo('moniker') }}</div>
+        </a>
 
         <div class="col_cost">
             <span>{{ $filters.toFixed(getValidatorInfo('cost_endorsement'), 2) }}</span>
@@ -62,6 +69,7 @@
         emitter = inject('emitter')
 
 
+    // Get validator data from shema
     function getValidatorInfo(columnName) {
         let index = props.schema.indexOf(columnName)
 
@@ -69,6 +77,13 @@
     }
 
 
+    // Replacement of the logo if it is not present
+    function imageLoadError(event) {
+        // event.target.src = 'alt-image.jpg'
+    }
+
+
+    // Add/remove to/from compare
     function toggleToCompare(e, valoper) {
         if (e.target.classList.contains('checkbox')) {
             let validator = e.target.closest('.validator')
@@ -168,12 +183,12 @@
     {
         font-size: 12px;
         font-weight: 500;
-        line-height: 32px;
+        line-height: 34px;
 
         display: block;
 
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
         margin: auto;
 
         text-align: center;
@@ -184,8 +199,11 @@
 
     .validator .col_moniker
     {
+        color: currentColor;
         font-size: 12px;
         line-height: 15px;
+
+        text-decoration: none;
 
         justify-content: flex-start;
         align-items: center;
@@ -203,7 +221,7 @@
         width: 24px;
         min-width: 24px;
         height: 24px;
-        margin-right: 4px;
+        margin-right: 8px;
 
         border-radius: 50%;
     }

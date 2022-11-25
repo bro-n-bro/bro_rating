@@ -17,8 +17,11 @@
                     <!-- Search -->
                     <Search />
 
-                    <!-- Add to compare -->
-                    <button class="compare_btn">{{ $t('message.compare_btn') }}</button>
+                    <!-- Filter -->
+                    <RatingFilter />
+
+                    <!-- Compare link -->
+                    <router-link to="/compare" class="compare_btn">{{ $t('message.compare_btn') }}</router-link>
                 </div>
 
                 <!-- Table head -->
@@ -35,13 +38,14 @@
 
 
 <script setup>
-    import { onMounted } from 'vue'
+    import { onMounted, watchEffect } from 'vue'
     import { useRoute } from 'vue-router'
     import { useGlobalStore } from '@/stores'
 
 
     // Components
     import Search from '../components/Search.vue'
+    import RatingFilter from '../components/RatingFilter.vue'
     import Validator from '../components/RatingValidator.vue'
     import TableHead from '../components/RatingTableHead.vue'
 
@@ -56,6 +60,9 @@
             await store.getRatingData()
         }
     })
+
+
+    watchEffect(async () => await store.getRatingData(store.currentNetwork))
 </script>
 
 
@@ -134,15 +141,18 @@
 
     .rating .compare_btn
     {
+        color: currentColor;
         font-size: 14px;
         font-weight: 500;
-        line-height: 17px;
+        line-height: 45px;
 
         width: 100px;
         height: 45px;
         margin-left: 10px;
 
         transition: background .2s linear;
+        text-align: center;
+        text-decoration: none;
 
         border-radius: 12px;
         background: #141414;

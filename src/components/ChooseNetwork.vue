@@ -15,7 +15,7 @@
 
         <div class="mini_modal" v-show="showDropdown">
             <div class="scroll">
-                <div v-for="network in store.networks">
+                <div v-for="(network, index) in store.networks" :key="index">
                     <router-link class="network" :class="{ active: store.currentNetwork == network.alias }"
                         :to="{ name: 'Network', query: { network: network.alias } }"
                         @click="showDropdown = !showDropdown"

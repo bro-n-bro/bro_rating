@@ -5,24 +5,20 @@ export const useGlobalStore = defineStore('global', {
         tooltip: '',
         compareLimit: 3,
         compareValidators: [],
-        currentNetwork: 'cosmos_hub',
+        searchValidators: [],
+        currentNetwork: 'cosmoshub',
         showCompareErrorModal: false,
         ratingData: {},
         networks: {
-            'cosmos_hub': {
+            'cosmoshub': {
                 name: 'Cosmos Hub',
                 token: 'ATOM',
-                alias: 'cosmos_hub'
+                alias: 'cosmoshub'
             },
             'bostrom': {
                 name: 'Bostrom',
                 token: 'BOOT',
                 alias: 'bostrom'
-            },
-            'evmos': {
-                name: 'Evmos',
-                token: 'EVMOS',
-                alias: 'evmos'
             },
             'stargaze': {
                 name: 'Stargaze',
@@ -39,30 +35,20 @@ export const useGlobalStore = defineStore('global', {
                 token: 'CRE',
                 alias: 'crescent'
             },
-            'gravity_bridge': {
+            'gravity': {
                 name: 'Gravity bridge',
                 token: 'GRAVITION',
-                alias: 'gravity_bridge'
+                alias: 'gravity'
             },
             'osmosis': {
                 name: 'Osmosis',
                 token: 'OSMO',
                 alias: 'osmosis'
             },
-            'emoney': {
-                name: 'E-money',
-                token: 'NGM',
-                alias: 'emoney'
-            },
-            'desmos': {
-                name: 'Desmos',
-                token: 'DSM',
-                alias: 'desmos'
-            },
-            'omniflix': {
-                name: 'OmniFlix network',
-                token: 'FLIX',
-                alias: 'omniflix'
+            'stride': {
+                name: 'Stride',
+                token: 'STRD',
+                alias: 'stride'
             }
         }
     }),
@@ -72,7 +58,7 @@ export const useGlobalStore = defineStore('global', {
         // Get rating data
         async getRatingData() {
             try {
-                await fetch('https://rpc.bronbro.io/bro_score/')
+                await fetch(`https://rpc.bronbro.io/bro_score/?network=${this.currentNetwork}`)
                     .then(response => response.json())
                     .then(data => this.ratingData = data)
             } catch (error) {

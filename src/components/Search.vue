@@ -6,17 +6,17 @@
 
         <div class="mini_modal" v-show="showDropdown">
             <form @submit.prevent>
-                <input type="text" name="" value="" class="input" :placeholder="$t('message.search_placeholder')">
+                <input type="text" class="input" :placeholder="$t('message.search_placeholder')" v-model="query">
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_search"></use></svg>
             </form>
 
-            <div class="tips">
-                <div class="tip">
+            <div class="tips" v-if="query.length">
+                <div class="tip" v-for="(validator, index) in store.searchValidators" :key="index">
                     <div class="logo">
-                        <img src="images/tmp/.jpg" alt="">
+                        <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${validator[getValidatorInfo('opeartor_address')]}.png`" alt="" @error="imageLoadError">
                     </div>
-                    <span>Staking</span>
+                    <div>{{ validator[getValidatorInfo('moniker')] }}</div>
                 </div>
             </div>
         </div>
@@ -25,9 +25,38 @@
 
 
 <script setup>
-    import { ref } from 'vue'
+    import { ref, watch } from 'vue'
+    import { useGlobalStore } from '@/stores'
+
+    const store = useGlobalStore(),
+        query = ref('')
 
     var showDropdown = ref(false)
+
+
+    watch(query, value => {
+        store.searchValidators = []
+
+        let validators = store.ratingData.result
+
+        store.ratingData.result.forEach(el => {
+            if(el[getValidatorInfo('moniker')].includes(value)) {
+                store.searchValidators.push(el)
+            }
+        })
+    })
+
+
+    // Get validator data from shema
+    function getValidatorInfo(columnName) {
+        return store.ratingData.schema.indexOf(columnName)
+    }
+
+
+    // Replacement of the logo if it is not present
+    function imageLoadError(event) {
+        // event.target.src = 'alt-image.jpg'
+    }
 </script>
 
 
@@ -160,9 +189,10 @@
         top: 100%;
         left: 0;
 
-        display: none;
+        overflow: auto;
 
         width: 100%;
+        max-height: 280px;
         margin-top: 10px;
         padding: 6px 4px;
 
@@ -232,12 +262,13 @@
         object-fit: cover;
     }
 
-    .search .tip span
+    .search .tip .logo + *
     {
         display: block;
 
         width: calc(100% - 22px);
     }
+
 
     .search .tip:hover
     {
