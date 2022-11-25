@@ -1,371 +1,149 @@
-# Validators rating. Bro_n_Bro vision
+# Bro score by Bro_n_Bro
 
-The qualitative validator set of each network from the `cosmos` ecosystem is the guarantee of sustainability and growth for each network. Validators have to produce blocks, keep uptime, vote on proposals. In addition, validators can submit proposals, develop new projects regarding the ecosystem and contribute to it. They get commission rewards from inflation according to the number of tokens are delegated to them. Moreover, the validator's voting power increases with delegated tokens.
+The qualitative validator set of each network from the cosmos ecosystem is the guarantee of sustainability and growth for each network. Validators have to produce blocks, keep uptime, vote on proposals. In addition, validators can submit proposals, develop new projects regarding the ecosystem and contribute to it. They get commission rewards from inflation according to the number of tokens are delegated to them. Moreover, the validator's voting power increases with delegated tokens.
 
 The question is how to develop a qualitative validator set? How to distribute tokens for the Greate Justice? These questions will be clarified in this post. The provided rating should help to make decisions about delegation as for the newcomers and, also, for the oldfags.
 
 It is a big deal for newcomers to choose a validator from the active validator set. All data is transparent but it is complex to find all parameters and make a conclusion manually. Experience has shown, however, that most newcomers are delegating their tokens for validators from top descended by voting power with a minimal possible commission. This is not a totally wrong decision, but there are more criteria for decision-making. Let's define them:
 
-- Base
-- Reputation
-- Greed
-- Sustainability
+- cost optimization
+- decentralization
+- confidence
+- reliability
+- participation
 
-These criteria are a summary of the validator activity. Validators are rated by these criteria and can get a maximum of 100 points for illustrative purposes. We can define weights for them (or shares), but before it let's dive into each criterion.
+These criteria are a summary of the validator activity.
 
-## Base
+## Criteria
 
-This criterion is about what the validator has to do, besides produce blocks. If a validator fails to complete its base responsibilities delegators should ignore this validator for their delegations.
-For the base responsibilities are mean:
-
-- Participate in governance
-- Provide information and vision about the validator
-
-Each validator's involvement is super necessary for sustainable system growth. That is why the base criterion should be weighted for 50 points out of 100.
-
-The following parameters with weights are defined for measuring this criterion:
-
-- Voting on the last 5 completed proposals (45)
-- Provided identity (2)
-- Provided website (1)
-- Provided security contact (1)
-- Provided details (1)
-
-The biggest share is on voting because it shows the real activity of validator, the rest is divided between provided info about the validator.
-
-By completing all of these challenges, the validator can get 50 points of his rating and this is a Great step for the network and for its future growth.
-
-## Reputation
-
-The base is over here and the competition between validators has started.
-
-The reputation criterion shows the current reputation of the validator and his motivation to keep the network on run. It's weighted for 15 points out of 100.
-
-There are 3 subcriteria with weights are defined:
-
-- Voting power (6)
-- Self delegation (6)
-- Min self delegation parameter (3)
-
-The voting power subcriterion exactly shows the current reputation of the validator. The "current" reputation is mean the reputation before that post.  Self delegation shows the involvement of the validator in network development. Finally, the min self delegation parameter shows possible future behaviour.
-
-## Greed
-
-Here is defined how to manage with the validator's commission. A lot of newcomers are delegating their tokens to validators with zero commission fees and this is a great delusion. It is hard to argue against that the maintaining of secure and sustainable validator architecture needs tokens. The zero-fee commission rate hype is most often on the network launch. This is some kind of ad, to get as many tokens as it is possible. In the end, the commission rate is increased and delegations are partially kept on validators explained above.
-
-This behavior is normal, but if long-term network health is considered, zero-fees show the validator's misunderstanding of the node architecture maintenance costs.
-
-On the other hand, the overrated commission steals inflation rewards from delegators.
-
-The best way to manage this out is to sort validators by their commission from the median value ascending and then add validators with low than median commission value descending.
-
-This criterion is weighted for 10 points out of 100.
-
-The following parameters with weights are defined for measuring this criterion:
-
-- Commission rate (5)
-- Max commission rate (3)
-- Max commission rate change (2)
-
-Mostly, about commission rate is described above. The max commission rate and the max commission rate change parameters show the validator's possible behavior in the future. Obviously, the fewer these parameters value the better. In the case with commission rate and the max commission rate, ascending from the median.
-
-## Sustainability
-
-Last but not least criterion. It shows the availability of the validator-provided infrastructure. It is easy to measure by pre-commits count
-
-This criterion is weighted for 25 points out of 100. The following parameters with weights are defined for measuring this criterion:
-
-- Pre-commits count at 50,000 blocks window (15)
-- A tokens bluring parameter (10)
-
-The pre-commits count is a subcriterion that is defined as a relation between validator unique/block pre-commits to blocks amount(100,000). The tokens blurring parameters shows lost tokens as a result of slashing and it is defined as a relation between delegated tokens on validator or `tokens` parameter and `delegator_shares` parameter of the validator. In other words, this subcriterion should be equal to 1, if it is less than 1 it means tokens were slashed.
-
-## Calculations
-
-Let's collect all defined criteria in one table:
-
-|Rate  |moniker                            |operator_address                                  |consensus_pubkey                                                         |self_delegator_address                     |proposals_voted|self_delegation|tokens         |tokens_bluring|identity|website|security_contact|details|commission_rate|max_commission_rate|max_commission_change_rate|min_self_delegation|pre_commits|
-|------|-----------------------------------|--------------------------------------------------|-------------------------------------------------------------------------|-------------------------------------------|---------------|---------------|---------------|--------------|--------|-------|----------------|-------|---------------|-------------------|--------------------------|-------------------|-----------|
-|0     |Bison Trails                       |osmovaloper1q4mlwtw3ncve72na65xacck557wcknc8j0lmke|osmovalconspub1pdua39lpfvqadezwfthnlsaps8wfgsr7qwjgp7d98ka6z28utedq7el65w|osmo1q4mlwtw3ncve72na65xacck557wcknc8gchcp7|0.0            |2000000.0      |194091892262.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.06           |1.0                |0.2                       |1.0                |49632      |
-|1     |StarCluster                        |osmovaloper1qhsk23sgycvyrp0tey7slfhen5kxk0p8pp3qwy|osmovalconspub15ay6hw05rpd9snwwz8upqac485p4adaqvvx3rflgknzlkkjuxeqs4de8vp|osmo1qhsk23sgycvyrp0tey7slfhen5kxk0p8mkerer|0.0            |5000000.0      |65844133079.0  |1.0           |0.0     |0.0    |0.0             |0.0    |0.1            |0.2                |0.01                      |1000000.0          |48337      |
-|2     | BlockNgine 100% slash protected   |osmovaloper1pxphtfhqnx9ny27d53z4052e3r76e7qq495ehm|osmovalconspub1d4xkdhdq6rp3y2dg2chxudjgs54asz3xk5csf86d56tjgxph7f7qd3fwjx|osmo1pxphtfhqnx9ny27d53z4052e3r76e7qq0ju6qu|4.0            |8426979.0      |179842502032.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.1                |0.01                      |1.0                |47028      |
-|3     |Secure Secrets                     |osmovaloper1pgl5usqpelz3a4c04g6t3yyvlrc9yseylmtcnt|osmovalconspub1w8lew0nqyz6hxjhurcrtkw7y5jtkrsdpgk340elt628ctg7hgrjsm2cyyg|osmo1pgl5usqpelz3a4c04g6t3yyvlrc9ysey9vrmyv|0.0            |1000000.0      |197663198490.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.02                      |1.0                |49876      |
-|4     |Bi23 Labs                          |osmovaloper1pfh243e50apq0zut00vyhd3sqek0jthc8wvxws|osmovalconspub107g0xysm2ph8n9cn7kv59307y0zxtr8hg3f5hdyac4rtv7y9eppsfay9qp|osmo1pfh243e50apq0zut00vyhd3sqek0jthcaey9eh|3.0            |3448316862.0   |51773075091.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |1.0                |0.05                      |1.0                |49860      |
-|5     |Cypher Core                        |osmovaloper1pjmngrwcsatsuyy8m3qrunaun67sr9x74vvvdk|osmovalconspub1kwfa9exlufep3nk8yr5vzx3ssgafjzs3xapl4pxpunyzka98l4lqtrzrkx|osmo1pjmngrwcsatsuyy8m3qrunaun67sr9x70my063|0.0            |74769958737.0  |181065190465.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.1            |0.2                |0.01                      |1.0                |49880      |
-|6     |Inotel                             |osmovaloper1z89utvygweg5l56fsk8ak7t6hh88fd0axx2fya|osmovalconspub1cqwmjjkj79hnnq7jun3pvg06cujfja6p7h0yex5u65hmu4ffddlqnes9ae|osmo1z89utvygweg5l56fsk8ak7t6hh88fd0au3z2n6|0.0            |10000000000.0  |4766022646074.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.06           |0.3                |0.3                       |1.0                |49878      |
-|7     |SkyNet &#124; Validators                |osmovaloper1zfcmwh56kmz4wqqg2t8pxrm228dx2c6hhzhtx7|osmovalconspub1ufrn6wt5zzyxer29xhj6ctr9k67wqk9499te6wp8s3s589st5nzsn48r62|osmo1zfcmwh56kmz4wqqg2t8pxrm228dx2c6hd4lg3e|4.0            |94000000.0     |81917498627.0  |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.05                      |1.0                |49691      |
-|8     |[ block pane ]                     |osmovaloper1z0sh4s80u99l6y9d3vfy582p8jejeeu6tcucs2|osmovalconspub1tkq2lpwhp6txl7vrtqr53mamlcgzuzgdy3j02w6u40wdgtj7648q3rch84|osmo1z0sh4s80u99l6y9d3vfy582p8jejeeu6305m8d|3.0            |16341000000.0  |533627963937.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.1                |0.01                      |1.0                |49844      |
-|9     |Stakely-io                         |osmovaloper1z5xyynz9ewuf044uaweswldut34z34z3cwpt7y|osmovalconspub1s94h42l0xck3mfe3v85wund2ujcchvtuaejxdgm9q4zu42fnegrqs59v5g|osmo1z5xyynz9ewuf044uaweswldut34z34z3zefgfr|0.0            |1200000.0      |53967351580.0  |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49213      |
-|10    |strangelove-ventures               |osmovaloper1r2u5q6t6w0wssrk6l66n3t2q3dw2uqny4gj2e3|osmovalconspub1nfnppxmfcz0t2z3tj2xukl29p90k2pxf0h72syv44chsdjrly4cqx45hxs|osmo1r2u5q6t6w0wssrk6l66n3t2q3dw2uqny0l6fwk|0.0            |178503000000.0 |1047977610646.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |1.0                |0.5                       |1.0                |49653      |
-|11    |artifact                           |osmovaloper1rhjvcesshc833dqwdlwskwcjz08gcnxq73dnqc|osmovalconspub1dsuaf3uafc99xxsx8defcnw39esfh5nff7tyd93d2epsv6kz64rs93qsyd|osmo1rhjvcesshc833dqwdlwskwcjz08gcnxqyx9shl|0.0            |2731992992.0   |166268961227.0 |1.0           |1.0     |0.0    |0.0             |0.0    |0.05           |0.2                |0.02                      |1.0                |49876      |
-|12    |Staky.io                           |osmovaloper1rmdzkje2eh34fgerdq75lwgzy44u43erqdnnh3|osmovalconspub1snzyuqyp0w4k2leeyr3fyzhd66hehqdxc6th937ewlrdefp9jeuq0usxuy|osmo1rmdzkje2eh34fgerdq75lwgzy44u43er66msqk|0.0            |4000000.0      |56545973994.0  |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |1.0                |0.05                      |1.0                |48042      |
-|13    |Swiss Staking                      |osmovaloper1y0us8xvsvfvqkk9c6nt5cfyu5au5tww24nrlnx|osmovalconspub19ss2mcpq22hypm6gx8trq8h002tpnckv9z44qd9vafnyfn37vwns2kag0y|osmo1y0us8xvsvfvqkk9c6nt5cfyu5au5tww20ytuyp|0.0            |10000000.0     |119196406064.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.25               |0.025                     |1.0                |48957      |
-|14    |fissionlabs                        |osmovaloper1y6y38g5pxcu3ca2v8merufs9eagnqd9u2yf5ng|osmovalconspub1ewjxe9gpvzggpazh4lprq3mlrqd24y9wfetk8na4walmga6qh23s4mhhqf|osmo1y6y38g5pxcu3ca2v8merufs9eagnqd9usnphy0|0.0            |1789648506.0   |117725092589.0 |1.0           |0.0     |1.0    |1.0             |0.0    |0.1            |0.2                |0.01                      |1.0                |49867      |
-|15    |Validatus                          |osmovaloper19v94c3z7ckarwsum76kaagma0wqsqhh54xucdk|osmovalconspub1tzkx9zp8ql59k8n3s3a7pee75dtltcvahlh2lfxvnwpahhz3965sskyj2u|osmo19v94c3z7ckarwsum76kaagma0wqsqhh5035m63|0.0            |110000000.0    |199789336020.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.1                       |100.0              |49813      |
-|16    |syncnode                           |osmovaloper19j2hd230c3hw6ds843yu8akc0xgvdvyu4arf82|osmovalconspub1dasd2dqjavs9tezrtat9uehnj4p2r7ky9vz6fxxkeus537g9znrq7uxuhd|osmo19j2hd230c3hw6ds843yu8akc0xgvdvyu02t2sd|3.0            |41795000000.0  |57036529290.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.9                |0.05                      |1.0                |49875      |
-|17    |SG-1                               |osmovaloper196ax4vc0lwpxndu9dyhvca7jhxp70rmcmmarz7|osmovalconspub1le8d0uvppcfhrm2y9a634tmttgwu5awex6tvucxfu5fctx82uqaq3fzfq3|osmo196ax4vc0lwpxndu9dyhvca7jhxp70rmcpv4q4e|2.0            |49100000000.0  |2312963015180.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.05                      |1.0                |45452      |
-|18    |Cephalopod Equipment Corp          |osmovaloper1x20lytyf6zkcrv5edpkfkn8sz578qg5s833swz|osmovalconspub1v8wezcrustggm3klsexfthntk00pacfwf02nn4ngzrdqezrp555qvxclut|osmo1x20lytyf6zkcrv5edpkfkn8sz578qg5saxene9|1.0            |100000000.0    |1142086356318.0|1.0           |1.0     |1.0    |1.0             |1.0    |0.0811         |0.42               |0.0118                    |100000.0           |49522      |
-|19    |iqlusion                           |osmovaloper1grgelyng2v6v3t8z87wu3sxgt9m5s03x7uy20c|osmovalconspub1ljvl55tazp2k2n42uysw29v5cny3g37y8463e88wpyntlhvrqj2qtspqec|osmo1grgelyng2v6v3t8z87wu3sxgt9m5s03xytvfcl|0.0            |10000000000.0  |465581424283.0 |1.0           |1.0     |1.0    |0.0             |0.0    |0.07           |0.2                |0.01                      |10000000000.0      |45619      |
-|20    |Provalidator                       |osmovaloper1gy0nyn2hscxxayj2pdyu8axmfvv75nnvhc079s|osmovalconspub19nj35rf5k3sefw7s0rqu906qgh4dwvtk6lz98mztzsuwacmxqtcqyhtm3z|osmo1gy0nyn2hscxxayj2pdyu8axmfvv75nnvd08ajh|0.0            |1000000.0      |1148977157492.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.1                       |1.0                |49775      |
-|21    |Lavender.Five Nodes                |osmovaloper1glmy88g0uf6vmw29pyxu3yq0pxpjqtzqr5e57n|osmovalconspub12kvr4pfq6xg60pr2cn7sde30lk34p46ydqkv0ycnq73twg54x6ls5wvg3e|osmo1glmy88g0uf6vmw29pyxu3yq0pxpjqtzqer3hf5|4.0            |20900000.0     |199375674179.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.1                |0.05                      |1.0                |49780      |
-|22    |Simply Staking                     |osmovaloper1feh2keupglep6mvxf5c96eulh3puujjryj2h8v|osmovalconspub1wn5ndf2v64j840pyxaerfvajr3lkf74uha00ce0dmlhkv27czdpq9ex7sh|osmo1feh2keupglep6mvxf5c96eulh3puujjr79z5st|0.0            |21000000000.0  |92371350277.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1000000.0          |49873      |
-|23    |Plural                             |osmovaloper1f6taewxze2sxang7293dff6qju4r4uwg7znp6j|osmovalconspub1gjsdwruudplqy79xd3lnuf9nep0x2xmylxxr6asx5hvq4ak209ds76z4xr|osmo1f6taewxze2sxang7293dff6qju4r4uwgy4mzd4|0.0            |1000000.0      |56429388675.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |1.0                |1.0                       |1.0                |49852      |
-|24    |OmniFlix Network                   |osmovaloper12zwq8pcmmgwsl95rueqsf65avfg5zcj047ucw6|osmovalconspub16dz5dwv3gpu7nelajl72mz5d5vxff8fue73heh9m7t92d5vgn36szllq8k|osmo12zwq8pcmmgwsl95rueqsf65avfg5zcj00f5mea|0.0            |6730000000.0   |508012611820.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.5                |0.1                       |1.0                |49160      |
-|25    |Stakecito                          |osmovaloper12rzd5qr2wmpseypvkjl0spusts0eruw2g35lkn|osmovalconspub157a7cqnggq499glvcwvpx8j8kaphfsrtntgwnal9dntwatw7zc0qkdn5ls|osmo12rzd5qr2wmpseypvkjl0spusts0eruw2jxuup5|3.0            |10000000.0     |888182079918.0 |1.0           |1.0     |0.0    |0.0             |1.0    |0.05           |0.2                |0.02                      |1.0                |49794      |
-|26    |0% to 2023 &#124; Fee Recovery          |osmovaloper122yaxffys6rmv03nwwkmn3rvr5skzxl9lry2a5|osmovalconspub1ward65znax35rcvk9ye3e9g396pp002gjsf08dhj4cyfmjx0e02sf836dt|osmo122yaxffys6rmv03nwwkmn3rvr5skzxl995vf2n|0.0            |1000000.0      |52620195249.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49876      |
-|27    |B-Harvest                          |osmovaloper123nfq6m8f88m4g3sky570unsnk4zng4u6mkmvq|osmovalconspub15xaz9h7kjhpjd2wmvxx3yualc4wl62hmlml83ky54n49cvwslmhq6zdsu5|osmo123nfq6m8f88m4g3sky570unsnk4zng4uqv7cm8|5.0            |1022000000.0   |1191951596148.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49754      |
-|28    |Coverlet                           |osmovaloper1273zsxhxd5dlgcr2zjf5x25275hjcp3udgkz9z|osmovalconspub133kasw8ue0zy8fnu9kcn0j434tghuq6jqch0na05ppfmu99x52lsxexu0y|osmo1273zsxhxd5dlgcr2zjf5x25275hjcp3uhl7pj9|0.0            |37129642336.0  |54912927300.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.1                       |1.0                |49870      |
-|29    |Imperator.co                       |osmovaloper1t8qckan2yrygq7kl9apwhzfalwzgc2429p8f0s|osmovalconspub1sx5hrcyn0v2m33w6cucj50fwacwknsx58umj8mhh4tsjr6hxpw4s6en5vd|osmo1t8qckan2yrygq7kl9apwhzfalwzgc242lk02ch|1.0            |25010000000.0  |1252382984527.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |48426      |
-|30    |wosmongton                         |osmovaloper1thsw3n94lzxy0knhss9n554zqp4dnfzx78j7sq|osmovalconspub18ra3n8h57twj7a9vpujt7c2szz5ctzsyulnprhgz3f6234nqx5msalgccm|osmo1thsw3n94lzxy0knhss9n554zqp4dnfzxys6a88|0.0            |3000000.0      |2984643255409.0|1.0           |1.0     |0.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49189      |
-|31    |BasBlock                           |osmovaloper1vzcxcv9v4cymknqyj8a7qqp45apt7kyrvuwhxr|osmovalconspub1x5n547c6pm0gredqk4mwd0ljz62y6k06t7x8ajnxuclfrrjv0qts92y4cn|osmo1vzcxcv9v4cymknqyj8a7qqp45apt7kyrktx53y|0.0            |6711407417.0   |182433397057.0 |1.0           |1.0     |0.0    |0.0             |0.0    |0.05           |0.5                |0.1                       |1000000.0          |28785      |
-|32    |Zero Knowledge Validator (ZKV)     |osmovaloper1v5y0tg0jllvxf5c3afml8s3awue0ymjusax93d|osmovalconspub1fzy2wz07qc4xh2smtw6dg3jze03u6clhlmevggelpjn3ke4yjg8sgstuwg|osmo1v5y0tg0jllvxf5c3afml8s3awue0ymju22wxx2|0.0            |179000000.0    |422019060102.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.07           |1.0                |0.05                      |1.0                |49694      |
-|33    |blitz                              |osmovaloper1vkfmegxrsveefn2wmudh7apxuzu2n77654ad62|osmovalconspub1z42de3g8jppvuqnmzyny3dtyxpd0rfvy32lmk68wkwwewram0g7sqws4er|osmo1vkfmegxrsveefn2wmudh7apxuzu2n776wz4wdd|0.0            |2000000.0      |112069694890.0 |1.0           |0.0     |1.0    |0.0             |1.0    |0.06           |0.2                |0.1                       |1.0                |49725      |
-|34    |samurai                            |osmovaloper1dpwecca283m0c20dmsfzztp4mma8h9ajxwvx52|osmovalconspub1qastfvqv9jnfyd6gewltz3d9qxhdtphc2ep7e307a8derp3h82zswjg8vg|osmo1dpwecca283m0c20dmsfzztp4mma8h9ajuey9rd|0.0            |1708188047.0   |68601607911.0  |1.0           |0.0     |0.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |48914      |
-|35    |BR Labs                            |osmovaloper1dgpzuja328gtv8pwvz5k8geqwpqxc35h69suf8|osmovalconspub1c77a8uk9aug3yaeun3l58fcf0gsw0ftalw70gpwzzqf8xryjd6estvd4d6|osmo1dgpzuja328gtv8pwvz5k8geqwpqxc35hqjcl7q|0.0            |1000000.0      |87468782480.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.25               |0.01                      |1.0                |49511      |
-|36    |Witval                             |osmovaloper1ddle9tczl87gsvmeva3c48nenyng4n56yscals|osmovalconspub1h25xjl9wrfnuxxjv9uvug033scrjqhps57fgu8nh4nz8w0hrph4ssy2ua5|osmo1ddle9tczl87gsvmeva3c48nenyng4n5678s7gh|0.0            |26000000000.0  |382124534009.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.15               |0.02                      |1.0                |49197      |
-|37    |Validating Chaos                   |osmovaloper1d4pn8f3q5dn0g4uwr2egh5mgzrnf7fhh53tuu4|osmovalconspub17qdhsn9kcvtdy754l38mzfl9nalhx6dqs3cunmn5dsv6rsg4amqqxsrs3q|osmo1d4pn8f3q5dn0g4uwr2egh5mgzrnf7fhhwxrltj|2.0            |1312042069.0   |724387042124.0 |1.0           |1.0     |0.0    |0.0             |0.0    |0.05           |1.0                |0.01                      |1.0                |49875      |
-|38    |kytzu                              |osmovaloper1wtv0kp6ydt03edd8kyr5arr4f3yc52vpxy9qu6|osmovalconspub1ql5rafkmsf0yv67mfpk34l733q6qf849utdu2g7z3kp323c7xu4sfu82w2|osmo1wtv0kp6ydt03edd8kyr5arr4f3yc52vpundrta|5.0            |26900000000.0  |56930498380.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.1            |0.2                |0.01                      |1.0                |49879      |
-|39    |AUDIT.one                          |osmovaloper1w4x44ek799hvg97x0mfwu6gg5dww2r8fdpqql4|osmovalconspub1rrukkay7w07yd4mdg2wd7ysugflckw2d2359ufx2fmp8aaafsjvqry86du|osmo1w4x44ek799hvg97x0mfwu6gg5dww2r8fhkgrgj|0.0            |1000000.0      |152364257358.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.07           |0.2                |0.01                      |1.0                |49755      |
-|40    |Cat Boss                           |osmovaloper1wke3ev9ja6rxsngld75r3vppcpet94xxwcmk4v|osmovalconspub1zut6dgq0prvpglh8eg5rcglepcrm2j2wv7jpty3ahaehrs9dsr9satm202|osmo1wke3ev9ja6rxsngld75r3vppcpet94xx50n4zt|1.0            |1000000.0      |86299995176.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |1.0                |1.0                       |1.0                |49697      |
-|41    |mp20                               |osmovaloper1whdjuaspv2y3v02pjywncs7xmzpeudkfg9ukjw|osmovalconspub1hh3hw2p4vyypsr9myc6y8m7gatdrk9aakgwusqqxvxsmfyw2vvyqfec8ca|osmo1whdjuaspv2y3v02pjywncs7xmzpeudkfjj549f|0.0            |10000000.0     |55537840000.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |1.0                |0.02                      |1.0                |48666      |
-|42    |DSRV                               |osmovaloper1wlagucxdxvsmvj6330864x8q3vxz4x025rraa6|osmovalconspub1zna9jcjkjlt83hry6hf0jmffqfka4w864qusa8njsev8c3gpw72szgmzms|osmo1wlagucxdxvsmvj6330864x8q3vxz4x02w5t72a|0.0            |1000000.0      |440300122222.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.1            |0.2                |0.05                      |1.0                |48203      |
-|43    |Active Nodes                    |osmovaloper10rsjwrcj7maz4f0l8dh3smjd022n9ya8ycuyg7|osmovalconspub1464n8h8kh87qd6g2uszz2jtlng023nmq07vmjfeya3w42duqj9pstgcllq|osmo10rsjwrcj7maz4f0l8dh3smjd022n9ya87058le|2.0            |1000000.0      |129511323238.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.5                |0.5                       |1.0                |49785      |
-|44    |Chandra Station                    |osmovaloper10ymws40tepmjcu3a2wuy266ddna4ktas0zuzm4|osmovalconspub177gucrtwwnf6kty8n5xnhtt2f9u0mcv6j9wx0d2d4m72kthwaxwsyk374k|osmo10ymws40tepmjcu3a2wuy266ddna4ktas445pvj|2.0            |1000000.0      |1142042909745.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.1                |0.01                      |1.0                |49871      |
-|45    |notional                           |osmovaloper1083svrca4t350mphfv9x45wq9asrs60c6rv0j5|osmovalconspub1wayyuhhsesw7zecgf8tx6fhh42l74lyyley9fgxvl86hlte6ccnsg6ujhn|osmo1083svrca4t350mphfv9x45wq9asrs60cq5yv9n|1.0            |25936000000.0  |597254249512.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.0969         |0.2                |0.01                      |1.0                |49738      |
-|46    |ztake.org                          |osmovaloper102ruvpv2srmunfffxavttxnhezln6fncrdjd27|osmovalconspub1nss0hs5svp58nwgfxvhmz6hgu9h5urnt7w7te6v93gyqyeyku50s47mfa6|osmo102ruvpv2srmunfffxavttxnhezln6fnce66wae|0.0            |12312052094.0  |219244738161.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.07           |1.0                |1.0                       |1.0                |49865      |
-|47    |Staking Fund                       |osmovaloper1000ya26q2cmh399q4c5aaacd9lmmdqp9cwpvl4|osmovalconspub1353502gg0xah64l982yat554w3vpu9zc5x4r8ls025kmarn90vuqd5mj6y|osmo1000ya26q2cmh399q4c5aaacd9lmmdqp9zef0gj|2.0            |6070800000.0   |153194016479.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.2                       |1.0                |49864      |
-|48    |commercio.network                  |osmovaloper103s29j7dyc3utljce802m38p2kk89taj0r2hxa|osmovalconspub1r3k75uswx25zeegydex6nz6edyf264572c5ucec3xsv67svnyenqhz00vd|osmo103s29j7dyc3utljce802m38p2kk89taj45z536|0.0            |1000000.0      |345989053549.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.3                |0.02                      |1.0                |49756      |
-|49    |NosNode🧪🧿                        |osmovaloper10jm8fvdyqlj78w0j5nawc76wsn4pqmdxgzgh4c|osmovalconspub164uwqx3t7vz0ses9tqqafcs95el0xz4ur3xcd85m9w7gxx2pyngqtcmmay|osmo10jm8fvdyqlj78w0j5nawc76wsn4pqmdxj4q5zl|4.0            |16266902675.0  |411044610314.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.05                      |1.0                |49874      |
-|50    |e-Money.com // validator.network   |osmovaloper1sxx9mszve0gaedz5ld7qdkjkfv8z992a3z2szp|osmovalconspub1hy2s8ng80y7w4ellu02t5d836q4lqwatr8rtcdpssyyhyq2xpr2s2vaf9m|osmo1sxx9mszve0gaedz5ld7qdkjkfv8z992at4zn4x|3.0            |13350000000.0  |388979875293.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |1.0                |1.0                       |1000000.0          |44662      |
-|51    |dimi 🦙                            |osmovaloper1s33zct2zhhaf60x4a90cpe9yquw99jj0x8t08z|osmovalconspub1u2s34qfegthwysh0puuva79tamv722ea7sqt6qesnh4d97dge55q528kzs|osmo1s33zct2zhhaf60x4a90cpe9yquw99jj0usrvs9|2.0            |9307000000.0   |131319634126.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |1.0                |0.1                       |1.0                |49327      |
-|52    |🐠stake.fish                       |osmovaloper1sjllsnramtg3ewxqwwrwjxfgc4n4ef9ua8h4lf|osmovalconspub1ps3xra6n42ra87l2qcpw7kj9fvmhgucea753pun84l8jc4jlszcs0a92m2|osmo1sjllsnramtg3ewxqwwrwjxfgc4n4ef9u8slkgw|0.0            |6000000.0      |645910821855.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49513      |
-|53    |blockscape                         |osmovaloper13x77yexvf6qexfjg9czp6jhpv7vpjdwwpuclc8|osmovalconspub10qrcq59fe77xckl2zygwzhrn2nhm5ett72486n5wmnqcatxp9v2qmmlqjh|osmo13x77yexvf6qexfjg9czp6jhpv7vpjdwwmtsu0q|0.0            |28090128741.0  |155310141557.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.1            |0.2                |0.01                      |1.0                |49804      |
-|54    |bro_n_bro                          |osmovaloper13tk45jkxgf7w0nxquup3suwaz2tx483xe832ge|osmovalconspub1vacrglpfrg5360d77rf778tuyd3pencm6kj7ee9slfkxxg44nanqja3s5g|osmo13tk45jkxgf7w0nxquup3suwaz2tx483xrsefl7|5.0            |210000000.0    |97527871781.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.3                |0.01                      |1.0                |49858      |
-|55    |天照☀                                |osmovaloper133va8vgy0ygfjmvzy64pgay5w6lg4239nagwnk|osmovalconspub1efeppa8fz2qdh3j75vpcg6m7mdytvwjua0j0g005pqds2qqx646svetj6u|osmo133va8vgy0ygfjmvzy64pgay5w6lg4239f2qdy3|3.0            |1211695018.0   |52615705514.0  |1.0           |1.0     |0.0    |0.0             |0.0    |0.05           |0.2                |0.1                       |1000000.0          |49001      |
-|56    |ping                               |osmovaloper1jxv0u20scum4trha72c7ltfgfqef6nscqx0u46|osmovalconspub1get43fvyq28kaqren2atgl4wpdxf9f7me33tcz9cngcvj6y4dyuq0qr0ap|osmo1jxv0u20scum4trha72c7ltfgfqef6nsc638lza|0.0            |27076000000.0  |62412427443.0  |1.0           |1.0     |1.0    |0.0             |0.0    |0.05           |0.2                |0.1                       |1.0                |49179      |
-|57    |Chainflow                          |osmovaloper1j0vaeh27t4rll7zhmarwcuq8xtrmvqhu6m87mz|osmovalconspub1zte346kraygfgvl3h2dfgccyfr4ux24dnpsh868hazdaa247nvls99zh74|osmo1j0vaeh27t4rll7zhmarwcuq8xtrmvqhuqv0av9|0.0            |12483000000.0  |223469001994.0 |1.0           |1.0     |1.0    |0.0             |0.0    |0.05           |1.0                |0.1                       |1.0                |49876      |
-|58    |ITA Stakers                        |osmovaloper1juczud9nep06t0khghvm643hf9usw45r3jxhxn|osmovalconspub1vvcrejep62ljn2s2n94cwjhe6y75x3sefkcunvft0ugwz0g5u2pqspfmrn|osmo1juczud9nep06t0khghvm643hf9usw45rt9w535|0.0            |8472787434.0   |90686580388.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49872      |
-|59    |Komikuri                           |osmovaloper1j7euyj85fv2jugejrktj540emh9353ltnz0lvc|osmovalconspub15fkyvhrl89mynpn6csu3kppj6xpfn64tumalm8h3l35x5x22526qa2lrym|osmo1j7euyj85fv2jugejrktj540emh9353ltf48uml|2.0            |10000008.0     |177152439923.0 |1.0           |0.0     |0.0    |0.0             |1.0    |0.05           |0.2                |0.1                       |1.0                |49875      |
-|60    |SolidStake                         |osmovaloper1n24z8k7w8lxej8xe7uvpn3qc654n43c05unug6|osmovalconspub1y6lhulk5g5kllzxxtza6pzz6c40vflm5hzkyhk69ye3dkfydpjxq0py78t|osmo1n24z8k7w8lxej8xe7uvpn3qc654n43c0wtmlla|0.0            |5187132500.0   |102964840708.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.02                      |1.0                |49842      |
-|61    |0base.vc                           |osmovaloper1n3mhyp9fvcmuu8l0q8qvjy07x0rql8q4d3kvts|osmovalconspub1hnwf46ghnc3vsy680pahpk45hq7qsh7ktj0cfv0ajqz5zmmgfw6sra0pk4|osmo1n3mhyp9fvcmuu8l0q8qvjy07x0rql8q4hx70uh|5.0            |4051000000.0   |4638208157513.0|1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49873      |
-|62    |binary_holdings                    |osmovaloper15czt5nhlnvayqq37xun9s9yus0d6y26d5jws45|osmovalconspub1n6htagps2asj9zeprkhe9su7rr8ky4falerdyvjcqkz99fcw5rhqetyw9c|osmo15czt5nhlnvayqq37xun9s9yus0d6y26dw9xnzn|0.0            |11270071393.0  |1129671262304.0|1.0           |1.0     |1.0    |0.0             |0.0    |0.05           |0.5                |0.02                      |800.0              |49879      |
-|63    |Chorus One                         |osmovaloper15urq2dtp9qce4fyc85m6upwm9xul3049wh9czc|osmovalconspub1mc8y5za8e8vcvydqme7duc5aktfw9e0gxzmkpfxfr5egjcs3j5xq8xmkml|osmo15urq2dtp9qce4fyc85m6upwm9xul30495qdm4l|0.0            |176264861734.0 |1700460191990.0|1.0           |1.0     |1.0    |1.0             |1.0    |0.075          |0.3                |0.1                       |1.0                |49811      |
-|64    |StakeThat                          |osmovaloper14suzzfw7rkz7uke8w9lhttnvewku7sd06djndg|osmovalconspub19dplcltxt34r0vhk76yh6u7q69rqj7esd3uj70sffftrej5xca2qzhx6kc|osmo14suzzfw7rkz7uke8w9lhttnvewku7sd0q66s60|0.0            |34000000.0     |51168049578.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.1                       |1.0                |48496      |
-|65    |Forbole                            |osmovaloper14kn0kk33szpwus9nh8n87fjel8djx0y0fhtak5|osmovalconspub17xzxgyuxrkkp84654ascygkc9xawp8x4rqnvrpnaeu98076wtt4qyv3j82|osmo14kn0kk33szpwus9nh8n87fjel8djx0y0nqr7pn|1.0            |22504555628.0  |1032678134676.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |1.0                |1.0                       |1.0                |49870      |
-|66    |Little_Cryptoman                   |osmovaloper14amduhjazqhwtkhm6kutdcy4ux5zazf5k803tq|osmovalconspub1gtn68v7sm7wzkgqcf9f479gtkfgpf5a88phne27yxjfmgdn62nhsr2feee|osmo14amduhjazqhwtkhm6kutdcy4ux5zazf5vs8ju8|3.0            |100000000.0    |485426257587.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.02                      |1.0                |48548      |
-|67    |ChainLayer                         |osmovaloper1kgddca7qj96z0qcxr2c45z73cfl0c75pf37k8l|osmovalconspub120f83w4wvt4n9zs7g309p2cv0tf990eq3kkzd23vszez9z5h2pxqegq44j|osmo1kgddca7qj96z0qcxr2c45z73cfl0c75pnxk4sc|0.0            |50610000000.0  |277396755095.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.1                |0.01                      |1.0                |49870      |
-|68    |Merkan                             |osmovaloper1kls9ca0h980sqfmt0497jj8kad3lcws6g08mld|osmovalconspub17qlnqhjrr86al60n4v8vfr8vl49lwvxxxfat6spj862fec5aw9ksvqxxxj|osmo1kls9ca0h980sqfmt0497jj8kad3lcws6jc0cg2|0.0            |1124453.0      |101939433912.0 |1.0           |0.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.05                      |1.0                |47037      |
-|69    |CryptoCrew Validators ✅            |osmovaloper1h2c47vd943scjlfum6yc5frvu2l279lwjep5d6|osmovalconspub1wr29ft8t0q3e4jtjcq2c2sazqmeckcg5shrcwm9rdkdhzsfpkeeqx4rsym|osmo1h2c47vd943scjlfum6yc5frvu2l279lwgwfh6a|3.0            |1000938163.0   |370835031159.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.1                |0.08                      |3000000.0          |49842      |
-|70    |Figment                            |osmovaloper1hjct6q7npsspsg3dgvzk3sdf89spmlpf6t4agt|osmovalconspub1wh6vgaa05jkkvva2cpw2dfm3ey4tazcg0dyxwvyuzw79mfdk4znqy3gkuj|osmo1hjct6q7npsspsg3dgvzk3sdf89spmlpfqua7lv|0.0            |87891000000.0  |3278803503809.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49876      |
-|71    |ushakov                            |osmovaloper1crg24mgm8l3qe7ej9l8t7tsttp40aaas4xmkhx|osmovalconspub1cn7n3vwc80rsv637jwvx4pxg3n5y9qgg6u4ed8vzppgzaxg0arpsw7ppcm|osmo1crg24mgm8l3qe7ej9l8t7tsttp40aaas03n4qp|0.0            |2623000000.0   |99637373465.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.05                      |1.0                |49878      |
-|72    |Sentinel                           |osmovaloper1cyw4vw20el8e7ez8080md0r8psg25n0cq98a9n|osmovalconspub1d7l0xzsl6kc3s9da7xtmjmsaqlswrquravcktqgtjxmzh759sgjsm3wfqj|osmo1cyw4vw20el8e7ez8080md0r8psg25n0c6j07j5|0.0            |5000000000.0   |5832954135102.0|1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.05                      |1.0                |49750      |
-|73    |wave                               |osmovaloper1cyepvt5kayjzsa76ft98ud8mrpvh3acxv83pwv|osmovalconspub1nd5ezjq3glr6jd2sz76mewf4j6thxdqsy3a66ngxp5y75zqrt3hs0yqvm0|osmo1cyepvt5kayjzsa76ft98ud8mrpvh3acxksezet|3.0            |250000000.0    |55280655280.0  |1.0           |1.0     |1.0    |0.0             |0.0    |0.05           |0.2                |0.01                      |1.0                |49868      |
-|74    |StakeWithUs                        |osmovaloper1c9ye54e3pzwm3e0zpdlel6pnavrj9qqv5qgdz9|osmovalconspub10t3xumwu98gkxc6lm38429suxxsy7a6rgglanz3gcu29d5lp4yysf5xxrq|osmo1c9ye54e3pzwm3e0zpdlel6pnavrj9qqvwhqw4z|2.0            |610000000.0    |697184632437.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49785      |
-|75    |Mandragora                         |osmovaloper1ceurjtrgxf0hfd4r0hez6fenevazenfhym7s4q|osmovalconspub18ccq2e5dh6f0nht3t9rvcqs5grrz3dh2ym3p2tmfgwp0gf9vga5s5r8yy4|osmo1ceurjtrgxf0hfd4r0hez6fenevazenfh7vknz8|2.0            |8225565936.0   |87234519804.0  |1.0           |1.0     |0.0    |0.0             |1.0    |0.1            |0.2                |0.01                      |1000000.0          |49669      |
-|76    |nonce classic                      |osmovaloper1cmqh34lt9d457ajk9g94eg2pswrpr08rxqwsyy|osmovalconspub1r6xlsu4zz8zrhdhj9gwwhr74hzrekl98jt0xwgalxpjl5mzzvmcsf0t0f4|osmo1cmqh34lt9d457ajk9g94eg2pswrpr08ruhxnnr|0.0            |1000000.0      |106228371810.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.1            |0.2                |0.05                      |1.0                |48410      |
-|77    |Cosmostation                       |osmovaloper1clpqr4nrk4khgkxj78fcwwh6dl3uw4ep88n0y4|osmovalconspub1arw0favpsl8stvvdenrdpzz2uz9lf2vd3pch6rllj23tdazhf4rsayv965|osmo1clpqr4nrk4khgkxj78fcwwh6dl3uw4epasmvnj|4.0            |90308070000.0  |6374965463584.0|1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.2                       |1.0                |49831      |
-|78    |KDF                                |osmovaloper1epp52vecttkkvs3s84c9m8s2v2jrf7gtpx6pq0|osmovalconspub1ltnrkz9sk4dr67ha53ua9lph9hp9hsyfwm79luazkm2zyy4290cscez4m5|osmo1epp52vecttkkvs3s84c9m8s2v2jrf7gtm3jzhg|0.0            |864651000000.0 |866658880681.0 |1.0           |0.0     |0.0    |0.0             |1.0    |1.0            |1.0                |1.0                       |1.0                |49775      |
-|79    |POSTHUMAN ∞ DVS                    |osmovaloper1e8238v24qccht9mqc2w0r4luq462yxttfpaeam|osmovalconspub1eum9veq22yy6p974sgek2qp3wp68jftl40lntzdll8f7ueayutws6he36w|osmo1e8238v24qccht9mqc2w0r4luq462yxttnk462u|5.0            |350506894.0    |143817621926.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.1                       |1.0                |49864      |
-|80    |Stargaze                           |osmovaloper1et77usu8q2hargvyusl4qzryev8x8t9weceqyk|osmovalconspub1tcpza4j47ltu95389946qghngccztzy6pc37nunmhtmmcmcja3ts5h8g5x|osmo1et77usu8q2hargvyusl4qzryev8x8t9wr03rn3|0.0            |8277056000.0   |109738593247.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.1            |0.5                |0.05                      |1.0                |48229      |
-|81    |BouBouNode                         |osmovaloper1eh5mwu044gd5ntkkc2xgfg8247mgc56f4dlt9h|osmovalconspub13cm3y9x32re2lt0lz84adesaydhae4kr7qqr67ac4qlqxgukfhhqfdcz6p|osmo1eh5mwu044gd5ntkkc2xgfg8247mgc56f06hgjs|0.0            |89097447495.0  |1009645208649.0|1.0           |0.0     |1.0    |0.0             |1.0    |0.061          |0.25               |0.1                       |1.0                |47022      |
-|82    |KalpaTech                          |osmovaloper1ehkfl7palwrh6w2hhr2yfrgrq8jetguct4ddyl|osmovalconspub1waagmymrtnjrek49z38nf8llwcm055ylr3r9y5d4330w83p9t05qu7muhs|osmo1ehkfl7palwrh6w2hhr2yfrgrq8jetguc3z9wnc|3.0            |17339047161.0  |296959701376.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.1                       |1.0                |49089      |
-|83    |StakeLab                           |osmovaloper16q8xd335y38xk2ul67mjg27vdnrcnklt4wx6kt|osmovalconspub1n0ulkj6kfmay2tfrh7ccqgd8jfdrnztcp36g7597ylm9tj78vguqjtzdeu|osmo16q8xd335y38xk2ul67mjg27vdnrcnklt0ewepv|3.0            |52032111.0     |2059608745755.0|1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49322      |
-|84    |SpacePotato                        |osmovaloper16gm3cvhluf9xfurkx9qgxq7pldvd479l0j6zms|osmovalconspub1nr85m874u8fypnkfkjzpz40j5u3h5dl8w9mhcgj9aaq5hyzh2wfswdjtpg|osmo16gm3cvhluf9xfurkx9qgxq7pldvd479l49jpvh|3.0            |5000582600.0   |111643405750.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.1            |0.2                |0.01                      |1.0                |47838      |
-|85    |Klub Staking                       |osmovaloper16vnsrhxsyamf4f4eln6g587qwwd39fte2m2ysc|osmovalconspub1jamfv7jcnl32fvylzamlpae3hns869729pmc5qfrrsggms5ml6yqw6h47v|osmo16vnsrhxsyamf4f4eln6g587qwwd39ftesvz88l|0.0            |1000000.0      |126214621237.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.1                |0.01                      |1.0                |49882      |
-|86    |SOLAR Validator                    |osmovaloper16jn3383fn4v4vuuvgclr3q7rumeglw8kdq6e48|osmovalconspub1uu9fzuc8qrfw6s5w3tlvkqqt7sqt6s3s777r87dyea54rxz49dhqa8gqdn|osmo16jn3383fn4v4vuuvgclr3q7rumeglw8khhj6zq|1.0            |9132000000.0   |70585103959.0  |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |1.0                |0.01                      |1.0                |49775      |
-|87    |SmartNodes                         |osmovaloper16j5hsdrcaa6950ks0rf944rgmncukl74cs7yw6|osmovalconspub1szd7g09cs73kldwcjfr2dwrs2mqqzqf97dwwlh2fddnexn9sxs0qxq588y|osmo16j5hsdrcaa6950ks0rf944rgmncukl74z8k8ea|1.0            |2159252177.0   |98532018018.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49869      |
-|88    |WhisperNode                        |osmovaloper1md9f5524vtmrn64lyv2pdfn7cnkjkklf44vtjz|osmovalconspub1lgnsv52hkfkddxrn3h3rgvh53tmjdx7m0hlztgkml4q88qt44hzsydmnva|osmo1md9f5524vtmrn64lyv2pdfn7cnkjkklf0zyg99|3.0            |1000000.0      |69416573836.0  |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.2                |0.05                      |1.0                |49809      |
-|89    |hydrogen18                         |osmovaloper1mwg6lt5eumhpnyx6gzwxaesj7lymyh8erj3xqq|osmovalconspub1eg3dexd54qh9vrmg9q0ry2smu3xvh7d4d9gp7mqwmkx8hwgy97hq5f9wzl|osmo1mwg6lt5eumhpnyx6gzwxaesj7lymyh8ee9e9h8|3.0            |1100000.0      |125354849507.0 |1.0           |0.0     |0.0    |0.0             |0.0    |0.05           |0.1                |0.1                       |1.0                |49641      |
-|90    |#decentralizehk                    |osmovaloper1m73mgwn3cm2e8x9a9axa0kw8nqz8a492vg4hp4|osmovalconspub18uzwkvff32a9mf0nzlxa6xvq4ukft0m037lsr027jechlp2uut3sdpa7kk|osmo1m73mgwn3cm2e8x9a9axa0kw8nqz8a492kla5kj|2.0            |2914900000.0   |137506385903.0 |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.721              |0.05                      |1.0                |37915      |
-|91    |Skystar Capital                    |osmovaloper1uxn3xw4xzyvu3xka0fr7krsfzyp8af3eyyurzh|osmovalconspub1y0d37j5md3l8cppcsc78698hr8kvpz8t8v0u3fl7vp6fv3rl438qsay60z|osmo1uxn3xw4xzyvu3xka0fr7krsfzyp8af3e7n5q4s|0.0            |3000000000.0   |621120733769.0 |1.0           |0.0     |0.0    |0.0             |0.0    |0.05           |0.1                |0.01                      |1.0                |48905      |
-|92    |Jerry's Pool                       |osmovaloper1ukpah0340rx7k3x2njnavwyjv6pfpvn6xjz0gx|osmovalconspub1gu6es8k8x230h0rl3c3q547a0yhyqp2kv824zlh7w3nplxs3q42szmk0tm|osmo1ukpah0340rx7k3x2njnavwyjv6pfpvn6u92vlp|3.0            |370878536.0    |55419391257.0  |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.1                |0.01                      |1.0                |46947      |
-|93    |Cros-nest                          |osmovaloper1u6jr0pztvsjpvx77rfzmtw49xwzu9kas05lk04|osmovalconspub1v37exkhe8dka7rpwxrrjezm08z2jl7zfvp7gkjfms4u9uaw7w4wq2ma9wz|osmo1u6jr0pztvsjpvx77rfzmtw49xwzu9kas4rh4cj|4.0            |7991000000.0   |607741780189.0 |1.0           |1.0     |1.0    |0.0             |0.0    |0.05           |0.2                |0.01                      |1.0                |49860      |
-|94    |stake.systems                      |osmovaloper1ualhu3fjgg77g485gmyswkq3w0dp7gysdcdgw2|osmovalconspub1q0ek20ckq0xgmhyq6ejf032jvp6uz77aqy906e5z5au4lnc7vxxsuwsr0w|osmo1ualhu3fjgg77g485gmyswkq3w0dp7gysh09ted|5.0            |20573000000.0  |58077812275.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.1            |0.2                |0.01                      |1.0                |49881      |
-|95    |FreshOSMO.com                      |osmovaloper17h2x3j7u44qkrq0sk8ul0r2qr440rwgjp38f93|osmovalconspub1p08jafdmtm36720ft82xxy2jk4d6q62lsh8zaqkasujzhzts5cpq9pfxgp|osmo17h2x3j7u44qkrq0sk8ul0r2qr440rwgjmx02jk|2.0            |46358543021.0  |55039801954.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.01                      |1.0                |49868      |
-|96    |01node                             |osmovaloper17mggn4znyeyg25wd7498qxl7r2jhgue8td054x|osmovalconspub1882kjn0jc270eqfduyagehz7kgxtw8sdfzyqld0tn9ft43jrszaszkq8hp|osmo17mggn4znyeyg25wd7498qxl7r2jhgue8368hzp|0.0            |33000000000.0  |58131934771.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.6                |0.5                       |1.0                |49235      |
-|97    |Citadel.one                        |osmovaloper1lzhlnpahvznwfv4jmay2tgaha5kmz5qxwmj9we|osmovalconspub1fawznezz7wl22n4grxa8se3zgyzea5fkstvt2as98prkjhrpl6usdy6dtx|osmo1lzhlnpahvznwfv4jmay2tgaha5kmz5qx5v6xe7|0.0            |26640000000.0  |1235863201189.0|1.0           |1.0     |1.0    |0.0             |1.0    |0.05           |0.2                |0.03                      |1.0                |49566      |
-|98    |pomifer                            |osmovaloper1ls4kmz5v7ytwcqmmchkex970565j8q3d5s6gdw|osmovalconspub16cqap7jn8rtte4vx43huptlqjmfqcaygsrv2e6e2amgjdd3e476qmy8w05|osmo1ls4kmz5v7ytwcqmmchkex970565j8q3dw8jt6f|3.0            |35070000000.0  |73941091093.0  |1.0           |1.0     |1.0    |0.0             |1.0    |0.055          |0.055              |0.005                     |1.0                |49847      |
-|99    |Smart Stake - osmosis.smartstake.io|osmovaloper1l7hln0l79erqaw6jdfdwx0hkfmj3dp27gr77ja|osmovalconspub18s8er0f224xuq9sy8llf7909k3ed5wwkjnxm46f5vl3nr2flhtzsqrv4my|osmo1l7hln0l79erqaw6jdfdwx0hkfmj3dp27j5ka96|1.0            |5792000000.0   |582911881988.0 |1.0           |1.0     |1.0    |1.0             |1.0    |0.05           |0.1                |0.01                      |1.0                |49487      |
-
-This is example was got on osmosis block height `2,190,000`. The result is far from ideal. More than 50% of validators have skipped the last 5 proposals and didn't vote. Sad but true. Only 6 validators from the active validator set have voted for 5 from 5 last proposals.
-
-For the calculations let's categorize criteria to calculations schemas: 
+The allocation of the delegation strategy programm is 100 points.
 
 ```python
-criteria_function_dict = {
-    'points_rank_average_scheme': [
-        'min_self_delegation',
-        'tokens_bluring',
-        'commission_rate',
-        'max_commission_rate',
-        'max_commission_change_rate',
-        'pre_commits'
-    ],
-    'points_weighted_by_max': [
-        'self_delegation',
-        'tokens'
-    ],
-    'points_weighed_by_max_available': [
-        'proposals_voted',
-        'identity',
-        'website',
-        'security_contact',
-        'details'
-    ]
-}
+ALLOCATION = 100
 ```
 
-There are 3 calculation categories was defined:
-
-1. `points_rank_average_scheme`. The stats are ranked by value, ascending or descending, the points are assigned from the maximum to minimum with step `equals max_point / number_of_validators` and then, in case if ranks is similar, gets average in the pool of similar ranks:
+The criteria shares are:
 
 ```python
-def get_points_rank_average_scheme(df, column: str, max_points: float, ascending=False):
-    df = df[['moniker', column]]
-    df = df.sort_values(by=[column], ascending=ascending)
-    df['rank'] = df[column].rank(method='dense', ascending=False)
-    points_list = get_points_list(df, max_points)
-    df['raw_points'] = points_list
-    df[column] = df.groupby('rank').transform('mean')['raw_points']
-    return df[['moniker', column]]
+COST_OPTIMIZATION = 0.20
+DECENTRALIZATION = 0.20
+CONFIDENCE = 0.20
+RELIABILITY = 0.20
+PARTICIPATION = 0.20
 ```
 
-2. `points_weighted_by_max`. Here the maximum value is got and all other values are weighted on it.
+## Cost optimization
+
+Each hero decides which commission he wants to grab from their delegators. The mechanics provides resources for heroes to maintain their nodes in a highly reliable way. Some heroes skip this simple rule and keep zero-fee validators online for some kind of advertisement. On the other hand, some of the validators increase their commission rates up to 100%. Both of these cases are not encouraged. The distribution function for cost endorsement will be:
 
 ```python
-def get_points_weighted_by_max(df, column: str, max_points: float, ascending=False):
-    df = df[['moniker', column]]
-    df = df.sort_values(by=[column], ascending=ascending)
-    max_value = df[column].max()
-    df['raw_points'] = df[column] / max_value * max_points
-    df[column] = df['raw_points']
-    return df[['moniker', column]]
+def get_cost_optimization_endorsement(
+        cost_optimization,
+        cost_optimization_sum,
+        ):
+    return int(cost_optimization / cost_optimization_sum * ALLOCATION * COST_OPTIMIZATION)
 ```
 
-3. `points_weighed_by_max_available`. Here is validator can get maximum if it complete all necessary conditions
+where:
+`cost_optimization_sum` is the sum of `cost_optimization` for all heroes
+`cost_optimization` is:
 
 ```python
-def get_points_weighed_by_max_available(df, column: str, max_points: float, max_value: float, ascending=False):
-    df = df[['moniker', column]]
-    df = df.sort_values(by=[column], ascending=ascending)
-    df['raw_points'] = df[column] / max_value * max_points
-    df[column] = df['raw_points']
-    return df[['moniker', column]]
+def get_cost_optimization(commission: float):
+    if 0.01 <= commission <= 0.10:
+        return 1 / (commission**2)
+    else:
+        return 0
 ```
 
-After all calculations, the final table will be ready with the sum of each validator points.
+This is a very easy function that gives a hero `1 / (commission**2)` if his commission rate is between 1% and 10% and gives 0 points otherwise.
 
-## Conclusion
+## Decentralization
 
-The final results are provided on the table below:
+This criterion precedes the following goals:
 
-|Rank  |moniker                            |proposals_voted|self_delegation       |tokens              |tokens_bluring   |identity|website|security_contact|details|commission_rate    |max_commission_rate|max_commission_change_rate|min_self_delegation|pre_commits        |result            |
-|------|-----------------------------------|---------------|----------------------|--------------------|-----------------|--------|-------|----------------|-------|-------------------|-------------------|--------------------------|-------------------|-------------------|------------------|
-|0     |0base.vc                           |45.0           |0.028110763764802215  |4.365396032974337   |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |12.524999999999995 |79.26350679673916 |
-|1     |stake.systems                      |45.0           |0.14276048949229225   |0.05466176650533448 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |14.85              |73.61742225599765 |
-|2     |kytzu                              |45.0           |0.18666490873196237   |0.053581935813023576|5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |14.474999999999998 |73.28524684454501 |
-|3     |bro_n_bro                          |45.0           |0.0014572353469781449 |0.09179143542481555 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.205000000000005  |1.5899999999999996        |1.3500000000000052 |10.199999999999989 |72.61324867077181 |
-|4     |POSTHUMAN ∞ DVS                    |45.0           |0.0024322430252205806 |0.13535849511424258 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |10.72499999999999  |71.05779073813947 |
-|5     |B-Harvest                          |45.0           |0.007091878688626972  |1.1218428739325774  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |7.1999999999999815 |69.67393475262122 |
-|6     |Cosmostation                       |36.0           |0.626667198673222     |6.0                 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.23999999999999844       |1.3500000000000052 |9.299999999999986  |67.92166719867325 |
-|7     |NosNode🧪🧿                        |36.0           |0.11287955030411115   |0.38686761143604165 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |12.749999999999995 |65.79474716174019 |
-|8     |Cros-nest                          |36.0           |0.055451274560487415  |0.5719953624790256  |5.050000000000015|2.0     |1.0    |0.0             |0.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |10.42499999999999  |62.39744663703953 |
-|9     |Lavender.Five Nodes                |36.0           |0.0001450296131040154 |0.18764870992751498 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |0.21000000000000493|0.7899999999999989        |1.3500000000000052 |8.099999999999984  |59.81279373954064 |
-|10    |SkyNet &#124; Validators                |36.0           |0.0006522862981711697 |0.07709923992053697 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |6.299999999999979  |58.92275152621872 |
-|11    |syncnode                           |27.0           |0.2900245301283408    |0.053681730151304174|5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.520000000000003  |0.7899999999999989        |1.3500000000000052 |13.049999999999997 |57.22870626027967 |
-|12    |Bi23 Labs                          |27.0           |0.023928615328034086  |0.04872786406773086 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.7899999999999989        |1.3500000000000052 |10.42499999999999  |54.58765647939579 |
-|13    |wave                               |27.0           |0.0017348039844977915 |0.052029133894872515|5.050000000000015|2.0     |1.0    |0.0             |0.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |11.324999999999992 |53.7237639378794  |
-|14    |CryptoCrew Validators ✅            |27.0           |0.0069457260536332005 |0.34902309662131115 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |0.21000000000000493|0.6199999999999988        |2.97               |9.524999999999988  |52.85596882267497 |
-|15    | BlockNgine 100% slash protected   |36.0           |5.847662698591685e-05 |0.16926444831049425 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |1.1999999999999758 |52.69432292493748 |
-|16    |[ block pane ]                     |27.0           |0.11339372764271365   |0.5022408045834289  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |9.749999999999988  |52.69063453222616 |
-|17    |WhisperNode                        |27.0           |6.939215937991166e-06 |0.06533359990657023 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |8.849999999999985  |52.460340539122534|
-|18    |Stakecito                          |27.0           |6.939215937991167e-05 |0.8359406039059525  |5.050000000000015|2.0     |0.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.0799999999999992        |1.3500000000000052 |8.549999999999985  |51.22100999606535 |
-|19    |StakeLab                           |27.0           |0.0003610620539385255 |1.938465791716233   |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |4.6499999999999755 |50.93382685377018 |
-|20    |pomifer                            |27.0           |0.24335830294535019   |0.0695919921593712  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |1.20000000000001   |0.03000000000000491|2.0                       |1.3500000000000052 |9.899999999999988  |50.84295029510476 |
-|21    |Validating Chaos                   |18.0           |0.009104543236519706  |0.6817797331721546  |5.050000000000015|2.0     |0.0    |0.0             |0.0    |3.125000000000006  |2.7750000000000017 |1.5899999999999996        |1.3500000000000052 |13.049999999999997 |47.6308842764087  |
-|22    |Chandra Station                    |18.0           |6.939215937991166e-06 |1.0748697381362229  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |12.149999999999993 |46.54987667735219 |
-|23    |KalpaTech                          |27.0           |0.12031939240919168   |0.2794929977948927  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |3.5999999999999743 |46.19481239020409 |
-|24    |FreshOSMO.com                      |18.0           |0.32169194059337236   |0.051802447183508356|5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |11.324999999999992 |46.0434943877769  |
-|25    |Little_Cryptoman                   |27.0           |0.0006939215937991166 |0.4568742469523219  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.0799999999999992        |1.3500000000000052 |2.699999999999975  |45.99256816854613 |
-|26    |e-Money.com // validator.network   |27.0           |0.09263853277218208   |0.36610068950018987 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.06999999999999851       |2.8650000000000015 |0.44999999999997575|45.793739222272364|
-|27    |天照☀                                |27.0           |0.008408213380890093  |0.04952093229168915 |5.050000000000015|2.0     |0.0    |0.0             |0.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |2.8650000000000015 |3.4499999999999744 |45.21792914567258 |
-|28    |Jerry's Pool                       |27.0           |0.0025736062480700306 |0.05215970963944008 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |0.8999999999999758 |44.279733315887526|
-|29    |Staking Fund                       |18.0           |0.04212659211635677   |0.14418338485511523 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.23999999999999844       |1.3500000000000052 |10.72499999999999  |43.9063099769715  |
-|30    |Komikuri                           |18.0           |6.939221489363917e-05 |0.16673261143291437 |5.050000000000015|0.0     |0.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |13.049999999999997 |43.411802003647836|
-|31    |StakeWithUs                        |18.0           |0.0042329217221746115 |0.656177326530999   |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |8.324999999999985  |43.33041024825319 |
-|32    |hydrogen18                         |27.0           |7.633137531790282e-06 |0.11798167399312523 |5.050000000000015|0.0     |0.0    |0.0             |0.0    |3.125000000000006  |0.21000000000000493|0.4399999999999986        |1.3500000000000052 |5.849999999999978  |43.14298930713067 |
-|33    |Active Nodes                    |18.0           |6.939215937991166e-06 |0.12189367046251151 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.370000000000004  |0.1599999999999985        |1.3500000000000052 |8.324999999999985  |42.50190060967847 |
-|34    |SpacePotato                        |27.0           |0.03470012247716131   |0.10507671583892865 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |1.4999999999999756 |42.2097768383161  |
-|35    |dimi 🦙                            |18.0           |0.06458328273488378   |0.12359561934207458 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.4399999999999986        |1.3500000000000052 |4.799999999999976  |40.72817890207696 |
-|36    |Mandragora                         |18.0           |0.057078978242088435  |0.08210352225653328 |5.050000000000015|2.0     |0.0    |0.0             |1.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |2.8650000000000015 |6.149999999999979  |38.37418250049863 |
-|37    |Forbole                            |9.0            |0.1561639710912264    |0.9719376274977615  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.06999999999999851       |1.3500000000000052 |11.849999999999994 |38.34810159858901 |
-|38    |SmartNodes                         |9.0            |0.014983517120780523  |0.09273651935608014 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |11.549999999999992 |37.00272003647688 |
-|39    |SG-1                               |18.0           |0.3407155025553663    |2.176918160632344   |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |0.5999999999999758 |36.66263366318771 |
-|40    |SOLAR Validator                    |9.0            |0.06336891994573533   |0.06643339892164729 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |2.7750000000000017 |1.5899999999999996        |1.3500000000000052 |7.799999999999983  |35.819802318867396|
-|41    |#decentralizehk                    |18.0           |0.02022712053765045   |0.12941847608914955 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.4900000000000033 |0.7899999999999989        |1.3500000000000052 |0.29999999999997573|35.25464559662681 |
-|42    |Figment                            |0.0            |0.6098946280059816    |3.0859494275274013  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |13.649999999999997 |33.69084405553341 |
-|43    |binary_holdings                    |0.0            |0.0782054590326039    |1.0632257715814195  |5.050000000000015|2.0     |1.0    |0.0             |0.0    |3.125000000000006  |2.370000000000004  |1.0799999999999992        |2.7300000000000018 |14.474999999999998 |32.971431230614044|
-|44    |Inotel                             |0.0            |0.06939215937991167   |4.485692673912507   |5.050000000000015|2.0     |1.0    |0.0             |1.0    |1.1000000000000096 |2.205000000000005  |0.19999999999999848       |1.3500000000000052 |14.174999999999997 |32.63508483329245 |
-|45    |Cephalopod Equipment Corp          |9.0            |0.0006939215937991166 |1.074910629249985   |5.050000000000015|2.0     |1.0    |1.0             |1.0    |0.7000000000000095 |2.2800000000000047 |1.1799999999999993        |2.7600000000000016 |5.399999999999977  |32.44560455084379 |
-|46    |Cat Boss                           |9.0            |6.939215937991166e-06 |0.0812239649004927  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.06999999999999851       |1.3500000000000052 |6.59999999999998   |32.05123090411644 |
-|47    |Smart Stake - osmosis.smartstake.io|9.0            |0.040191938712844835  |0.5486259199217254  |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |4.949999999999976  |30.863817858634576|
-|48    |Simply Staking                     |0.0            |0.1457235346978145    |0.0869382124229444  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |2.8650000000000015 |12.524999999999995 |30.61766174712078 |
-|49    |notional                           |9.0            |0.1799755045677389    |0.5621246918971299  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.6500000000000095 |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |6.899999999999981  |30.51210019646489 |
-|50    |Klub Staking                       |0.0            |6.939215937991166e-06 |0.11879087529930767 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |15.0               |30.443797814515275|
-|51    |0% to 2023 &#124; Fee Recovery          |0.0            |6.939215937991166e-06 |0.04952515794752271 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |13.649999999999997 |30.04453209716349 |
-|52    |ushakov                            |0.0            |0.01820156340535083   |0.09377685953045208 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |14.174999999999997 |29.831978422935833|
-|53    |Chainflow                          |0.0            |0.08662223255394373   |0.21032490601293324 |5.050000000000015|2.0     |1.0    |0.0             |0.0    |3.125000000000006  |2.7750000000000017 |0.4399999999999986        |1.3500000000000052 |13.649999999999997 |29.6869471385669  |
-|54    |Secure Secrets                     |0.0            |6.939215937991166e-06 |0.1860369593709522  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.0799999999999992        |1.3500000000000052 |13.649999999999997 |29.671043898586916|
-|55    |Sentinel                           |0.0            |0.03469607968995583   |5.489868927217107   |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |7.049999999999981  |29.119565006907074|
-|56    |Imperator.co                       |9.0            |0.1735497906091591    |1.1787197828892186  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |2.399999999999975  |29.097269573498384|
-|57    |Cypher Core                        |0.0            |0.5188448893507323    |0.17041522012877414 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |14.7               |28.959260109479537|
-|58    |ITA Stakers                        |0.0            |0.05879450160122408   |0.0853525380547076  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |12.299999999999994 |28.78914703965596 |
-|59    |ChainLayer                         |0.0            |0.35119371862173293   |0.2610807133117058  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |11.849999999999994 |27.787274431933465|
-|60    |artifact                           |0.0            |0.018957889312566572  |0.15648928187308836 |5.050000000000015|2.0     |0.0    |0.0             |0.0    |3.125000000000006  |1.2300000000000058 |1.0799999999999992        |1.3500000000000052 |13.649999999999997 |27.66044717118568 |
-|61    |Coverlet                           |0.0            |0.25765060586988275   |0.0516830350975373  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |11.849999999999994 |27.354333640967447|
-|62    |Validatus                          |0.0            |0.0007633137531790283 |0.1880380408282356  |5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |2.700000000000002  |9.149999999999986  |26.88380135458143 |
-|63    |Chorus One                         |0.0            |1.2231399378523822    |1.600441792229572   |5.050000000000015|2.0     |1.0    |1.0             |1.0    |0.7500000000000095 |2.205000000000005  |0.4399999999999986        |1.3500000000000052 |8.999999999999986  |26.618581730081974|
-|64    |Plural                             |0.0            |6.939215937991166e-06 |0.05311030059442121 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.06999999999999851       |1.3500000000000052 |10.049999999999988 |26.473117239810378|
-|65    |SolidStake                         |0.0            |0.03599463251647196   |0.096908610372405   |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.0799999999999992        |1.3500000000000052 |9.524999999999988  |25.492903242888897|
-|66    |ztake.org                          |0.0            |0.08543598812006231   |0.20634910674895557 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.8750000000000097 |2.7750000000000017 |0.06999999999999851       |1.3500000000000052 |10.94999999999999  |25.361785094869035|
-|67    |KDF                                |0.0            |6.0                   |0.8156833654691817  |5.050000000000015|0.0     |0.0    |0.0             |1.0    |0.0500000000000094 |2.7750000000000017 |0.06999999999999851       |1.3500000000000052 |7.799999999999983  |24.910683365469197|
-|68    |strangelove-ventures               |0.0            |1.238670862579237     |0.9863372123024754  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.1599999999999985        |1.3500000000000052 |5.999999999999979  |24.68500807488172 |
-|69    |commercio.network                  |0.0            |6.939215937991166e-06 |0.3256385204206128  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.205000000000005  |1.0799999999999992        |1.3500000000000052 |7.499999999999982  |24.635645459636564|
-|70    |Provalidator                       |0.0            |6.939215937991166e-06 |1.0813961243134762  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |7.799999999999983  |24.07640306352943 |
-|71    |fissionlabs                        |0.0            |0.012418757436237281  |0.110800687402766   |5.050000000000015|0.0     |1.0    |1.0             |0.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |11.09999999999999  |22.79321944483903 |
-|72    |Zero Knowledge Validator (ZKV)     |0.0            |0.0012421196529004187 |0.39719656131100783 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |0.8750000000000097 |2.7750000000000017 |0.7899999999999989        |1.3500000000000052 |6.44999999999998   |22.68843868096392 |
-|73    |Citadel.one                        |0.0            |0.18486071258808467   |1.1631716672807186  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.9599999999999991        |1.3500000000000052 |5.549999999999978  |22.613032379868812|
-|74    |blockscape                         |0.0            |0.19492346905977093   |0.14617504277711155 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |8.699999999999985  |22.6110985118369  |
-|75    |BR Labs                            |0.0            |6.939215937991166e-06 |0.08232400596958697 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.1000000000000054 |1.5899999999999996        |1.3500000000000052 |5.0999999999999766 |22.397330945185534|
-|76    |wosmongton                         |0.0            |2.08176478139735e-05  |2.8090912232779717  |5.050000000000015|2.0     |0.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |4.049999999999974  |22.204112040925793|
-|77    |🐠stake.fish                       |0.0            |4.1635295627947e-05   |0.6079193610174034  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |5.249999999999977  |22.202960996313045|
-|78    |Stakely-io                         |0.0            |8.3270591255894e-06   |0.050793076657384376|5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |4.349999999999975  |21.745801403716513|
-|79    |AUDIT.one                          |0.0            |6.939215937991166e-06 |0.14340243086337376 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.8750000000000097 |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |7.349999999999982  |21.588409370079326|
-|80    |Bison Trails                       |0.0            |1.3878431875982332e-05|0.18267571177041173 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |1.1000000000000096 |2.7750000000000017 |0.23999999999999844       |1.3500000000000052 |5.699999999999978  |21.397689590202297|
-|81    |01node                             |0.0            |0.2289941259537085    |0.05471270560106058 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.4600000000000035 |0.1599999999999985        |1.3500000000000052 |4.499999999999975  |20.928706831554774|
-|82    |OmniFlix Network                   |0.0            |0.04670092326268055   |0.47813210727676236 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.370000000000004  |0.4399999999999986        |1.3500000000000052 |3.7499999999999742 |20.60983303053945 |
-|83    |mp20                               |0.0            |6.939215937991167e-05 |0.05227119141327239 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.7750000000000017 |1.0799999999999992        |1.3500000000000052 |2.8499999999999748 |20.282340583572655|
-|84    |Swiss Staking                      |0.0            |6.939215937991167e-05 |0.112185460528272   |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |2.1000000000000054 |0.9799999999999991        |1.3500000000000052 |3.2999999999999745 |20.01725485268766 |
-|85    |Staky.io                           |0.0            |2.7756863751964663e-05|0.053220028547928705|5.050000000000015|2.0     |1.0    |1.0             |1.0    |3.125000000000006  |2.7750000000000017 |0.7899999999999989        |1.3500000000000052 |1.6499999999999755 |19.793247785411687|
-|86    |Witval                             |0.0            |0.18041961438777032   |0.3596485686316204  |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |0.390000000000005  |1.0799999999999992        |1.3500000000000052 |4.199999999999974  |19.735068183019393|
-|87    |ping                               |0.0            |0.1878862107370488    |0.058741426411974745|5.050000000000015|2.0     |1.0    |0.0             |0.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |3.899999999999974  |18.341627637149028|
-|88    |blitz                              |0.0            |1.3878431875982332e-05|0.1054779313207396  |5.050000000000015|0.0     |1.0    |0.0             |1.0    |1.1000000000000096 |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |6.7499999999999805 |18.02549180975263 |
-|89    |StakeThat                          |0.0            |0.00023593334189169965|0.04815842520586773 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.4399999999999986        |1.3500000000000052 |2.549999999999975  |17.79339435854777 |
-|90    |samurai                            |0.0            |0.011853485720828404  |0.06456656899825673 |5.050000000000015|0.0     |0.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |1.5899999999999996        |1.3500000000000052 |3.1499999999999746 |16.57142005471909 |
-|91    |BasBlock                           |0.0            |0.046571905314398525  |0.17170295095632043 |5.050000000000015|2.0     |0.0    |0.0             |0.0    |3.125000000000006  |2.370000000000004  |0.4399999999999986        |2.8650000000000015 |0.14999999999997574|16.21827485627072 |
-|92    |nonce classic                      |0.0            |6.939215937991166e-06 |0.09998018569682901 |5.050000000000015|2.0     |1.0    |1.0             |1.0    |0.35000000000000936|1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |2.249999999999975  |16.119987124912775|
-|93    |Stargaze                           |0.0            |0.05743627891484541   |0.10328394141790853 |5.050000000000015|2.0     |1.0    |0.0             |1.0    |0.35000000000000936|2.370000000000004  |0.7899999999999989        |1.3500000000000052 |1.9499999999999753 |16.020720220332763|
-|94    |iqlusion                           |0.0            |0.06939215937991167   |0.43819665559842946 |5.050000000000015|2.0     |1.0    |0.0             |0.0    |0.8750000000000097 |1.2300000000000058 |1.5899999999999996        |3.0                |0.7499999999999758 |16.002588814978346|
-|95    |DSRV                               |0.0            |6.939215937991166e-06 |0.414402360047733   |5.050000000000015|2.0     |1.0    |1.0             |1.0    |0.35000000000000936|1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |1.7999999999999754 |15.98440929926368 |
-|96    |Merkan                             |0.0            |7.80282217912198e-06  |0.09594351639485407 |5.050000000000015|0.0     |1.0    |0.0             |1.0    |3.125000000000006  |1.2300000000000058 |0.7899999999999989        |1.3500000000000052 |1.3499999999999757 |14.99095131921704 |
-|97    |Skystar Capital                    |0.0            |0.020817647813973498  |0.5845873870066174  |5.050000000000015|0.0     |0.0    |0.0             |0.0    |3.125000000000006  |0.21000000000000493|1.5899999999999996        |1.3500000000000052 |2.9999999999999747 |14.930405034820597|
-|98    |BouBouNode                         |0.0            |0.6182664276916351    |0.9502594620313864  |5.050000000000015|0.0     |1.0    |0.0             |1.0    |1.0000000000000098 |2.1000000000000054 |0.4399999999999986        |1.3500000000000052 |1.0499999999999758 |14.558525889723029|
-|99    |StarCluster                        |0.0            |3.4696079689955834e-05|0.06197128450824499 |5.050000000000015|0.0     |0.0    |0.0             |0.0    |0.35000000000000936|1.2300000000000058 |1.5899999999999996        |2.8650000000000015 |2.099999999999975  |13.247005980587941|
+- Increasing the number of heroes that can halt the network
+- Increasing the number of heroes that can fork the network
+- Supporting validators in the long tail, including sets of inactive heroes
 
-Here is the result table descending by the total amount of points. It takes into account not only the validator's token power but its involvement in the network development. 
+The idea is to rank validators descending by staked tokens and to give them weighted points:
 
-Also, there are a lot of non-measuring (for now) criteria for validators ranking such as additional tools development, new proposals creating, ecosystem development and etc. 
+```python
+def get_decentralization(rank):
+    return math.log(rank + 1)
+```
 
-This is an additional issue on how to put it in. But for the first iteration, it is super necessary for the network health.
+![decentralization](./img/decentralization.png)
 
-So, anyway, I would like to suggest delegating own tokens not only one validator for the own investment security. 
+Then, distribute tokens:
+
+```python
+def get_decentralization_endorsement(decentralization, decentralization_sum):
+    return int((decentralization / decentralization_sum) * ALLOCATION * DECENTRALIZATION)
+```
+
+## Confidence
+
+The hero's confidence shows the relationship between the tokens that the hero has delegated to himself and the tokens that are delegated to him by the community. If the hero is not ready to put tokens on the validator he supports, then his confidence level is low. That is why only those heroes who believe in themselves will be encouraged. But, this is not very good if validator's tokens share more than 20%, like super newcomers shares or CEXes.
+
+```python
+def get_confidence(ownership):
+    if 0.0 < ownership < 0.2:
+        confidence = 0.000768996 * math.exp(35.8517 * ownership)
+    else:
+        confidence = 1.41667 - 2.25 * ownership + 0.833333 * ownership**2
+    return confidence
+```
+
+![confidence](./img/confidence.png)
+
+And the distribution is:
+
+```python
+def get_confidence_endorsement(confidence, confidence_sum):
+    return int((confidence / confidence_sum) * ALLOCATION * CONFIDENCE)
+```
+
+## Reliability
+
+This criterion should help to understand the sustainability of the hero node set-up.
+
+`tokens blurring` is the ratio between `staked` and `delegator_shares` tokens. It shows how many tokens a validator lost because of slashing. 
+
+```python
+def get_reliability(staked, delegator_shares):
+    return staked / delegator_shares
+```
+
+The token loss is very serious misconduct. If the validator didn't lose anything, the `tokens_blurring` will be equal to 1.
+
+The distribution is:
+
+```python
+def get_reliability_endorsement(reliability, reliability_sum):
+    return int((reliability / reliability_sum) * ALLOCATION * RELIABILITY)
+```
+
+## Participation
+
+This criterion shows the participation of the validator in governance proposals for the last 5 ended proposals for keeping rotation.
+
+```python
+import math
+
+def get_superintelligence(power):
+    return math.log10(power + 1)
+```
+
+The distribution is:
+
+```python
+def get_superintelligence_endorsement(superintelligence, superintelligence_sum):
+    return int((superintelligence / superintelligence_sum) * ALLOCATION * SUPERINTELLIGENCE)
+```
+
+## Services
+
+`main.py` - the script collects and calculates all data from networks defined in `config.py`
+
+`api.py` - flask api service for serving it for frontend app
