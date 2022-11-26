@@ -42,13 +42,14 @@
     import { ref, watchEffect } from 'vue'
     import { useGlobalStore } from '@/stores'
 
+
     const store = useGlobalStore()
 
     var showDropdown = ref(false)
 
-    watchEffect(
-        () => showDropdown.value = false
-    )
+
+    watchEffect(() => showDropdown.value = false)
+
 
     // Сlick element outside
     function clickOut() {

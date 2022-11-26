@@ -6,6 +6,8 @@ import i18n from './locale'
 
 import timeago from 'vue-timeago3'
 
+import Loader from './components/Loader.vue'
+
 
 // Events
 import mitt from 'mitt'
@@ -71,9 +73,36 @@ const animate = {
 }
 
 
+// Animation
+const lazyload = {
+    beforeMount: (el, binding) => {
+        function scrollTracking(entries) {
+            for (const entry of entries) {
+                if (entry.intersectionRatio >= 0.2 && !entry.target.classList.contains('loaded')) {
+                    entry.target.src = entry.target.getAttribute('data-src')
+                    entry.target.classList.add('loaded')
+                }
+            }
+        }
+
+        const observer = new IntersectionObserver(scrollTracking, {
+            threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+        })
+
+        observer.observe(el)
+    }
+}
+
+
 // Directives
 app.directive('clickOut', clickOutside)
 app.directive('animate', animate)
+app.directive('lazyload', lazyload)
+
+
+// Component
+app.component('Loader', Loader)
+
 
 // Mount
 app.mount('#app')

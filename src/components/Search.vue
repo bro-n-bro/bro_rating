@@ -12,9 +12,9 @@
             </form>
 
             <div class="tips" v-if="query.length">
-                <div class="tip" v-for="(validator, index) in store.searchValidators" :key="index">
+                <div class="tip" v-for="(validator, index) in store.searchValidators" :key="index" @click.prevent="scrollToValidator(validator[getValidatorInfo('opeartor_address')])">
                     <div class="logo">
-                        <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${validator[getValidatorInfo('opeartor_address')]}.png`" alt="" @error="imageLoadError">
+                        <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${validator[getValidatorInfo('opeartor_address')]}.png`" alt="" @error="imageLoadError" v-lazyload>
                     </div>
                     <div>{{ validator[getValidatorInfo('moniker')] }}</div>
                 </div>
@@ -56,6 +56,23 @@
     // Replacement of the logo if it is not present
     function imageLoadError(event) {
         // event.target.src = 'alt-image.jpg'
+    }
+
+
+    // Scroll to validator
+    function scrollToValidator(id) {
+        let el = document.getElementById(id)
+
+        // Selection
+        el.classList.add('flashing')
+
+        // Scroll
+        el.scrollIntoView({
+            behavior: 'smooth'
+        })
+
+        // Hide tips
+        showDropdown.value = false
     }
 </script>
 

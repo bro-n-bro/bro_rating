@@ -7,11 +7,23 @@ export default {
             'home_desc': "Board was created by Bro_n_Bro validator<br> The best support for us - your delegations on Cyber, Osmo, NGM, Juno, Stars, Microtick, Gravity, Omniflix! Follow us on twitter on this and our other tools! 👊",
 
             // Compare
+            'compare_title': 'Comparison result',
+            'compare_hide_options': 'Hide identical options',
+
             'compare_error_modal_title': 'You are able to pin only 5 validators',
             'compare_error_modal_desc': 'Amet, luctus cras dolor sed mattis sed faucibus. Elit.',
 
             // Notice
             'notice_default': '',
+            'notice_col_score': 'The score of the validator by bro score.',
+            'notice_col_power': 'The score of validator according by voting power.',
+            'notice_col_moniker': 'The moniker of the validator.',
+            'notice_col_cost': 'he cost optimization criteria of the validator. It depends on the validator’s commission ($greed%) and decreases when the commission increases. It’s equal to zero if the commission of the validator is zero to avoid the advertising effect.',
+            'notice_col_decentralization': 'This criterion helps decentralize the network. The decentralization level depends on the validator’s voting power rank ($validator_rank). It logarithmically increases with increasing rank number.',
+            'notice_col_confidence': 'The confidence of the validator depends on the share of tokens ($ownership) which validator delegates to itself. It increases from 0 to 20% rapidly and then decreases back to zero, to avoid super-newby validators and CEXes.',
+            'notice_col_participation': 'This criterion is about the number of votes ($votes) for the last 5 ended proposals.',
+            'notice_col_reliability': 'We can define reliability without any precommits calculations. To understand the reliability we can divide staked tokens ($staked) into delegator shares ($delegator_shares). The result should be equal to 1 if everything is ok and there is no token loss by slashing. Otherwise, the criterion points decrease with the result decrease.',
+            'notice_col_total': 'The sum of the criteria points',
 
             // Rtaing
             'rating_block_title': 'Validators',

@@ -262,6 +262,19 @@ button
 }
 
 
+.lazyload
+{
+    transition: opacity .5s linear;
+
+    opacity: 0;
+}
+
+.lazyload.loaded
+{
+    opacity: 1;
+}
+
+
 
 /*-------------
     Animate

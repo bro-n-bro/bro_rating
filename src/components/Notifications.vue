@@ -1,5 +1,5 @@
 <template>
-    <div class="notifications">
+    <div class="notifications" v-if="store.tooltip.length">
         <div class="data">
             <div class="icon">
                 <svg><use xlink:href="/sprite.svg#ic_notification"></use></svg>
@@ -26,7 +26,7 @@
 
         display: flex;
 
-        padding: 20px;
+        padding: 9px 20px;
 
         border-radius: 20px;
         background: #141414;

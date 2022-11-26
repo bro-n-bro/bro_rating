@@ -21,7 +21,7 @@
                     <RatingFilter />
 
                     <!-- Compare link -->
-                    <router-link to="/compare" class="compare_btn">{{ $t('message.compare_btn') }}</router-link>
+                    <router-link to="/compare" class="compare_btn" v-if="store.compareValidators.length > 1">{{ $t('message.compare_btn') }}</router-link>
                 </div>
 
                 <!-- Table head -->
@@ -30,6 +30,9 @@
                 <div class="list" :class="{ 'mini': store.compareValidators.length }">
                     <!-- Validator -->
                     <Validator v-for="(validator, index) in store.ratingData.result" :key="index" :validator="validator" :schema="store.ratingData.schema" />
+
+                    <!-- Loader -->
+                    <Loader v-if="showLoader" />
                 </div>
             </div>
         </div>
@@ -38,7 +41,7 @@
 
 
 <script setup>
-    import { onMounted, watchEffect } from 'vue'
+    import { ref, onMounted, watchEffect } from 'vue'
     import { useRoute } from 'vue-router'
     import { useGlobalStore } from '@/stores'
 
@@ -53,16 +56,16 @@
     const route = useRoute(),
         store = useGlobalStore()
 
+    var showLoader = ref(true)
 
-    onMounted(async () => {
-        // Get rating data
-        if(typeof store.ratingData.last_update == 'undefined') {
-            await store.getRatingData()
-        }
+
+    watchEffect(async () => {
+        // Clear compare
+        store.compareValidators = []
+
+        // Get data
+        await store.getRatingData(store.currentNetwork).then(() => showLoader.value = false)
     })
-
-
-    watchEffect(async () => await store.getRatingData(store.currentNetwork))
 </script>
 
 
@@ -196,6 +199,9 @@
 
     .rating .list
     {
+        position: relative;
+        z-index: 1;
+
         overflow: auto;
 
         max-height: calc(100vh - 318px);
@@ -207,7 +213,7 @@
 
     .rating .list.mini
     {
-        max-height: calc(100vh - 379px);
+        max-height: calc(100vh - 357px);
     }
 
 </style>

@@ -2,7 +2,7 @@
     <!-- <pre>{{ props.validator }}</pre> -->
     <!-- <pre>{{ props.schema }}</pre> -->
 
-    <div class="validator" :class="{ 'pinned': props.validator.pinned }">
+    <div class="validator" :class="{ 'pinned': props.validator.pinned }" :id="getValidatorInfo('opeartor_address')">
         <div class="col_score">
             <div class="checkbox" @click.prevent="toggleToCompare($event, getValidatorInfo('opeartor_address'))">
                 <svg><use xlink:href="/sprite.svg#ic_check"></use></svg>
@@ -20,14 +20,14 @@
 
         <a :href="`https://www.mintscan.io/cosmos/validators/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'">
             <div class="logo">
-                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
+                <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError" v-lazyload>
             </div>
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 
         <a :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-else>
             <div class="logo">
-                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="">
+                <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" v-lazyload>
             </div>
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
@@ -86,7 +86,7 @@
     // Add/remove to/from compare
     function toggleToCompare(e, valoper) {
         if (e.target.classList.contains('checkbox')) {
-            let validator = e.target.closest('.validator')
+            let validator = e.target.closest('.rating .validator')
 
             if (store.compareValidators.length < store.compareLimit || validator.classList.contains('pinned')) {
                 if (!validator.classList.contains('pinned')) {
@@ -113,7 +113,7 @@
 
 
 <style scope>
-    .validator
+    .rating .validator
     {
         display: flex;
 
@@ -126,23 +126,23 @@
         flex-wrap: nowrap;
     }
 
-    .validator + .validator
+    .rating .validator + .validator
     {
         border-top: 1px solid rgba(255, 255, 255, .05);
     }
 
-    .validator:hover
+    .rating .validator:hover
     {
         background: #141414;
     }
 
-    .validator.pinned
+    .rating .validator.pinned
     {
         background: rgba(149, 15, 255, .2);
     }
 
 
-    .validator > *
+    .rating .validator > *
     {
         font-size: 14px;
         font-weight: 500;
@@ -160,13 +160,13 @@
         flex-wrap: wrap;
     }
 
-    .validator > * + *
+    .rating .validator > * + *
     {
         border-left: 1px solid rgba(255, 255, 255, .05);
     }
 
 
-    .validator .col_score
+    .rating .validator .col_score
     {
         justify-content: flex-start;
         align-items: center;
@@ -174,12 +174,12 @@
     }
 
 
-    .validator .col_power
+    .rating .validator .col_power
     {
         justify-content: center;
     }
 
-    .validator .col_power div
+    .rating .validator .col_power div
     {
         font-size: 12px;
         font-weight: 500;
@@ -197,7 +197,7 @@
     }
 
 
-    .validator .col_moniker
+    .rating .validator .col_moniker
     {
         color: currentColor;
         font-size: 12px;
@@ -212,7 +212,7 @@
     }
 
 
-    .validator .col_moniker .logo
+    .rating .validator .col_moniker .logo
     {
         position: relative;
 
@@ -226,7 +226,7 @@
         border-radius: 50%;
     }
 
-    .validator .col_moniker .logo img
+    .rating .validator .col_moniker .logo img
     {
         position: absolute;
         top: 0;
@@ -243,7 +243,7 @@
     }
 
 
-    .validator .checkbox
+    .rating .validator .checkbox
     {
         display: flex;
 
@@ -263,7 +263,7 @@
         flex-wrap: wrap;
     }
 
-    .validator .checkbox svg
+    .rating .validator .checkbox svg
     {
         display: block;
 
@@ -277,19 +277,19 @@
     }
 
 
-    .validator.pinned .checkbox
+    .rating .validator.pinned .checkbox
     {
         border-color: transparent;
         background: rgba(255, 255, 255, .1);
     }
 
-    .validator.pinned .checkbox svg
+    .rating .validator.pinned .checkbox svg
     {
         opacity: 1;
     }
 
 
-    .validator sup
+    .rating .validator sup
     {
         color: #464646;
         font-size: 10px;
@@ -300,14 +300,41 @@
         vertical-align: top;
     }
 
-    .validator sup.green
+    .rating .validator sup.green
     {
         color: #1bc562;
     }
 
-    .validator sup.red
+    .rating .validator sup.red
     {
         color: #eb5757;
+    }
+
+
+
+    .rating .validator.flashing
+    {
+        animation: flashing .75s cubic-bezier(.075, .820, .165, 1.000) 5;
+        animation-delay: .75s;
+    }
+
+
+    @keyframes flashing
+    {
+        0%
+        {
+            background: transparent;
+        }
+
+        50%
+        {
+            background: rgba(149, 15, 255, .2);
+        }
+
+        100%
+        {
+            background: transparent;
+        }
     }
 
 </style>

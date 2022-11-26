@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useGlobalStore } from '@/stores'
 
-import homeLayout from '../layouts/Home.vue'
-import networkLayout from '../layouts/Network.vue'
+import HomeLayout from '../layouts/Home.vue'
+import NetworkLayout from '../layouts/Network.vue'
+import CompareLayout from '../layouts/Compare.vue'
 
 const routes = [
 	{
@@ -10,7 +11,7 @@ const routes = [
 		name: 'Home',
 		component: () => import('../views/Home.vue'),
 		meta: {
-			layout: homeLayout
+			layout: HomeLayout
 		}
 	},
 	{
@@ -18,7 +19,15 @@ const routes = [
 		name: 'Network',
 		component: () => import('../views/Network.vue'),
 		meta: {
-			layout: networkLayout
+			layout: NetworkLayout
+		}
+	},
+	{
+		path: '/compare',
+		name: 'Compare',
+		component: () => import('../views/Compare.vue'),
+		meta: {
+			layout: CompareLayout
 		}
 	},
 ]

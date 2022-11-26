@@ -12,7 +12,7 @@
 
 <script setup>
     import { inject, onMounted } from 'vue'
-    import { RouterView, useRoute } from 'vue-router'
+    import { RouterView } from 'vue-router'
     import { useGlobalStore } from '@/stores'
 
 
@@ -21,8 +21,7 @@
     import CompareErrorModal from '../components/CompareErrorModal.vue'
 
 
-    const route = useRoute(),
-        store = useGlobalStore(),
+    const store = useGlobalStore(),
         i18n = inject('i18n'),
         emitter = inject('emitter')
 
@@ -42,5 +41,11 @@
     // Event "close compare error modal"
     emitter.on('closeCompareErrorModal', () => {
         store.showCompareErrorModal = false
+    })
+
+
+    // Event "set notification"
+    emitter.on('setNotification', function(notice) {
+        store.$patch({ tooltip: notice })
     })
 </script>
