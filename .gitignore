@@ -1,7 +1,0 @@
-
-.DS_Store
-*.iml
-*.xml
-bro_rating_investigation/.ipynb_checkpoints/bro_rating_investigation-checkpoint.ipynb
-bro_rating_investigation/__pycache__/config.cpython-38.pyc
-*.pyc
