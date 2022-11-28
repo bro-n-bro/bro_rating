@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
+		"deploy": "echo 'https://dev.score.bronbro.io' > ./dist/CNAME && gh-pages -d dist",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build"
 	},
@@ -11,6 +12,7 @@
 		"core-js": "^3.8.3",
 		"mitt": "^3.0.0",
 		"pinia": "^2.0.18",
+		"gh-pages": "^4.0.0",
 		"vue": "^3.2.13",
 		"vue-i18n": "^9.2.2",
 		"vue-router": "^4.1.6",
