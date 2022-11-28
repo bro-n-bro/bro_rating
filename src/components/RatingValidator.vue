@@ -3,7 +3,7 @@
     <!-- <pre>{{ props.schema }}</pre> -->
 
     <div class="validator" :class="{ 'pinned': props.validator.pinned }" :id="getValidatorInfo('opeartor_address')">
-        <div class="col_score">
+        <div class="col_score" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))">
             <div class="checkbox" @click.prevent="toggleToCompare($event, getValidatorInfo('opeartor_address'))">
                 <svg><use xlink:href="/sprite.svg#ic_check"></use></svg>
             </div>
@@ -14,45 +14,49 @@
             </span>
         </div>
 
-        <div class="col_power">
+        <div class="col_power" @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))">
             <div>{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
         </div>
 
-        <a :href="`https://www.mintscan.io/cosmos/validators/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'">
+        <a :href="`https://www.mintscan.io/cosmos/validators/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'" @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))">
             <div class="logo">
                 <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError" v-lazyload>
+
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
             </div>
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 
         <a :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-else>
             <div class="logo">
-                <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" v-lazyload>
+                <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError" v-lazyload>
+
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
             </div>
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 
-        <div class="col_cost">
+        <div class="col_cost" @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(getValidatorInfo('greed'), 2) }))">
             <span>{{ $filters.toFixed(getValidatorInfo('cost_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_decentralization">
+        <div class="col_decentralization" @mouseover="emitter.emit('setNotification', $t('message.notice_col_decentralization', { validator_rank: $filters.toFixed(getValidatorInfo('validator_rank'), 2) }))">
             <span>{{ $filters.toFixed(getValidatorInfo('decentralization_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_confidence">
+        <div class="col_confidence" @mouseover="emitter.emit('setNotification', $t('message.notice_col_confidence', { ownership: $filters.toFixed(getValidatorInfo('ownership'), 2) }))">
             <span>{{ $filters.toFixed(getValidatorInfo('confidence_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_participation">
+        <div class="col_participation" @mouseover="emitter.emit('setNotification', $t('message.notice_col_participation', { voted: $filters.toFixed(getValidatorInfo('voted'), 2) }))">
             <span>{{ $filters.toFixed(getValidatorInfo('participation_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_reliability">
+        <div class="col_reliability" @mouseover="emitter.emit('setNotification', $t('message.notice_col_reliability', { staked: $filters.toFixed(getValidatorInfo('staked'), 0), delegator_shares: $filters.toFixed(getValidatorInfo('delegator_shares'), 0) }))">
             <span>{{ $filters.toFixed(getValidatorInfo('reliability_endorsement'), 4) }}</span>
         </div>
 
-        <div class="col_total">
+        <div class="col_total" @mouseover="emitter.emit('setNotification', $t('message.notice_col_total'))">
             <span>{{ $filters.toFixed(getValidatorInfo('total'), 4) }}</span>
         </div>
     </div>
@@ -79,7 +83,9 @@
 
     // Replacement of the logo if it is not present
     function imageLoadError(event) {
-        // event.target.src = 'alt-image.jpg'
+        event.target.classList.add('hide')
+
+        event.target.closest('.logo').style.backgroundColor = store.colors[Math.floor((Math.random()*store.colors.length))]
     }
 
 
@@ -99,6 +105,12 @@
 
                 // Hide compare error modal
                 emitter.emit('closeCompareErrorModal')
+
+                // Set identical options
+                store.setIdenticalOptions()
+
+                // Set Min/Max value
+                store.setMinMaxValue()
             } else {
                 // Limit is exceeded
                 e.preventDefault()
@@ -165,6 +177,11 @@
         border-left: 1px solid rgba(255, 255, 255, .05);
     }
 
+    .rating .validator > *.hide
+    {
+        display: none !important;
+    }
+
 
     .rating .validator .col_score
     {
@@ -216,6 +233,7 @@
     {
         position: relative;
 
+        display: flex;
         overflow: hidden;
 
         width: 24px;
@@ -224,6 +242,11 @@
         margin-right: 8px;
 
         border-radius: 50%;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
     }
 
     .rating .validator .col_moniker .logo img
@@ -240,6 +263,24 @@
         border-radius: 50%;
 
         object-fit: cover;
+    }
+
+    .rating .validator .col_moniker .logo img.hide
+    {
+        display: none;
+    }
+
+    .rating .validator .col_moniker .logo .icon
+    {
+        display: none;
+
+        width: 16px;
+        height: 16px;
+    }
+
+    .rating .validator .col_moniker .logo img.hide + .icon
+    {
+        display: block;
     }
 
 

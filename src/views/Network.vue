@@ -41,7 +41,7 @@
 
 
 <script setup>
-    import { ref, onMounted, watchEffect } from 'vue'
+    import { ref, watchEffect } from 'vue'
     import { useRoute } from 'vue-router'
     import { useGlobalStore } from '@/stores'
 
@@ -204,7 +204,7 @@
 
         overflow: auto;
 
-        max-height: calc(100vh - 318px);
+        max-height: calc(100vh - 296px);
         padding-right: 4px;
 
         flex: 1 0 auto;

@@ -1,25 +1,25 @@
 <template>
     <div class="table_head animate fadeInUp delay" v-animate>
         <div class="titles">
-            <div class="col_score ASC active" @click.prevent="sortData('rank', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))">
+            <div class="col_score ASC active" @click.prevent="sortData('rank', $event)">
                 <span>{{ $t('message.title_col_score') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
 
-            <div class="col_power" @click.prevent="sortData('validator_rank', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))">
+            <div class="col_power" @click.prevent="sortData('validator_rank', $event)">
                 <span>{{ $t('message.title_col_power') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
 
-            <div class="col_moniker" @click.prevent="sortData('moniker', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))">
+            <div class="col_moniker" @click.prevent="sortData('moniker', $event)">
                 <span>{{ $t('message.title_col_moniker') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
 
-            <div class="col_cost" @click.prevent="sortData('cost_optimization', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost'))">
+            <div class="col_cost" @click.prevent="sortData('cost_optimization', $event)">
                 <span>{{ $t('message.title_col_cost') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <div class="col_decentralization" @click.prevent="sortData('decentralization', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_decentralization'))">
+            <div class="col_decentralization" @click.prevent="sortData('decentralization', $event)">
                 <span>{{ $t('message.title_col_decentralization') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="col_confidence" @click.prevent="sortData('confidence', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_confidence'))">
+            <div class="col_confidence" @click.prevent="sortData('confidence', $event)">
                 <span>{{ $t('message.title_col_confidence') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-            <div class="col_participation" @click.prevent="sortData('participation', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_participation'))">
+            <div class="col_participation" @click.prevent="sortData('participation', $event)">
                 <span>{{ $t('message.title_col_participation') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="col_reliability" @click.prevent="sortData('reliability', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_reliability'))">
+            <div class="col_reliability" @click.prevent="sortData('reliability', $event)">
                 <span>{{ $t('message.title_col_reliability') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="col_total" @click.prevent="sortData('total', $event)" @mouseover="emitter.emit('setNotification', $t('message.notice_col_total'))">
+            <div class="col_total" @click.prevent="sortData('total', $event)">
                 <span>{{ $t('message.title_col_total') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
@@ -96,11 +96,9 @@
 
 
 <script setup>
-    import { inject } from 'vue'
     import { useGlobalStore } from '@/stores'
 
-    const store = useGlobalStore(),
-        emitter = inject('emitter')
+    const store = useGlobalStore()
 
 
     function getParamIndex(columnName) {
@@ -116,6 +114,7 @@
 
         // Change class
         document.querySelectorAll('.titles > *').forEach(el => el.classList.remove('active'))
+
         event.target.classList.remove('ASC', 'DESC')
         event.target.classList.add(direction, 'active')
 
@@ -182,6 +181,11 @@
     .titles > * > *
     {
         pointer-events: none;
+    }
+
+    .titles > *.hide
+    {
+        display: none !important;
     }
 
 

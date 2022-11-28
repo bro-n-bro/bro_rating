@@ -40,13 +40,18 @@ const router = createRouter({
 
 
 router.beforeEach((to, from, next) => {
+	const store = useGlobalStore()
+
 	// Set current network
 	if (to.query.network) {
-		const store = useGlobalStore()
-
 		if (store.currentNetwork != to.query.network) {
 			store.currentNetwork = to.query.network
 		}
+	}
+
+	// Compare redirect
+	if (store.compareValidators.length < 2 && to.name == 'Compare') {
+		router.push({ name: 'Home' })
 	}
 
 	next()

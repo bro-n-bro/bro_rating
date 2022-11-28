@@ -78,13 +78,13 @@
             event.target.classList.add('hide')
 
             // Hide column
-            columns.forEach(col => col.style.display = 'none')
+            columns.forEach(col => col.classList.add('hide'))
         } else {
             // Toggle class
             event.target.classList.remove('hide')
 
             // Show column
-            columns.forEach(col => col.style.display = 'flex')
+            columns.forEach(col => col.classList.remove('hide'))
         }
     }
 </script>
@@ -138,6 +138,7 @@
     .filter .dropdown
     {
         position: absolute;
+        z-index: 5;
         top: 100%;
         right: 0;
 
@@ -222,6 +223,27 @@
     .filter .dropdown .hide .icon + .icon
     {
         display: block;
+    }
+
+
+    .compare .filter
+    {
+        position: relative;
+
+        margin-left: 0;
+    }
+
+    .compare .filter > .btn
+    {
+        border: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .compare .filter .dropdown
+    {
+        right: auto;
+        left: -10px;
+
+        margin-top: 10px;
     }
 
 </style>

@@ -5,10 +5,13 @@ export const useGlobalStore = defineStore('global', {
         tooltip: '',
         compareLimit: 3,
         compareValidators: [],
+        compareIdenticalOptions: [],
+        compareMinMaxValue: [],
         searchValidators: [],
         currentNetwork: 'cosmoshub',
         showCompareErrorModal: false,
         ratingData: {},
+        colors: ['#950FFF', '#1BC562', '#EB5757', '#0343E8', '#F79400', '#DB11D3'],
         networks: {
             'cosmoshub': {
                 name: 'Cosmos Hub',
@@ -105,6 +108,56 @@ export const useGlobalStore = defineStore('global', {
             if (direction == 'DESC') { arr.reverse() }
 
             return arr
+        },
+
+
+        // Set identical options
+        setIdenticalOptions() {
+            let tempArr = []
+
+            this.compareValidators.forEach((el, index) => {
+                el.forEach((feature, i) => {
+                    if (tempArr[i] == feature) {
+                        if (index > 1) {
+                            if (this.compareIdenticalOptions[this.ratingData.schema[i]]) {
+                                this.compareIdenticalOptions[this.ratingData.schema[i]] = true
+                            }
+                        } else {
+                            this.compareIdenticalOptions[this.ratingData.schema[i]] = true
+                        }
+                    } else {
+                        this.compareIdenticalOptions[this.ratingData.schema[i]] = false
+                    }
+
+                    tempArr[i] = feature
+                })
+            })
+        },
+
+
+        // Set min/max value
+        setMinMaxValue() {
+            let tempArr = []
+
+            this.compareValidators.forEach(el => {
+                el.forEach((feature, i) => {
+                    tempArr[this.ratingData.schema[i]]
+                        ? tempArr[this.ratingData.schema[i]].push(feature)
+                        : tempArr[this.ratingData.schema[i]] = [feature]
+                })
+            })
+
+            setTimeout(() => {
+                for (let feature in tempArr) {
+                    let maxIndex = tempArr[feature].indexOf(Math.max.apply(null, tempArr[feature])),
+                        minIndex = tempArr[feature].indexOf(Math.min.apply(null, tempArr[feature]))
+
+                    this.compareMinMaxValue[feature] = {
+                        max: tempArr[feature].filter(value => value == tempArr[feature][maxIndex]).length > 1 ? null : maxIndex,
+                        min: tempArr[feature].filter(value => value == tempArr[feature][minIndex]).length > 1 ? null : minIndex
+                    }
+                }
+            })
         }
     }
 })

@@ -15,6 +15,8 @@
                 <div class="tip" v-for="(validator, index) in store.searchValidators" :key="index" @click.prevent="scrollToValidator(validator[getValidatorInfo('opeartor_address')])">
                     <div class="logo">
                         <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${validator[getValidatorInfo('opeartor_address')]}.png`" alt="" @error="imageLoadError" v-lazyload>
+
+                        <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
                     </div>
                     <div>{{ validator[getValidatorInfo('moniker')] }}</div>
                 </div>
@@ -55,7 +57,9 @@
 
     // Replacement of the logo if it is not present
     function imageLoadError(event) {
-        // event.target.src = 'alt-image.jpg'
+        event.target.classList.add('hide')
+
+        event.target.closest('.logo').style.backgroundColor = store.colors[Math.floor((Math.random()*store.colors.length))]
     }
 
 
@@ -254,6 +258,7 @@
     {
         position: relative;
 
+        display: flex;
         overflow: hidden;
 
         width: 16px;
@@ -261,7 +266,13 @@
         margin-right: 6px;
 
         border-radius: 50%;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
     }
+
 
     .search .tip .logo img
     {
@@ -278,6 +289,25 @@
 
         object-fit: cover;
     }
+
+    .search .tip .logo img.hide
+    {
+        display: none;
+    }
+
+    .search .tip .logo .icon
+    {
+        display: none;
+
+        width: 14px;
+        height: 14px;
+    }
+
+    .search .tip .logo img.hide + .icon
+    {
+        display: block;
+    }
+
 
     .search .tip .logo + *
     {

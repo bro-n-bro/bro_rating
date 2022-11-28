@@ -7,6 +7,7 @@
 		"build": "vue-cli-service build"
 	},
 	"dependencies": {
+		"@vueuse/core": "^9.6.0",
 		"core-js": "^3.8.3",
 		"mitt": "^3.0.0",
 		"pinia": "^2.0.18",
