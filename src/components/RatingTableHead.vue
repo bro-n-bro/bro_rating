@@ -1,81 +1,81 @@
 <template>
     <div class="table_head animate fadeInUp delay" v-animate>
         <div class="titles">
-            <div class="col_score ASC active" @click.prevent="sortData('rank', $event)">
+            <div class="col_score ASC active" @click="sortData('rank', $event)">
                 <span>{{ $t('message.title_col_score') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
 
-            <div class="col_power" @click.prevent="sortData('validator_rank', $event)">
+            <div class="col_power" @click="sortData('validator_rank', $event)">
                 <span>{{ $t('message.title_col_power') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
 
-            <div class="col_moniker" @click.prevent="sortData('moniker', $event)">
+            <div class="col_moniker" @click="sortData('moniker', $event)">
                 <span>{{ $t('message.title_col_moniker') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
 
-            <div class="col_cost" @click.prevent="sortData('cost_optimization', $event)">
+            <div class="col_cost" @click="sortData('cost_optimization', $event)">
                 <span>{{ $t('message.title_col_cost') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
 
                 <div class="more_info">
-                    <a href="/" target="_blank" rel="noopener nofollow">Get more info</a>
+                    <a href="https://github.com/bro-n-bro/bro_rating#cost-optimization" target="_blank" rel="noopener nofollow">Get more info</a>
                 </div>
             </div>
 
-            <div class="col_decentralization" @click.prevent="sortData('decentralization', $event)">
+            <div class="col_decentralization" @click="sortData('decentralization', $event)">
                 <span>{{ $t('message.title_col_decentralization') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
 
                 <div class="more_info">
-                    <a href="/" target="_blank" rel="noopener nofollow">Get more info</a>
+                    <a href="https://github.com/bro-n-bro/bro_rating#decentralization" target="_blank" rel="noopener nofollow">Get more info</a>
                 </div>
             </div>
 
-            <div class="col_confidence" @click.prevent="sortData('confidence', $event)">
+            <div class="col_confidence" @click="sortData('confidence', $event)">
                 <span>{{ $t('message.title_col_confidence') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
 
                 <div class="more_info">
-                    <a href="/" target="_blank" rel="noopener nofollow">Get more info</a>
+                    <a href="https://github.com/bro-n-bro/bro_rating#confidence" target="_blank" rel="noopener nofollow">Get more info</a>
                 </div>
             </div>
 
-            <div class="col_participation" @click.prevent="sortData('participation', $event)">
+            <div class="col_participation" @click="sortData('participation', $event)">
                 <span>{{ $t('message.title_col_participation') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
 
                 <div class="more_info">
-                    <a href="/" target="_blank" rel="noopener nofollow">Get more info</a>
+                    <a href="https://github.com/bro-n-bro/bro_rating#participation" target="_blank" rel="noopener nofollow">Get more info</a>
                 </div>
             </div>
 
-            <div class="col_reliability" @click.prevent="sortData('reliability', $event)">
+            <div class="col_reliability" @click="sortData('reliability', $event)">
                 <span>{{ $t('message.title_col_reliability') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
 
                 <div class="more_info">
-                    <a href="/" target="_blank" rel="noopener nofollow">Get more info</a>
+                    <a href="https://github.com/bro-n-bro/bro_rating#reliability" target="_blank" rel="noopener nofollow">Get more info</a>
                 </div>
             </div>
 
-            <div class="col_total" @click.prevent="sortData('total', $event)">
+            <div class="col_total" @click="sortData('total', $event)">
                 <span>{{ $t('message.title_col_total') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
 
                 <div class="more_info">
-                    <a href="/" target="_blank" rel="noopener nofollow">Get more info</a>
+                    <a href="https://github.com/bro-n-bro/bro_rating#bro-score-by-bro_n_bro" target="_blank" rel="noopener nofollow">Get more info</a>
                 </div>
             </div>
         </div>
@@ -117,6 +117,12 @@
 
         event.target.classList.remove('ASC', 'DESC')
         event.target.classList.add(direction, 'active')
+
+        // Updates logos
+        document.querySelectorAll('.rating .validator .col_moniker .logo img').forEach(el => {
+            el.classList.remove('hide', 'loaded')
+            el.removeAttribute('src')
+        })
 
         // Sorting
         store.sortData(getParamIndex(column), direction)

@@ -8,12 +8,12 @@
 
         <div>
             <div class="title">
-                {{ $t('message.compare_error_modal_title') }}
+                {{ $t('message.compare_error_modal_title', { limit: store.compareLimit }) }}
             </div>
 
-            <div class="desc">
+            <!-- <div class="desc">
                 {{ $t('message.compare_error_modal_desc') }}
-            </div>
+            </div> -->
         </div>
     </section>
 </template>
@@ -21,8 +21,11 @@
 
 <script setup>
     import { inject } from 'vue'
+    import { useGlobalStore } from '@/stores'
 
-    const emitter = inject('emitter')
+
+    const emitter = inject('emitter'),
+        store = useGlobalStore()
 </script>
 
 
@@ -40,7 +43,7 @@
         width: 378px;
         max-width: calc(100% - 48px);
         margin: auto;
-        padding: 22px 64px 16px 16px;
+        padding: 20px 64px 20px 16px;
 
         border-radius: 16px;
         background: #eb5757;

@@ -39,12 +39,12 @@
     watch(query, value => {
         store.searchValidators = []
 
-        let validators = store.ratingData.result
-
-        store.ratingData.result.forEach(el => {
-            if(el[getValidatorInfo('moniker')].includes(value)) {
-                store.searchValidators.push(el)
-            }
+        setTimeout(() => {
+            store.ratingData.result.forEach(el => {
+                if(el[getValidatorInfo('moniker')].toLowerCase().includes(value.toLowerCase())) {
+                    store.searchValidators.push(el)
+                }
+            })
         })
     })
 

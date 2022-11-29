@@ -158,11 +158,6 @@
         text-decoration: none;
 
         border-radius: 12px;
-        background: #141414;
-    }
-
-    .rating .compare_btn:hover
-    {
         background: #950fff;
     }
 

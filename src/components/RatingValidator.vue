@@ -1,7 +1,4 @@
 <template>
-    <!-- <pre>{{ props.validator }}</pre> -->
-    <!-- <pre>{{ props.schema }}</pre> -->
-
     <div class="validator" :class="{ 'pinned': props.validator.pinned }" :id="getValidatorInfo('opeartor_address')">
         <div class="col_score" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))">
             <div class="checkbox" @click.prevent="toggleToCompare($event, getValidatorInfo('opeartor_address'))">
@@ -18,9 +15,9 @@
             <div>{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
         </div>
 
-        <a :href="`https://www.mintscan.io/cosmos/validators/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'" @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))">
+        <a :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'" @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))">
             <div class="logo">
-                <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError" v-lazyload>
+                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
             </div>
@@ -29,14 +26,14 @@
 
         <a :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-else>
             <div class="logo">
-                <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError" v-lazyload>
+                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
             </div>
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 
-        <div class="col_cost" @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(getValidatorInfo('greed'), 2) }))">
+        <div class="col_cost" @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(getValidatorInfo('greed') * 100, 2) }))">
             <span>{{ $filters.toFixed(getValidatorInfo('cost_endorsement'), 2) }}</span>
         </div>
 
@@ -52,7 +49,11 @@
             <span>{{ $filters.toFixed(getValidatorInfo('participation_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_reliability" @mouseover="emitter.emit('setNotification', $t('message.notice_col_reliability', { staked: $filters.toFixed(getValidatorInfo('staked'), 0), delegator_shares: $filters.toFixed(getValidatorInfo('delegator_shares'), 0) }))">
+        <div class="col_reliability" @mouseover="emitter.emit('setNotification', $t('message.notice_col_reliability', {
+            staked: $filters.toFixed(getValidatorInfo('staked') / store.networks[store.currentNetwork].exponent, 0),
+            delegator_shares: $filters.toFixed(getValidatorInfo('delegator_shares') / store.networks[store.currentNetwork].exponent, 0),
+            token: store.networks[store.currentNetwork].token_name
+        }))">
             <span>{{ $filters.toFixed(getValidatorInfo('reliability_endorsement'), 4) }}</span>
         </div>
 
@@ -220,6 +221,7 @@
         font-size: 12px;
         line-height: 15px;
 
+        text-align: left;
         text-decoration: none;
 
         justify-content: flex-start;
@@ -281,6 +283,17 @@
     .rating .validator .col_moniker .logo img.hide + .icon
     {
         display: block;
+    }
+
+    .rating .validator .col_moniker .logo + *
+    {
+        display: block;
+        overflow: hidden;
+
+        width: calc(100% - 32px);
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
 

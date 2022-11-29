@@ -16,42 +16,65 @@ export const useGlobalStore = defineStore('global', {
             'cosmoshub': {
                 name: 'Cosmos Hub',
                 token: 'ATOM',
-                alias: 'cosmoshub'
+                alias: 'cosmoshub',
+                mintscanAlias: 'cosmos',
+                exponent: 1000000,
+                token_name: 'ATOM'
             },
             'bostrom': {
                 name: 'Bostrom',
                 token: 'BOOT',
-                alias: 'bostrom'
+                alias: 'bostrom',
+                exponent: 1000000,
+                token_name: 'MBOOT'
             },
             'stargaze': {
                 name: 'Stargaze',
                 token: 'STARS',
-                alias: 'stargaze'
+                alias: 'stargaze',
+                mintscanAlias: 'stargaze',
+                exponent: 1000000,
+                token_name: 'STARS'
             },
             'juno': {
                 name: 'Juno',
                 token: 'JUNO',
-                alias: 'juno'
+                alias: 'juno',
+                mintscanAlias: 'juno',
+                exponent: 1000000,
+                token_name: 'JUNO'
             },
             'crescent': {
                 name: 'Crescent hub',
                 token: 'CRE',
-                alias: 'crescent'
+                alias: 'crescent',
+                mintscanAlias: 'crescent',
+                exponent: 1000000,
+                token_name: 'CRE'
             },
             'gravity': {
                 name: 'Gravity bridge',
                 token: 'GRAVITION',
-                alias: 'gravity'
+                alias: 'gravity',
+                mintscanAlias: 'gravity-bridge',
+                exponent: 1000000,
+                token_name: 'GRAV'
             },
             'osmosis': {
                 name: 'Osmosis',
                 token: 'OSMO',
-                alias: 'osmosis'
+                alias: 'osmosis',
+                mintscanAlias: 'osmosis',
+                exponent: 1000000,
+                token_name: 'OSMO'
             },
             'stride': {
                 name: 'Stride',
                 token: 'STRD',
-                alias: 'stride'
+                alias: 'stride',
+                mintscanAlias: 'stride',
+                exponent: 1000000,
+                token_name: 'STRD'
             }
         }
     }),

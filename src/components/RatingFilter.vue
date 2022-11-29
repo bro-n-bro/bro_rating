@@ -15,10 +15,22 @@
                 <span>{{ $t('message.title_col_cost') }}</span>
             </button>
 
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_cost2',)">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_cost2') }}</span>
+            </button>
+
             <button class="btn" @click.prevent="toggleColumn($event, '.col_decentralization')">
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
                 <span>{{ $t('message.title_col_decentralization') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_decentralization2')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_decentralization2') }}</span>
             </button>
 
             <button class="btn" @click.prevent="toggleColumn($event, '.col_confidence')">
@@ -27,16 +39,70 @@
                 <span>{{ $t('message.title_col_confidence') }}</span>
             </button>
 
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_confidence2')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_confidence2') }}</span>
+            </button>
+
             <button class="btn" @click.prevent="toggleColumn($event, '.col_participation')">
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
                 <span>{{ $t('message.title_col_participation') }}</span>
             </button>
 
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_participation2')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_participation2') }}</span>
+            </button>
+
             <button class="btn" @click.prevent="toggleColumn($event, '.col_reliability')">
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
                 <span>{{ $t('message.title_col_reliability') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_reliability2')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_reliability2') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_staked')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_staked') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_delegator_shares')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_delegator_shares') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_greed')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_greed') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_ownership')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_ownership') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_voted')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_voted') }}</span>
+            </button>
+
+            <button class="btn hidden" @click.prevent="toggleColumn($event, '.col_isjailed')">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye"></use></svg>
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_eye2"></use></svg>
+                <span>{{ $t('message.title_col_isjailed') }}</span>
             </button>
 
             <button class="btn" @click.prevent="toggleColumn($event, '.col_total')">
@@ -154,6 +220,12 @@
         overscroll-behavior-y: contain;
     }
 
+    .filter .dropdown::-webkit-scrollbar
+    {
+        width: 5px;
+        height: 5px;
+    }
+
 
     .filter .dropdown .title
     {
@@ -238,11 +310,17 @@
         border: 1px solid rgba(255, 255, 255, .1);
     }
 
+    .compare .filter > .btn.hidden
+    {
+        display: flex;
+    }
+
     .compare .filter .dropdown
     {
         right: auto;
         left: -10px;
 
+        max-height: 446px;
         margin-top: 10px;
     }
 
