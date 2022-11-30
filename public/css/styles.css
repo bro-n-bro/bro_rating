@@ -349,3 +349,46 @@ button
 {
     transform: translateX(0);
 }
+
+
+
+@media print,
+(max-width: 1439px)
+{
+    :root
+    {
+        --font_size: 15px;
+    }
+
+
+    .cont
+    {
+        padding: 0 24px;
+    }
+}
+
+
+
+@media print,
+(max-width: 1279px)
+{
+    /*-------------------
+        Global styles
+    -------------------*/
+    html.custom_scroll ::-webkit-scrollbar
+    {
+        width: 5px;
+        height: 5px;
+    }
+}
+
+
+
+@media print,
+(max-width: 479px)
+{
+    :root
+    {
+        --font_size: 14px;
+    }
+}

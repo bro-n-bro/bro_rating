@@ -257,6 +257,11 @@
         flex-wrap: wrap;
     }
 
+    .filter .dropdown .btn.hidden
+    {
+        display: none;
+    }
+
     .filter .dropdown .btn + .btn
     {
         margin-top: 10px;
@@ -322,6 +327,88 @@
 
         max-height: 446px;
         margin-top: 10px;
+
+        border-radius: 8px 2px 2px 8px;
+    }
+
+
+
+    @media print, (max-width: 1439px)
+    {
+        .filter .dropdown
+        {
+            width: 320px;
+        }
+
+
+        .filter .dropdown .title
+        {
+            font-size: 20px;
+            line-height: 26px;
+        }
+
+
+        .filter .dropdown .btn + .btn
+        {
+            margin-top: 6px;
+        }
+
+
+        .compare .filter .dropdown
+        {
+            max-height: 365px;
+        }
+    }
+
+
+
+    @media print, (max-width: 1279px)
+    {
+        .filter .dropdown .title
+        {
+            font-size: 19px;
+            line-height: 25px;
+        }
+    }
+
+
+
+    @media print, (max-width: 1023px)
+    {
+        .filter .dropdown .title
+        {
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        .filter .dropdown .title
+        {
+            font-size: 17px;
+            line-height: 23px;
+
+            margin-bottom: 16px;
+        }
+    }
+
+
+
+    @media print, (max-width: 479px)
+    {
+        .filter .dropdown
+        {
+            width: 287px;
+            padding-left: 10px;
+        }
+
+        .compare .filter .dropdown
+        {
+            max-height: 309px;
+        }
     }
 
 </style>

@@ -51,11 +51,28 @@
 
 
 
-    header .notifications
+    @media print, (max-width: 1439px)
     {
-        width: calc(100% - 519px);
-        margin-right: auto;
-        margin-left: auto;
+        header .logo img
+        {
+            height: 60px;
+        }
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        header
+        {
+            padding: 10px 0;
+        }
+
+
+        header .logo img
+        {
+            height: 52px;
+        }
     }
 
 </style>

@@ -28,39 +28,73 @@
                         </div>
 
                         <div class="features">
-                            <div class="col_cost" :class="{ identical: store.compareIdenticalOptions['cost_optimization'] }">{{ $t('message.title_col_cost') }}</div>
+                            <div class="col_cost" :class="{ identical: store.compareIdenticalOptions['cost_optimization'] }">
+                                {{ $t('message.title_col_cost') }}
+                            </div>
 
-                            <div class="col_cost2" :class="{ identical: store.compareIdenticalOptions['cost_endorsement'] }">{{ $t('message.title_col_cost2') }}</div>
+                            <div class="col_cost2" :class="{ identical: store.compareIdenticalOptions['cost_endorsement'] }">
+                                {{ $t('message.title_col_cost2') }}
+                            </div>
 
-                            <div class="col_decentralization" :class="{ identical: store.compareIdenticalOptions['decentralization'] }">{{ $t('message.title_col_decentralization') }}</div>
+                            <div class="col_decentralization" :class="{ identical: store.compareIdenticalOptions['decentralization'] }">
+                                {{ $t('message.title_col_decentralization') }}
+                            </div>
 
-                            <div class="col_decentralization2" :class="{ identical: store.compareIdenticalOptions['decentralization_endorsement'] }">{{ $t('message.title_col_decentralization2') }}</div>
+                            <div class="col_decentralization2" :class="{ identical: store.compareIdenticalOptions['decentralization_endorsement'] }">
+                                {{ $t('message.title_col_decentralization2') }}
+                            </div>
 
-                            <div class="col_confidence" :class="{ identical: store.compareIdenticalOptions['confidence'] }">{{ $t('message.title_col_confidence') }}</div>
+                            <div class="col_confidence" :class="{ identical: store.compareIdenticalOptions['confidence'] }">
+                                {{ $t('message.title_col_confidence') }}
+                            </div>
 
-                            <div class="col_confidence2" :class="{ identical: store.compareIdenticalOptions['confidence_endorsement'] }">{{ $t('message.title_col_confidence2') }}</div>
+                            <div class="col_confidence2" :class="{ identical: store.compareIdenticalOptions['confidence_endorsement'] }">
+                                {{ $t('message.title_col_confidence2') }}
+                             </div>
 
-                            <div class="col_participation" :class="{ identical: store.compareIdenticalOptions['participation'] }">{{ $t('message.title_col_participation') }}</div>
+                            <div class="col_participation" :class="{ identical: store.compareIdenticalOptions['participation'] }">
+                                {{ $t('message.title_col_participation') }}
+                             </div>
 
-                            <div class="col_participation2" :class="{ identical: store.compareIdenticalOptions['participation_endorsement'] }">{{ $t('message.title_col_participation2') }}</div>
+                            <div class="col_participation2" :class="{ identical: store.compareIdenticalOptions['participation_endorsement'] }">
+                                {{ $t('message.title_col_participation2') }}
+                            </div>
 
-                            <div class="col_reliability" :class="{ identical: store.compareIdenticalOptions['reliability'] }">{{ $t('message.title_col_reliability') }}</div>
+                            <div class="col_reliability" :class="{ identical: store.compareIdenticalOptions['reliability'] }">
+                                {{ $t('message.title_col_reliability') }}
+                             </div>
 
-                            <div class="col_reliability2" :class="{ identical: store.compareIdenticalOptions['reliability_endorsement'] }">{{ $t('message.title_col_reliability2') }}</div>
+                            <div class="col_reliability2" :class="{ identical: store.compareIdenticalOptions['reliability_endorsement'] }">
+                                {{ $t('message.title_col_reliability2') }}
+                            </div>
 
-                            <div class="col_staked" :class="{ identical: store.compareIdenticalOptions['staked'] }">{{ $t('message.title_col_staked') }}</div>
+                            <div class="col_staked" :class="{ identical: store.compareIdenticalOptions['staked'] }">
+                                {{ $t('message.title_col_staked') }}
+                            </div>
 
-                            <div class="col_delegator_shares" :class="{ identical: store.compareIdenticalOptions['delegator_shares'] }">{{ $t('message.title_col_delegator_shares') }}</div>
+                            <div class="col_delegator_shares" :class="{ identical: store.compareIdenticalOptions['delegator_shares'] }">
+                                {{ $t('message.title_col_delegator_shares') }}
+                            </div>
 
-                            <div class="col_greed" :class="{ identical: store.compareIdenticalOptions['greed'] }">{{ $t('message.title_col_greed') }}</div>
+                            <div class="col_greed" :class="{ identical: store.compareIdenticalOptions['greed'] }">
+                                {{ $t('message.title_col_greed') }}
+                            </div>
 
-                            <div class="col_ownership" :class="{ identical: store.compareIdenticalOptions['ownership'] }">{{ $t('message.title_col_ownership') }}</div>
+                            <div class="col_ownership" :class="{ identical: store.compareIdenticalOptions['ownership'] }">
+                                {{ $t('message.title_col_ownership') }}
+                            </div>
 
-                            <div class="col_voted" :class="{ identical: store.compareIdenticalOptions['voted'] }">{{ $t('message.title_col_voted') }}</div>
+                            <div class="col_voted" :class="{ identical: store.compareIdenticalOptions['voted'] }">
+                                {{ $t('message.title_col_voted') }}
+                             </div>
 
-                            <div class="col_isjailed" :class="{ identical: store.compareIdenticalOptions['isjailed'] }">{{ $t('message.title_col_isjailed') }}</div>
+                            <div class="col_isjailed" :class="{ identical: store.compareIdenticalOptions['isjailed'] }">
+                                {{ $t('message.title_col_isjailed') }}
+                            </div>
 
-                            <div class="col_total" :class="{ identical: store.compareIdenticalOptions['total'] }">{{ $t('message.title_col_total') }}</div>
+                            <div class="col_total" :class="{ identical: store.compareIdenticalOptions['total'] }">
+                                {{ $t('message.title_col_total') }}
+                            </div>
                         </div>
                     </div>
 
@@ -78,7 +112,7 @@
                                 </div>
 
                                 <div class="vals">
-                                    <div class="col_cost" :class="{
+                                    <div class="col_cost" :data-column="$t('message.title_col_cost')" :class="{
                                         identical: store.compareIdenticalOptions['cost_optimization'],
                                         green: store.compareMinMaxValue['cost_optimization'].max == index,
                                         red: store.compareMinMaxValue['cost_optimization'].min == index
@@ -86,7 +120,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('cost_optimization')], 2) }}
                                     </div>
 
-                                    <div class="col_cost2" :class="{
+                                    <div class="col_cost2" :data-column="$t('message.title_col_cost2')" :class="{
                                         identical: store.compareIdenticalOptions['cost_endorsement'],
                                         green: store.compareMinMaxValue['cost_endorsement'].max == index,
                                         red: store.compareMinMaxValue['cost_endorsement'].min == index
@@ -94,7 +128,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('cost_endorsement')], 2) }}
                                     </div>
 
-                                    <div class="col_decentralization" :class="{
+                                    <div class="col_decentralization" :data-column="$t('message.title_col_decentralization')" :class="{
                                         identical: store.compareIdenticalOptions['decentralization'],
                                         green: store.compareMinMaxValue['decentralization'].max == index,
                                         red: store.compareMinMaxValue['decentralization'].min == index
@@ -102,7 +136,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('decentralization')], 2) }}
                                     </div>
 
-                                    <div class="col_decentralization2" :class="{
+                                    <div class="col_decentralization2" :data-column="$t('message.title_col_decentralization2')" :class="{
                                         identical: store.compareIdenticalOptions['decentralization_endorsement'],
                                         green: store.compareMinMaxValue['decentralization_endorsement'].max == index,
                                         red: store.compareMinMaxValue['decentralization_endorsement'].min == index
@@ -110,7 +144,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('decentralization_endorsement')], 2) }}
                                     </div>
 
-                                    <div class="col_confidence" :class="{
+                                    <div class="col_confidence" :data-column="$t('message.title_col_confidence')" :class="{
                                         identical: store.compareIdenticalOptions['confidence'],
                                         green: store.compareMinMaxValue['confidence'].max == index,
                                         red: store.compareMinMaxValue['confidence'].min == index
@@ -118,7 +152,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('confidence')], 2) }}
                                     </div>
 
-                                    <div class="col_confidence2" :class="{
+                                    <div class="col_confidence2" :data-column="$t('message.title_col_confidence2')" :class="{
                                         identical: store.compareIdenticalOptions['confidence_endorsement'],
                                         green: store.compareMinMaxValue['confidence_endorsement'].max == index,
                                         red: store.compareMinMaxValue['confidence_endorsement'].min == index
@@ -126,7 +160,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('confidence_endorsement')], 2) }}
                                     </div>
 
-                                    <div class="col_participation" :class="{
+                                    <div class="col_participation" :data-column="$t('message.title_col_participation')" :class="{
                                         identical: store.compareIdenticalOptions['participation'],
                                         green: store.compareMinMaxValue['participation'].max == index,
                                         red: store.compareMinMaxValue['participation'].min == index
@@ -134,7 +168,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('participation')], 2) }}
                                     </div>
 
-                                    <div class="col_participation2" :class="{
+                                    <div class="col_participation2" :data-column="$t('message.title_col_participation2')" :class="{
                                         identical: store.compareIdenticalOptions['participation_endorsement'],
                                         green: store.compareMinMaxValue['participation_endorsement'].max == index,
                                         red: store.compareMinMaxValue['participation_endorsement'].min == index
@@ -142,7 +176,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('participation_endorsement')], 2) }}
                                     </div>
 
-                                    <div class="col_reliability" :class="{
+                                    <div class="col_reliability" :data-column="$t('message.title_col_reliability')" :class="{
                                         identical: store.compareIdenticalOptions['reliability'],
                                         green: store.compareMinMaxValue['reliability'].max == index,
                                         red: store.compareMinMaxValue['reliability'].min == index
@@ -150,7 +184,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('reliability')], 2) }}
                                     </div>
 
-                                    <div class="col_reliability2" :class="{
+                                    <div class="col_reliability2" :data-column="$t('message.title_col_reliability2')" :class="{
                                         identical: store.compareIdenticalOptions['reliability_endorsement'],
                                         green: store.compareMinMaxValue['reliability_endorsement'].max == index,
                                         red: store.compareMinMaxValue['reliability_endorsement'].min == index
@@ -158,7 +192,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('reliability_endorsement')], 2) }}
                                     </div>
 
-                                    <div class="col_staked" :class="{
+                                    <div class="col_staked" :data-column="$t('message.title_col_staked')" :class="{
                                         identical: store.compareIdenticalOptions['staked'],
                                         green: store.compareMinMaxValue['staked'].max == index,
                                         red: store.compareMinMaxValue['staked'].min == index
@@ -166,7 +200,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent, 2) }}
                                     </div>
 
-                                    <div class="col_delegator_shares" :class="{
+                                    <div class="col_delegator_shares" :data-column="$t('message.title_col_delegator_shares')" :class="{
                                         identical: store.compareIdenticalOptions['delegator_shares'],
                                         green: store.compareMinMaxValue['delegator_shares'].max == index,
                                         red: store.compareMinMaxValue['delegator_shares'].min == index
@@ -174,7 +208,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('delegator_shares')] / store.networks[store.currentNetwork].exponent, 2) }}
                                     </div>
 
-                                    <div class="col_greed" :class="{
+                                    <div class="col_greed" :data-column="$t('message.title_col_greed')" :class="{
                                         identical: store.compareIdenticalOptions['greed'],
                                         green: store.compareMinMaxValue['greed'].max == index,
                                         red: store.compareMinMaxValue['greed'].min == index
@@ -182,7 +216,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('greed')], 2) }}
                                     </div>
 
-                                    <div class="col_ownership" :class="{
+                                    <div class="col_ownership" :data-column="$t('message.title_col_ownership')" :class="{
                                         identical: store.compareIdenticalOptions['ownership'],
                                         green: store.compareMinMaxValue['ownership'].max == index,
                                         red: store.compareMinMaxValue['ownership'].min == index
@@ -190,7 +224,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('ownership')], 2) }}
                                     </div>
 
-                                    <div class="col_voted" :class="{
+                                    <div class="col_voted" :data-column="$t('message.title_col_voted')" :class="{
                                         identical: store.compareIdenticalOptions['voted'],
                                         green: store.compareMinMaxValue['voted'].max == index,
                                         red: store.compareMinMaxValue['voted'].min == index
@@ -198,7 +232,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('voted')], 2) }}
                                     </div>
 
-                                    <div class="col_isjailed" :class="{
+                                    <div class="col_isjailed" :data-column="$t('message.title_col_isjailed')" :class="{
                                         identical: store.compareIdenticalOptions['isjailed'],
                                         green: store.compareMinMaxValue['isjailed'].max == index,
                                         red: store.compareMinMaxValue['isjailed'].min == index
@@ -206,7 +240,7 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('isjailed')], 2) }}
                                     </div>
 
-                                    <div class="col_total" :class="{
+                                    <div class="col_total" :data-column="$t('message.title_col_total')" :class="{
                                         identical: store.compareIdenticalOptions['total'],
                                         green: store.compareMinMaxValue['total'].max == index,
                                         red: store.compareMinMaxValue['total'].min == index
@@ -335,6 +369,9 @@
 
     .compare .col_left
     {
+        position: relative;
+        z-index: 3;
+
         width: 235px;
         max-width: 100%;
     }
@@ -629,6 +666,175 @@
     .compare .validator .vals > * + *
     {
         margin-top: 6px;
+    }
+
+
+
+    @media print, (max-width: 1439px)
+    {
+        .compare .block_title
+        {
+            font-size: 32px;
+        }
+    }
+
+
+
+    @media print, (max-width: 1279px)
+    {
+        .compare .block_title
+        {
+            font-size: 30px;
+        }
+
+
+        .compare .col_main
+        {
+            width: calc(100% - 255px);
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+
+
+
+    @media print, (max-width: 1023px)
+    {
+        .compare .block_title
+        {
+            font-size: 28px;
+            line-height: 34px;
+        }
+
+
+        .compare .col_left
+        {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+
+        .compare .filter_wrap
+        {
+            height: auto;
+        }
+
+
+        .compare .identical_options
+        {
+            margin-top: 12px;
+            padding: 4px 0;
+        }
+
+
+        .compare .features
+        {
+            display: none;
+        }
+
+
+        .compare .col_main
+        {
+            width: 100%;
+            margin: 0;
+        }
+
+
+        .compare .validator .vals > *:before
+        {
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 17px;
+
+            display: block;
+
+            width: 100%;
+            margin-bottom: 8px;
+
+            content: attr(data-column);
+            letter-spacing: 0;
+            text-transform: none;
+
+            opacity: .5;
+        }
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        .compare .block_title
+        {
+            font-size: 26px;
+            line-height: 32px;
+        }
+
+
+        .compare .col_main .row
+        {
+            display: block;
+            overflow: auto;
+
+            width: calc(100% + 40px);
+            margin: 0 -20px;
+            padding: 0 20px;
+
+            white-space: nowrap;
+
+            scrollbar-color: transparent transparent !important;
+            scrollbar-width: thin !important;
+        }
+
+        .compare .col_main .row::-webkit-scrollbar
+        {
+            width: 0 !important;
+            height: 0 !important;
+
+            background-color: transparent !important;
+        }
+
+        .compare .col_main .row::-webkit-scrollbar-thumb
+        {
+            background-color: transparent !important;
+        }
+
+
+        .compare .col_main .row > *
+        {
+            display: inline-block;
+
+            width: 240px;
+            max-width: none;
+            margin: 0;
+
+            vertical-align: top;
+            white-space: normal;
+        }
+
+        .compare .col_main .row > *.animate
+        {
+            visibility: visible;
+
+            transform: none;
+
+            opacity: 1;
+        }
+
+        .compare .col_main .row > * + *
+        {
+            margin-left: 16px;
+        }
+    }
+
+
+
+    @media print, (max-width: 479px)
+    {
+        .compare .block_title
+        {
+            font-size: 24px;
+            line-height: 30px;
+        }
     }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="search">
-        <button class="btn" @click.prevent="showDropdown = !showDropdown">
+        <button class="btn" @click.prevent="showDropdown = !showDropdown" :class="{ hide: showDropdown }">
             <svg class="icon"><use xlink:href="/sprite.svg#ic_search"></use></svg>
         </button>
 
@@ -119,6 +119,11 @@
     .search .btn:hover
     {
         background: #950fff;
+    }
+
+    .search .btn.hide
+    {
+        opacity: 0;
     }
 
     .search .btn.active
@@ -320,6 +325,16 @@
     .search .tip:hover
     {
         background: #191919;
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        .search .mini_modal
+        {
+            width: calc(100vw - 130px);
+        }
     }
 
 </style>

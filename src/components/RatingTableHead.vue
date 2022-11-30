@@ -323,6 +323,7 @@
     {
         display: flex;
 
+        width: calc(100% - 24px);
         margin-bottom: -10px;
         margin-left: -10px;
 
@@ -339,6 +340,7 @@
 
         display: flex;
 
+        max-width: 100%;
         margin-bottom: 10px;
         margin-left: 10px;
         padding: 9px;
@@ -364,6 +366,13 @@
     {
         position: relative;
         top: -1px;
+
+        display: block;
+        overflow: hidden;
+
+        max-width: 130px;
+
+        text-overflow: ellipsis;
     }
 
     .pinned_items .btn svg
@@ -374,6 +383,52 @@
         min-width: 20px;
         height: 20px;
         margin-left: 6px;
+    }
+
+
+
+    @media print, (max-width: 1359px)
+    {
+        .titles
+        {
+            display: none;
+        }
+
+
+        .pinned_items
+        {
+            border: none;
+            border-radius: 8px;
+        }
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        .pinned_items .btn span
+        {
+            max-width: 122px;
+        }
+    }
+
+
+
+    @media print, (max-width: 479px)
+    {
+        .pinned_items .btn
+        {
+            font-size: 12px;
+
+            padding: 7px;
+        }
+
+        .pinned_items .btn span
+        {
+            top: 0;
+
+            max-width: none;
+        }
     }
 
 </style>

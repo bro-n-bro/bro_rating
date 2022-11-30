@@ -199,6 +199,12 @@
         overscroll-behavior-y: contain;
     }
 
+    .choose_network .mini_modal .scroll::-webkit-scrollbar
+    {
+        width: 5px;
+        height: 5px;
+    }
+
     header .choose_network .mini_modal .scroll
     {
         max-height: calc(100vh - 134px);
@@ -307,6 +313,33 @@
     .choose_network .network.active .icon
     {
         opacity: 1;
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        .choose_network
+        {
+            width: 224px;
+        }
+
+
+        .choose_network .btn .name
+        {
+            font-size: 16px;
+        }
+    }
+
+
+
+    @media print, (max-width: 479px)
+    {
+        .choose_network
+        {
+            width: 100%;
+            margin-top: 20px;
+        }
     }
 
 </style>

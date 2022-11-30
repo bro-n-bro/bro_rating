@@ -1,6 +1,6 @@
 <template>
     <div class="validator" :class="{ 'pinned': props.validator.pinned }" :id="getValidatorInfo('opeartor_address')">
-        <div class="col_score" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))">
+        <div class="col_score" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))" :data-column="$t('message.title_col_score')">
             <div class="checkbox" @click.prevent="toggleToCompare($event, getValidatorInfo('opeartor_address'))">
                 <svg><use xlink:href="/sprite.svg#ic_check"></use></svg>
             </div>
@@ -11,11 +11,15 @@
             </span>
         </div>
 
-        <div class="col_power" @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))">
+        <div class="col_power" @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))" :data-column="$t('message.title_col_power')">
             <div>{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
         </div>
 
-        <a :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'" @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))">
+        <a target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'"
+            :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${getValidatorInfo('opeartor_address')}`"
+            @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))"
+            :data-column="$t('message.title_col_moniker')"
+        >
             <div class="logo">
                 <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
 
@@ -24,7 +28,10 @@
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 
-        <a :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`" target="_blank" rel="noopener nofollow" class="col_moniker" v-else>
+        <a target="_blank" rel="noopener nofollow" class="col_moniker" v-else
+            :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`"
+            :data-column="$t('message.title_col_moniker')"
+        >
             <div class="logo">
                 <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
 
@@ -33,19 +40,19 @@
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 
-        <div class="col_cost" @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(getValidatorInfo('greed') * 100, 2) }))">
+        <div class="col_cost" @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(getValidatorInfo('greed') * 100, 2) }))" :data-column="$t('message.title_col_cost')">
             <span>{{ $filters.toFixed(getValidatorInfo('cost_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_decentralization" @mouseover="emitter.emit('setNotification', $t('message.notice_col_decentralization', { validator_rank: $filters.toFixed(getValidatorInfo('validator_rank'), 2) }))">
+        <div class="col_decentralization" @mouseover="emitter.emit('setNotification', $t('message.notice_col_decentralization', { validator_rank: $filters.toFixed(getValidatorInfo('validator_rank'), 2) }))" :data-column="$t('message.title_col_decentralization')">
             <span>{{ $filters.toFixed(getValidatorInfo('decentralization_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_confidence" @mouseover="emitter.emit('setNotification', $t('message.notice_col_confidence', { ownership: $filters.toFixed(getValidatorInfo('ownership'), 2) }))">
+        <div class="col_confidence" @mouseover="emitter.emit('setNotification', $t('message.notice_col_confidence', { ownership: $filters.toFixed(getValidatorInfo('ownership'), 2) }))" :data-column="$t('message.title_col_confidence')">
             <span>{{ $filters.toFixed(getValidatorInfo('confidence_endorsement'), 2) }}</span>
         </div>
 
-        <div class="col_participation" @mouseover="emitter.emit('setNotification', $t('message.notice_col_participation', { voted: $filters.toFixed(getValidatorInfo('voted'), 2) }))">
+        <div class="col_participation" @mouseover="emitter.emit('setNotification', $t('message.notice_col_participation', { voted: $filters.toFixed(getValidatorInfo('voted'), 2) }))" :data-column="$t('message.title_col_participation')">
             <span>{{ $filters.toFixed(getValidatorInfo('participation_endorsement'), 2) }}</span>
         </div>
 
@@ -53,11 +60,11 @@
             staked: $filters.toFixed(getValidatorInfo('staked') / store.networks[store.currentNetwork].exponent, 0),
             delegator_shares: $filters.toFixed(getValidatorInfo('delegator_shares') / store.networks[store.currentNetwork].exponent, 0),
             token: store.networks[store.currentNetwork].token_name
-        }))">
+        }))" :data-column="$t('message.title_col_reliability')">
             <span>{{ $filters.toFixed(getValidatorInfo('reliability_endorsement'), 4) }}</span>
         </div>
 
-        <div class="col_total" @mouseover="emitter.emit('setNotification', $t('message.notice_col_total'))">
+        <div class="col_total" @mouseover="emitter.emit('setNotification', $t('message.notice_col_total'))" :data-column="$t('message.title_col_total')">
             <span>{{ $filters.toFixed(getValidatorInfo('total'), 4) }}</span>
         </div>
     </div>
@@ -291,6 +298,7 @@
         overflow: hidden;
 
         width: calc(100% - 32px);
+        max-width: 216px;
 
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -388,6 +396,119 @@
         100%
         {
             background: transparent;
+        }
+    }
+
+
+
+    @media print, (max-width: 1359px)
+    {
+        .rating .validator
+        {
+            padding: 20px;
+
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .05);
+
+            flex-wrap: wrap;
+            align-items: flex-start;
+            align-content: flex-start;
+        }
+
+        .rating .validator + .validator,
+        .rating .validator > * + *
+        {
+            border: none;
+        }
+
+        .rating .validator > *
+        {
+            padding: 0;
+        }
+
+
+        .rating .validator .checkbox
+        {
+            position: relative;
+            top: 1px;
+        }
+
+
+        .rating .validator .col_score
+        {
+            width: 33.333%;
+            min-width: 0;
+
+            justify-content: flex-start;
+            order: 1;
+        }
+
+        .rating .validator .col_moniker
+        {
+            width: 100%;
+            min-width: 0;
+            margin-top: 4px;
+
+            justify-content: flex-start;
+            order: 3;
+            flex-wrap: wrap;
+        }
+
+        .rating .validator .col_power
+        {
+            width: 33.333%;
+            min-width: 0;
+
+            justify-content: flex-start;
+            order: 2;
+        }
+
+        .rating .validator .col_power div
+        {
+            margin: 0;
+        }
+
+        .rating .validator .col_cost,
+        .rating .validator .col_decentralization,
+        .rating .validator .col_confidence,
+        .rating .validator .col_participation,
+        .rating .validator .col_reliability,
+        .rating .validator .col_total
+        {
+            width: 37.5%;
+            min-width: 0;
+            margin-top: 20px;
+
+            text-align: left;
+
+            justify-content: flex-start;
+            order: 5;
+        }
+
+        .rating .validator .col_confidence,
+        .rating .validator .col_total
+        {
+            width: 25%;
+        }
+
+
+        .rating .validator > *:before
+        {
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 17px;
+
+            display: block;
+
+            width: 100%;
+            margin-bottom: 8px;
+
+            content: attr(data-column);
+            text-align: left;
+            letter-spacing: 0;
+            text-transform: none;
+
+            opacity: .5;
         }
     }
 

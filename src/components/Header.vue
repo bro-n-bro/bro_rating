@@ -71,4 +71,66 @@
         margin-left: auto;
     }
 
+
+
+    @media print, (max-width: 1899px)
+    {
+        header .notifications
+        {
+            width: calc(100% - 524px);
+        }
+    }
+
+
+
+    @media print, (max-width: 1439px)
+    {
+        header .logo img
+        {
+            height: 60px;
+        }
+
+
+        header .notifications
+        {
+            width: calc(100% - 484px);
+        }
+    }
+
+
+
+    @media print, (max-width: 1023px)
+    {
+        header .notifications
+        {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: -20px;
+
+            order: 2;
+        }
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        header
+        {
+            padding: 10px 0;
+        }
+
+
+        header .logo img
+        {
+            height: 52px;
+        }
+
+
+        header .notifications
+        {
+            margin-bottom: -12px;
+        }
+    }
+
 </style>
