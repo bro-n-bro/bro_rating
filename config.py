@@ -16,31 +16,37 @@ NETWORKS = [
         "name": "bostrom",
         "lcd_api": "https://lcd.bostrom.bronbro.io",
         "prefix": "bostrom",
+        "logo_path": "https://keybase.io/_/api/1.0/user/lookup.json?key_suffix="
     },
     {
         "name": "osmosis",
         "lcd_api": "https://lcd.osmosis-1.bronbro.io",
         "prefix": "osmo",
+        "logo_path": "https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/osmosis/"
     },
     {
         "name": "juno",
         "lcd_api": "https://lcd.juno-1.bronbro.io",
         "prefix": "juno",
+        "logo_path": "https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/juno/"
     },
     {
         "name": "stargaze",
         "lcd_api": "https://lcd.stargaze-1.bronbro.io",
         "prefix": "stars",
+        "logo_path": "https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/stargaze/"
     },
     {
         "name": "gravity",
         "lcd_api": "https://lcd.gravity-bridge-3.bronbro.io",
         "prefix": "gravity",
+        "logo_path": "https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/gravity-bridge/"
     },
     {
         "name": "crescent",
         "lcd_api": "https://lcd.crescent-1.bronbro.io",
         "prefix": "cre",
+        "logo_path": "https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/crescent/"
     },
     # {
     #     "name": "omniflix",
@@ -55,6 +61,7 @@ NETWORKS = [
         "name": "cosmoshub",
         "lcd_api": "https://lcd.cosmoshub-4.bronbro.io",
         "prefix": "cosmos",
+        "logo_path": "https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/cosmoshub/"
     },
     # {
     #     "name": "desmos",
@@ -78,6 +85,7 @@ NETWORKS = [
         "name": "stride",
         "lcd_api": "https://lcd.stride-1.bronbro.io",
         "prefix": "stride",
+        "logo_path": "https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/stride/"
     },
 ]
 
@@ -91,6 +99,7 @@ SCHEMA = [
             'ownership',
             'voted',
             'isjailed',
+            'logo_path',
             'validator_rank',
             'cost_optimization',
             'cost_endorsement',
@@ -104,6 +113,7 @@ SCHEMA = [
             'reliability_endorsement',
             'total',
             'rank',
-            'diff'
+            'diff',
+            'is_active_set'
         ]
 
