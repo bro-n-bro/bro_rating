@@ -41,8 +41,8 @@ def create_table(cur, network):
         reliability_endorsement number,
         total number,
         rank number,
-        diff number,
-        is_in_set bool
+        is_in_set bool,
+        diff number
     )''')
 
 

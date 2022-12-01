@@ -113,7 +113,7 @@ SCHEMA = [
             'reliability_endorsement',
             'total',
             'rank',
+            'is_active_set',
             'diff',
-            'is_active_set'
         ]
 
