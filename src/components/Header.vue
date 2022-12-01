@@ -9,7 +9,7 @@
             <Notifications class="animate fadeInUp" v-animate />
 
             <!-- Choose network -->
-            <ChooseNetwork class="animate fadeInRight" v-animate />
+            <ChooseNetwork class="animate fadeInRight" v-animate :links="true" />
         </div>
     </header>
 </template>

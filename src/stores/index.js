@@ -8,7 +8,7 @@ export const useGlobalStore = defineStore('global', {
         compareIdenticalOptions: [],
         compareMinMaxValue: [],
         searchValidators: [],
-        currentNetwork: 'cosmoshub',
+        currentNetwork: '',
         showCompareErrorModal: false,
         ratingData: {},
         colors: ['#950FFF', '#1BC562', '#EB5757', '#0343E8', '#F79400', '#DB11D3'],
@@ -19,14 +19,16 @@ export const useGlobalStore = defineStore('global', {
                 alias: 'cosmoshub',
                 mintscanAlias: 'cosmos',
                 exponent: 1000000,
-                token_name: 'ATOM'
+                token_name: 'ATOM',
+                chainId: 'cosmoshub-4'
             },
             'bostrom': {
                 name: 'Bostrom',
                 token: 'BOOT',
                 alias: 'bostrom',
                 exponent: 1000000,
-                token_name: 'MBOOT'
+                token_name: 'MBOOT',
+                chainId: 'bostrom'
             },
             'stargaze': {
                 name: 'Stargaze',
@@ -34,7 +36,8 @@ export const useGlobalStore = defineStore('global', {
                 alias: 'stargaze',
                 mintscanAlias: 'stargaze',
                 exponent: 1000000,
-                token_name: 'STARS'
+                token_name: 'STARS',
+                chainId: 'stargaze-1'
             },
             'juno': {
                 name: 'Juno',
@@ -42,7 +45,8 @@ export const useGlobalStore = defineStore('global', {
                 alias: 'juno',
                 mintscanAlias: 'juno',
                 exponent: 1000000,
-                token_name: 'JUNO'
+                token_name: 'JUNO',
+                chainId: 'juno-1'
             },
             'crescent': {
                 name: 'Crescent hub',
@@ -50,7 +54,8 @@ export const useGlobalStore = defineStore('global', {
                 alias: 'crescent',
                 mintscanAlias: 'crescent',
                 exponent: 1000000,
-                token_name: 'CRE'
+                token_name: 'CRE',
+                chainId: 'crescent-1'
             },
             'gravity': {
                 name: 'Gravity bridge',
@@ -58,7 +63,8 @@ export const useGlobalStore = defineStore('global', {
                 alias: 'gravity',
                 mintscanAlias: 'gravity-bridge',
                 exponent: 1000000,
-                token_name: 'GRAV'
+                token_name: 'GRAV',
+                chainId: 'gravity-bridge-3'
             },
             'osmosis': {
                 name: 'Osmosis',
@@ -66,7 +72,8 @@ export const useGlobalStore = defineStore('global', {
                 alias: 'osmosis',
                 mintscanAlias: 'osmosis',
                 exponent: 1000000,
-                token_name: 'OSMO'
+                token_name: 'OSMO',
+                chainId: 'osmosis-1'
             },
             'stride': {
                 name: 'Stride',
@@ -74,7 +81,8 @@ export const useGlobalStore = defineStore('global', {
                 alias: 'stride',
                 mintscanAlias: 'stride',
                 exponent: 1000000,
-                token_name: 'STRD'
+                token_name: 'STRD',
+                chainId: 'stride-1'
             }
         }
     }),

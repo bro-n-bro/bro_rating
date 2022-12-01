@@ -1,25 +1,30 @@
 <template>
     <div class="validator" :class="{ 'pinned': props.validator.pinned }" :id="getValidatorInfo('opeartor_address')">
-        <div class="col_score" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))" :data-column="$t('message.title_col_score')">
-            <div class="checkbox" @click.prevent="toggleToCompare($event, getValidatorInfo('opeartor_address'))">
+        <div class="col_score" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))" :data-column="$t('message.title_col_score')" @click.prevent="toggleToCompare($event, getValidatorInfo('opeartor_address'))">
+            <div class="checkbox">
                 <svg><use xlink:href="/sprite.svg#ic_check"></use></svg>
             </div>
 
             <span>
                 {{ getValidatorInfo('rank') }}
-                <sup :class="{ 'green': getValidatorInfo('diff') > 0, 'red': getValidatorInfo('diff') < 0 }">{{ getValidatorInfo('diff') }}</sup>
+                <sup :class="{ 'green': getValidatorInfo('diff') > 0, 'red': getValidatorInfo('diff') < 0 }">
+                    <template v-if="getValidatorInfo('diff') > 0">+{{ getValidatorInfo('diff') }}</template>
+                    <template v-else>{{ getValidatorInfo('diff') }}</template>
+                </sup>
             </span>
         </div>
 
-        <div class="col_power" @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))" :data-column="$t('message.title_col_power')">
+        <!-- <div class="col_power" @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))" :data-column="$t('message.title_col_power')">
             <div>{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
-        </div>
+        </div> -->
 
         <a target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'"
             :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${getValidatorInfo('opeartor_address')}`"
             @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))"
             :data-column="$t('message.title_col_moniker')"
         >
+            <div class="power">{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
+
             <div class="logo">
                 <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
 
@@ -75,7 +80,6 @@
     import { inject } from 'vue'
     import { useGlobalStore } from '@/stores'
 
-
     const props = defineProps(['validator', 'schema']),
         store = useGlobalStore(),
         emitter = inject('emitter')
@@ -99,7 +103,7 @@
 
     // Add/remove to/from compare
     function toggleToCompare(e, valoper) {
-        if (e.target.classList.contains('checkbox')) {
+        if (e.target.classList.contains('col_score')) {
             let validator = e.target.closest('.rating .validator')
 
             if (store.compareValidators.length < store.compareLimit || validator.classList.contains('pinned')) {
@@ -193,6 +197,8 @@
 
     .rating .validator .col_score
     {
+        cursor: pointer;
+
         justify-content: flex-start;
         align-items: center;
         align-content: center;
@@ -235,6 +241,24 @@
         align-items: center;
         align-content: center;
         flex-wrap: nowrap;
+    }
+
+
+    .rating .validator .col_moniker .power
+    {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 34px;
+
+        display: block;
+
+        width: 34px;
+        height: 34px;
+        margin-right: 12px;
+
+        text-align: center;
+
+        background: url(../assets/images/bg_power.svg) 50%/100% 100% no-repeat;
     }
 
 
@@ -313,7 +337,6 @@
         height: 14px;
         margin-right: 10px;
 
-        cursor: pointer;
         transition: .2s linear;
 
         border: 1px solid rgba(255, 255, 255, .1);

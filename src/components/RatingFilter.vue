@@ -310,15 +310,12 @@
         margin-left: 0;
     }
 
+
     .compare .filter > .btn
     {
         border: 1px solid rgba(255, 255, 255, .1);
     }
 
-    .compare .filter > .btn.hidden
-    {
-        display: flex;
-    }
 
     .compare .filter .dropdown
     {
@@ -329,6 +326,11 @@
         margin-top: 10px;
 
         border-radius: 8px 2px 2px 8px;
+    }
+
+    .compare .filter .dropdown .btn.hidden
+    {
+        display: flex;
     }
 
 

@@ -42,6 +42,16 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 	const store = useGlobalStore()
 
+	// Clear logos
+	const oldLogos = document.querySelectorAll('.rating .validator .col_moniker .logo')
+
+	if (oldLogos) {
+		oldLogos.forEach(el => {
+			el.querySelector('img').classList.remove('hide')
+			el.style.backgroundColor = 'none'
+		})
+	}
+
 	// Set current network
 	if (to.query.network) {
 		if (store.currentNetwork != to.query.network) {

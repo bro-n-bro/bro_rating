@@ -7,13 +7,13 @@
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
 
-            <div class="col_power" @click="sortData('validator_rank', $event)">
+            <!-- <div class="col_power" @click="sortData('validator_rank', $event)">
                 <span>{{ $t('message.title_col_power') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
-            </div>
+            </div> -->
 
-            <div class="col_moniker" @click="sortData('moniker', $event)">
+            <div class="col_moniker" @click="sortData('validator_rank', $event)">
                 <span>{{ $t('message.title_col_moniker') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>

@@ -23,7 +23,6 @@
     import { inject } from 'vue'
     import { useGlobalStore } from '@/stores'
 
-
     const emitter = inject('emitter'),
         store = useGlobalStore()
 </script>
@@ -90,7 +89,7 @@
     .compare_error .close_btn
     {
         position: absolute;
-        top: 22px;
+        top: 20px;
         right: 16px;
 
         display: flex;

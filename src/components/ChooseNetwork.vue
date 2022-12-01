@@ -1,6 +1,7 @@
 <template>
     <div class="choose_network" v-click-out="clickOut">
         <button class="btn" @click.prevent="showDropdown = !showDropdown">
+            <template v-if="store.currentNetwork.length">
             <div class="logo">
                 <img :src="`/${store.networks[store.currentNetwork].alias}_logo.png`" alt="">
             </div>
@@ -9,12 +10,16 @@
                 <div class="name">{{ store.networks[store.currentNetwork].name }}</div>
                 <div class="token">{{ store.networks[store.currentNetwork].token }}</div>
             </div>
+            </template>
+
+            <span class="placeholder" v-else>{{ $t('message.choose_network_placeholder') }}</span>
 
             <svg class="arr"><use xlink:href="/sprite.svg#ic_arr_ver"></use></svg>
         </button>
 
         <div class="mini_modal" v-show="showDropdown">
             <div class="scroll">
+                <template v-if="props.links">
                 <div v-for="(network, index) in store.networks" :key="index">
                     <router-link class="network" :class="{ active: store.currentNetwork == network.alias }"
                         :to="{ name: 'Network', query: { network: network.alias } }"
@@ -32,6 +37,24 @@
                         <svg class="icon"><use xlink:href="/sprite.svg#ic_check"></use></svg>
                     </router-link>
                 </div>
+                </template>
+
+                <template v-else>
+                <div v-for="(network, index) in store.networks" :key="index">
+                    <button class="network" :class="{ active: store.currentNetwork == network.alias }" @click="setCurrentNetwirk(network.alias)">
+                        <div class="logo">
+                            <img :src="`/${network.alias}_logo.png`" alt="">
+                        </div>
+
+                        <div>
+                            <div class="name">{{ network.name }}</div>
+                            <div class="token">{{ network.token }}</div>
+                        </div>
+
+                        <svg class="icon"><use xlink:href="/sprite.svg#ic_check"></use></svg>
+                    </button>
+                </div>
+                </template>
             </div>
         </div>
     </div>
@@ -42,8 +65,8 @@
     import { ref, watchEffect } from 'vue'
     import { useGlobalStore } from '@/stores'
 
-
-    const store = useGlobalStore()
+    const props = defineProps(['links']),
+        store = useGlobalStore()
 
     var showDropdown = ref(false)
 
@@ -55,6 +78,13 @@
     function clickOut() {
         showDropdown.value = false
     }
+
+
+    // Set current netwirk
+    function setCurrentNetwirk(currentNetwork) {
+        showDropdown.value = false
+        store.currentNetwork = currentNetwork
+    }
 </script>
 
 
@@ -62,6 +92,7 @@
     .choose_network
     {
         position: relative;
+        z-index: 9;
 
         width: 264px;
         max-width: 100%;
@@ -73,6 +104,7 @@
         display: flex;
 
         width: 100%;
+        height: 60px;
         padding: 9px;
 
         transition: background .2s linear;
@@ -222,9 +254,11 @@
 
         display: flex;
 
+        width: 100%;
         padding: 4px 10px 4px 4px;
 
         transition: background .2s linear;
+        text-align: left;
         text-decoration: none;
 
         border-radius: 8px;

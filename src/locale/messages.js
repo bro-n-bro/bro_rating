@@ -53,11 +53,15 @@ export default {
 
             'filter_title': 'Change visibility of columns',
 
-            // Search
+            // Placeholders
             'search_placeholder': 'Validator name',
+            'choose_network_placeholder': 'Choose network',
 
             // Buttons
-            'compare_btn': 'Compare'
+            'compare_btn': 'Compare',
+            'see_results_btn': 'See results',
+            'delegate_btn': 'Delegate',
+            'back_btn': 'Back to Validators list'
         }
     }
 }

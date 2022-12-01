@@ -75,7 +75,9 @@
         display: flex;
         flex-direction: column;
 
-        margin-bottom: 20px;
+        width: 1516px;
+        max-width: 100%;
+        margin: 0 auto 20px;
 
         flex: 1 0 auto;
     }

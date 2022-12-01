@@ -1,6 +1,13 @@
 <template>
     <section class="compare">
         <div class="cont">
+            <div class="back_btn">
+                <button @click.prevent="router.go(-1)" class="btn">
+                    <svg class="icon"><use xlink:href="/sprite.svg#ic_arrow_hor"></use></svg>
+                    <span>{{ $t('message.back_btn') }}</span>
+                </button>
+            </div>
+
             <div class="data">
                 <div class="head animate fadeInUp" v-animate>
                     <div class="block_title">
@@ -248,6 +255,10 @@
                                         {{ $filters.toFixed(validator[getValidatorInfo('total')], 4) }}
                                     </div>
                                 </div>
+
+                                <a :href="`https://wallet.keplr.app/chains/${store.currentNetwork}?modal=validator&chain=${store.networks[store.currentNetwork].chainId}&validator_address=${validator[getValidatorInfo('opeartor_address')]}`" target="_blank" rel="noopener nofollow" class="delegate_btn">
+                                    {{ $t('message.delegate_btn') }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -261,10 +272,10 @@
 <script setup>
     import { ref, watch } from 'vue'
     import { useGlobalStore } from '@/stores'
+    import router from '@/router'
 
     // Components
     import RatingFilter from '../components/RatingFilter.vue'
-
 
     const store = useGlobalStore(),
         hideOptions = ref(0)
@@ -312,6 +323,42 @@
         flex-direction: column;
 
         flex: 1 0 auto;
+    }
+
+
+    .compare .back_btn
+    {
+        display: flex;
+
+        margin-top: -20px;
+        margin-bottom: 10px;
+    }
+
+
+    .compare .back_btn .btn
+    {
+        font-size: 14px;
+        line-height: 17px;
+
+        display: flex;
+
+        padding: 10px;
+
+        text-align: left;
+
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .compare .back_btn .btn .icon
+    {
+        display: block;
+
+        width: 14px;
+        height: 14px;
+        margin-right: 10px;
     }
 
 
@@ -666,6 +713,26 @@
     .compare .validator .vals > * + *
     {
         margin-top: 6px;
+    }
+
+
+    .compare .validator .delegate_btn
+    {
+        color: currentColor;
+        font-size: 12px;
+        line-height: 15px;
+
+        display: block;
+
+        width: 100%;
+        margin-top: 20px;
+        padding: 14px;
+
+        text-align: center;
+        text-decoration: none;
+
+        border-radius: 10px;
+        background: #950fff;
     }
 
 
