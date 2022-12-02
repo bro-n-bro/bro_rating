@@ -15,7 +15,6 @@
     import { RouterView } from 'vue-router'
     import { useGlobalStore } from '@/stores'
 
-
     // Components
     import Header from '../components/Header.vue'
     import CompareErrorModal from '../components/CompareErrorModal.vue'

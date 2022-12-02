@@ -2,7 +2,7 @@
     <section class="rating">
         <div class="cont">
             <div class="data">
-                <div class="head animate fadeInUp" v-animate>
+                <div class="head">
                     <!-- Block title -->
                     <div class="block_title">
                         {{ $t('message.rating_block_title') }}
@@ -19,9 +19,6 @@
 
                     <!-- Filter -->
                     <RatingFilter />
-
-                    <!-- Compare link -->
-                    <router-link to="/compare" class="compare_btn" v-if="store.compareValidators.length > 1">{{ $t('message.compare_btn') }}</router-link>
                 </div>
 
                 <!-- Table head -->
@@ -44,7 +41,6 @@
     import { ref, watchEffect } from 'vue'
     import { useRoute } from 'vue-router'
     import { useGlobalStore } from '@/stores'
-
 
     // Components
     import Search from '../components/Search.vue'
@@ -144,27 +140,6 @@
 
 
 
-    .rating .compare_btn
-    {
-        color: currentColor;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 45px;
-
-        width: 100px;
-        height: 45px;
-        margin-left: 10px;
-
-        transition: background .2s linear;
-        text-align: center;
-        text-decoration: none;
-
-        border-radius: 12px;
-        background: #950fff;
-    }
-
-
-
     .rating .col_score
     {
         width: 110px;
@@ -210,7 +185,7 @@
 
     .rating .list.mini
     {
-        max-height: calc(100vh - 357px);
+        max-height: calc(100vh - 341px);
     }
 
 

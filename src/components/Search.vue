@@ -8,6 +8,10 @@
             <form @submit.prevent>
                 <input type="text" class="input" :placeholder="$t('message.search_placeholder')" v-model="query">
 
+                <button type="reset" class="reset_btn" v-if="query.length" @click="query = ''">
+                    <svg><use xlink:href="/sprite.svg#ic_close2"></use></svg>
+                </button>
+
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_search"></use></svg>
             </form>
 
@@ -46,6 +50,13 @@
                 }
             })
         })
+    })
+
+
+    watch(showDropdown, value => {
+        if(value) {
+            setTimeout(() => document.querySelector('.search .input').focus())
+        }
     })
 
 
@@ -151,24 +162,24 @@
 
     .search form ::-webkit-input-placeholder
     {
-        color: #353535;
+        color: #8c8c8c;
     }
 
     .search form :-moz-placeholder
     {
-        color: #353535;
+        color: #8c8c8c;
     }
 
     .search form ::-moz-placeholder
     {
-        color: #353535;
+        color: #8c8c8c;
 
         opacity: 1;
     }
 
     .search form :-ms-input-placeholder
     {
-        color: #353535;
+        color: #8c8c8c;
     }
 
 
@@ -190,9 +201,37 @@
     }
 
 
+    .search form .reset_btn
+    {
+        color: #fff;
+
+        position: absolute;
+        top: 0;
+        right: 42px;
+        bottom: 0;
+
+        display: flex;
+
+        margin: auto;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;;
+    }
+
+    .search form .reset_btn svg
+    {
+        display: block;
+
+        width: 24px;
+        height: 24px;
+    }
+
+
     .search form .icon
     {
-        color: #353535;
+        color: #fff;
 
         position: absolute;
         z-index: 3;

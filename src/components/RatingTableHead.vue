@@ -1,17 +1,11 @@
 <template>
-    <div class="table_head animate fadeInUp delay" v-animate>
+    <div class="table_head" :class="{ 'with_pinned': store.compareValidators.length }">
         <div class="titles">
             <div class="col_score ASC active" @click="sortData('rank', $event)">
                 <span>{{ $t('message.title_col_score') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
             </div>
-
-            <!-- <div class="col_power" @click="sortData('validator_rank', $event)">
-                <span>{{ $t('message.title_col_power') }}</span>
-
-                <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
-            </div> -->
 
             <div class="col_moniker" @click="sortData('validator_rank', $event)">
                 <span>{{ $t('message.title_col_moniker') }}</span>
@@ -81,7 +75,7 @@
         </div>
 
         <div class="pinned_items" v-show="store.compareValidators.length">
-            <svg class="icon"><use xlink:href="/sprite.svg#ic_pin"></use></svg>
+            <svg class="icon" @click.prevent="clearCompare"><use xlink:href="/sprite.svg#ic_pin"></use></svg>
 
             <div class="val">
                 <button class="btn pinned_btn" v-for="(validator, index) in store.compareValidators" :key="index"
@@ -89,6 +83,9 @@
                     <span>{{ validator[getParamIndex('moniker')] }}</span>
                     <svg><use xlink:href="/sprite.svg#ic_close"></use></svg>
                 </button>
+
+                <!-- Compare link -->
+                <router-link to="/compare" class="compare_btn" v-if="store.compareValidators.length > 1">{{ $t('message.compare_btn') }}</router-link>
             </div>
         </div>
     </div>
@@ -101,10 +98,23 @@
     const store = useGlobalStore()
 
 
+    // Get param index from schema
     function getParamIndex(columnName) {
         let index = store.ratingData.schema.indexOf(columnName)
 
         return index
+    }
+
+
+    // Clear compare
+    function clearCompare() {
+        let validators = document.querySelectorAll('.rating .validator')
+
+        // Clear array
+        store.compareValidators = []
+
+        // Remove classes
+        validators.forEach(el => el.classList.remove('pinned'))
     }
 
 
@@ -141,6 +151,11 @@
 
         border-radius: 10px;
         background: #141414;
+    }
+
+    .table_head.with_pinned
+    {
+        border-radius: 10px 10px 0 0;
     }
 
 
@@ -291,7 +306,7 @@
     {
         display: flex;
 
-        padding: 10px;
+        padding: 4px 10px;
 
         border-top: 1px solid rgba(255, 255, 255, .05);
 
@@ -316,6 +331,8 @@
         width: 24px;
         height: 24px;
         margin-right: 10px;
+
+        cursor: pointer;
     }
 
 
@@ -343,7 +360,7 @@
         max-width: 100%;
         margin-bottom: 10px;
         margin-left: 10px;
-        padding: 9px;
+        padding: 7px 9px;
 
         white-space: nowrap;
 
@@ -383,6 +400,27 @@
         min-width: 20px;
         height: 20px;
         margin-left: 6px;
+    }
+
+
+    .rating .compare_btn
+    {
+        color: currentColor;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 36px;
+
+        width: 100px;
+        height: 36px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+
+        transition: background .2s linear;
+        text-align: center;
+        text-decoration: none;
+
+        border-radius: 12px;
+        background: #950fff;
     }
 
 

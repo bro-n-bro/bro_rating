@@ -23,13 +23,17 @@
             @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))"
             :data-column="$t('message.title_col_moniker')"
         >
-            <div class="power">{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
+            <div class="power">
+                {{ Math.floor(getValidatorInfo('validator_rank')) }}
+                <svg :class="{ green: getValidatorInfo('is_active_set') }"><use xlink:href="/sprite.svg#bg_rank"></use></svg>
+            </div>
 
             <div class="logo">
                 <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
             </div>
+
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 
@@ -204,27 +208,9 @@
         align-content: center;
     }
 
-
-    .rating .validator .col_power
+    .rating .validator .col_score > *
     {
-        justify-content: center;
-    }
-
-    .rating .validator .col_power div
-    {
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 34px;
-
-        display: block;
-
-        width: 34px;
-        height: 34px;
-        margin: auto;
-
-        text-align: center;
-
-        background: url(../assets/images/bg_power.svg) 50%/100% 100% no-repeat;
+        pointer-events: none;
     }
 
 
@@ -250,6 +236,9 @@
         font-weight: 500;
         line-height: 34px;
 
+        position: relative;
+        z-index: 3;
+
         display: block;
 
         width: 34px;
@@ -257,8 +246,26 @@
         margin-right: 12px;
 
         text-align: center;
+    }
 
-        background: url(../assets/images/bg_power.svg) 50%/100% 100% no-repeat;
+    .rating .validator .col_moniker .power svg
+    {
+        color: #eb5757;
+
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+
+        display: block;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .rating .validator .col_moniker .power svg.green
+    {
+        color: #1bc562;
     }
 
 

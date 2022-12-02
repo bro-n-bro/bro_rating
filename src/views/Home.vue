@@ -9,13 +9,13 @@
                 <div class="desc animate fadeInUp delay" v-html="$t('message.home_desc')" v-animate></div>
 
                 <!-- Choose network -->
-                <ChooseNetwork class="animate fadeInUp delay3" v-animate />
+                <ChooseNetwork class="animate fadeInUp delay3" v-animate :links="true" />
 
-                <div class="link animate fadeInUp delay4" v-animate>
+                <!-- <div class="link animate fadeInUp delay4" v-animate>
                     <router-link :to="{ name: 'Network', query: { network: store.currentNetwork } }" :class="{ active: store.currentNetwork.length }">
                         {{ $t('message.see_results_btn') }}
                     </router-link>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -375,6 +375,8 @@
         width: 100%;
     }
 }
+
+
 
 
 

@@ -270,7 +270,7 @@
 
 
 <script setup>
-    import { ref, watch } from 'vue'
+    import { ref, watch, inject } from 'vue'
     import { useGlobalStore } from '@/stores'
     import router from '@/router'
 
@@ -278,15 +278,29 @@
     import RatingFilter from '../components/RatingFilter.vue'
 
     const store = useGlobalStore(),
+        emitter = inject('emitter'),
         hideOptions = ref(0)
+
+    var onceHideOptions = false
 
 
     watch(hideOptions, value => {
-        let columns = document.querySelectorAll('.identical')
+        if(!onceHideOptions) {
+            let columns = document.querySelectorAll('.validator .vals .identical'),
+                filterFeatures = document.querySelectorAll('.filter .dropdown .identical')
 
-        value
-            ? columns.forEach(col => col.style.display = 'none')
-            : columns.forEach(col => col.style.display = 'flex')
+            // Toggle in validator
+            value
+                ? columns.forEach(col => col.classList.add('hide'))
+                : columns.forEach(col => col.classList.remove('hide'))
+
+            // Toggle in filter
+            value
+                ? filterFeatures.forEach(btn => btn.classList.add('hide'))
+                : filterFeatures.forEach(btn => btn.classList.remove('hide'))
+        } else {
+            onceHideOptions = false
+        }
     })
 
 
@@ -302,6 +316,13 @@
 
         event.target.closest('.logo').style.backgroundColor = store.colors[Math.floor((Math.random()*store.colors.length))]
     }
+
+
+    // Event "Cancel "Hide identical options""
+    emitter.on('cancelHideIdenticalOptions', () => {
+        onceHideOptions = true
+        hideOptions.value = 0
+    })
 </script>
 
 

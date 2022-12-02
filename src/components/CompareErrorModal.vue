@@ -20,11 +20,17 @@
 
 
 <script setup>
-    import { inject } from 'vue'
+    import { inject, onMounted } from 'vue'
     import { useGlobalStore } from '@/stores'
 
     const emitter = inject('emitter'),
         store = useGlobalStore()
+
+
+    onMounted(() => {
+        // Set autoclose after 3 seconds
+        setTimeout(() => emitter.emit('closeCompareErrorModal'), 3000)
+    })
 </script>
 
 
