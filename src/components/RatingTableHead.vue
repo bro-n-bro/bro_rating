@@ -306,7 +306,7 @@
     {
         display: flex;
 
-        padding: 4px 10px;
+        padding: 3px 10px 4px;
 
         border-top: 1px solid rgba(255, 255, 255, .05);
 

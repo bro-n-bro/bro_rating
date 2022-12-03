@@ -110,8 +110,7 @@
                             <div v-for="(validator, index) in store.compareValidators" :key="index" class="validator animate fadeInRight" :class="'delay' + (index + 1)" v-animate>
                                 <div class="top">
                                     <div class="logo">
-                                        <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${validator[getValidatorInfo('opeartor_address')]}.png`" alt="" @error="imageLoadError" v-lazyload>
-
+                                        <img :data-src="validator[getValidatorInfo('logo_path')]" alt="" @error="imageLoadError" v-lazyload>
                                         <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
                                     </div>
 
@@ -286,7 +285,7 @@
 
     watch(hideOptions, value => {
         if(!onceHideOptions) {
-            let columns = document.querySelectorAll('.validator .vals .identical'),
+            let columns = document.querySelectorAll('.validator .vals .identical, .compare .features .identical'),
                 filterFeatures = document.querySelectorAll('.filter .dropdown .identical')
 
             // Toggle in validator

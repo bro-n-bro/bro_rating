@@ -14,10 +14,6 @@
             </span>
         </div>
 
-        <!-- <div class="col_power" @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))" :data-column="$t('message.title_col_power')">
-            <div>{{ Math.floor(getValidatorInfo('validator_rank')) }}</div>
-        </div> -->
-
         <a target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'"
             :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${getValidatorInfo('opeartor_address')}`"
             @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))"
@@ -29,8 +25,7 @@
             </div>
 
             <div class="logo">
-                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
-
+                <img :src="getValidatorInfo('logo_path')" alt="" @error="imageLoadError">
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
             </div>
 
@@ -41,11 +36,16 @@
             :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`"
             :data-column="$t('message.title_col_moniker')"
         >
-            <div class="logo">
-                <img :src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${getValidatorInfo('opeartor_address')}.png`" alt="" @error="imageLoadError">
+            <div class="power">
+                {{ Math.floor(getValidatorInfo('validator_rank')) }}
+                <svg :class="{ green: getValidatorInfo('is_active_set') }"><use xlink:href="/sprite.svg#bg_rank"></use></svg>
+            </div>
 
+            <div class="logo">
+                <img :src="getValidatorInfo('logo_path')" alt="" @error="imageLoadError">
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
             </div>
+
             <div>{{ getValidatorInfo('moniker') }}</div>
         </a>
 

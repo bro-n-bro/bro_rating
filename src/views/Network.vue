@@ -185,7 +185,7 @@
 
     .rating .list.mini
     {
-        max-height: calc(100vh - 341px);
+        max-height: calc(100vh - 340px);
     }
 
 

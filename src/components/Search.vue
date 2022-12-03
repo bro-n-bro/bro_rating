@@ -18,10 +18,10 @@
             <div class="tips" v-if="query.length">
                 <div class="tip" v-for="(validator, index) in store.searchValidators" :key="index" @click.prevent="scrollToValidator(validator[getValidatorInfo('opeartor_address')])">
                     <div class="logo">
-                        <img :data-src="`https://raw.githubusercontent.com/cosmostation/cosmostation_token_resource/master/moniker/${store.currentNetwork}/${validator[getValidatorInfo('opeartor_address')]}.png`" alt="" @error="imageLoadError" v-lazyload>
-
+                        <img :data-src="validator[getValidatorInfo('logo_path')]" alt="" @error="imageLoadError" v-lazyload>
                         <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
                     </div>
+
                     <div>{{ validator[getValidatorInfo('moniker')] }}</div>
                 </div>
             </div>
