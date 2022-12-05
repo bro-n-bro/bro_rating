@@ -94,7 +94,16 @@ export const useGlobalStore = defineStore('global', {
             try {
                 await fetch(`https://rpc.bronbro.io/bro_score/?network=${this.currentNetwork}`)
                     .then(response => response.json())
-                    .then(data => this.ratingData = data)
+                    .then(data => {
+                        this.ratingData = data
+
+                        // Add blurring
+                        this.ratingData.schema.push('blurring')
+
+                        this.ratingData.result.forEach(el => {
+                            el.push(el[this.ratingData.schema.indexOf('staked')] / el[this.ratingData.schema.indexOf('delegator_shares')])
+                        })
+                    })
             } catch (error) {
                 console.log(error)
             }
