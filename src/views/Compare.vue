@@ -107,7 +107,7 @@
                                         green: store.compareMinMaxValue['greed'].max == index,
                                         red: store.compareMinMaxValue['greed'].min == index
                                     }">
-                                        {{ $filters.toFixed(validator[getValidatorInfo('greed')], 2) }}
+                                        {{ $filters.toFixed(validator[getValidatorInfo('greed')] * 100, 2) }}%
                                     </div>
 
                                     <div class="col_cost" :data-column="$t('message.compare_title_col_cost')" :class="{
@@ -115,7 +115,7 @@
                                         red: store.compareMinMaxValue['cost_endorsement'].max == index,
                                         green: store.compareMinMaxValue['cost_endorsement'].min == index
                                     }">
-                                        {{ $filters.toFixed(validator[getValidatorInfo('cost_endorsement')] * 100, 2) }}%
+                                        {{ $filters.toFixed(validator[getValidatorInfo('cost_endorsement')], 2) }}
                                     </div>
 
                                     <div class="col_power" :data-column="$t('message.compare_title_col_power')" :class="{
