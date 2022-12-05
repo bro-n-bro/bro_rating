@@ -34,9 +34,23 @@
 
 
 <script setup>
+    import { ref, watchEffect } from 'vue'
+
     // Components
     import ChooseNetwork  from '../components/ChooseNetwork.vue'
     import Notifications  from '../components/Notifications.vue'
+
+
+    var showDropdown = ref(false)
+
+
+    watchEffect(() => showDropdown.value = false)
+
+
+    // Сlick element outside
+    function clickOut() {
+        showDropdown.value = false
+    }
 </script>
 
 
