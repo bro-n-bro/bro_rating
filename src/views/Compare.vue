@@ -149,8 +149,8 @@
                                     <div class="col_ownership" :data-column="$t('message.compare_title_col_ownership')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['ownership'],
-                                            red: store.compareMinMaxValue['ownership'].max == index,
-                                            green: store.compareMinMaxValue['ownership'].min == index
+                                            green: store.compareMinMaxValue['ownership'].max == index,
+                                            red: store.compareMinMaxValue['ownership'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_ownership'))"
                                     >
@@ -160,8 +160,8 @@
                                     <div class="col_confidence" :data-column="$t('message.compare_title_col_confidence')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['confidence_endorsement'],
-                                            red: store.compareMinMaxValue['confidence_endorsement'].max == index,
-                                            green: store.compareMinMaxValue['confidence_endorsement'].min == index
+                                            green: store.compareMinMaxValue['confidence_endorsement'].max == index,
+                                            red: store.compareMinMaxValue['confidence_endorsement'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_confidence', { ownership: $filters.toFixed(validator[getValidatorInfo('ownership')], 2) }))"
                                     >
@@ -171,19 +171,19 @@
                                     <div class="col_voted" :data-column="$t('message.compare_title_col_voted')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['voted'],
-                                            red: store.compareMinMaxValue['voted'].max == index,
-                                            green: store.compareMinMaxValue['voted'].min == index
+                                            green: store.compareMinMaxValue['voted'].max == index,
+                                            red: store.compareMinMaxValue['voted'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_voted', { voted: $filters.toFixed(validator[getValidatorInfo('voted')], 2) }))"
                                     >
-                                        {{ $filters.toFixed(validator[getValidatorInfo('voted')], 2) }}
+                                        {{ $filters.toFixed(validator[getValidatorInfo('voted')], 0) }}
                                     </div>
 
                                     <div class="col_participation" :data-column="$t('message.compare_title_col_participation')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['participation_endorsement'],
-                                            red: store.compareMinMaxValue['participation_endorsement'].max == index,
-                                            green: store.compareMinMaxValue['participation_endorsement'].min == index
+                                            green: store.compareMinMaxValue['participation_endorsement'].max == index,
+                                            red: store.compareMinMaxValue['participation_endorsement'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_participation'))"
                                     >
@@ -219,8 +219,8 @@
                                     <div class="col_active_set" :data-column="$t('message.compare_title_col_active_set')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['is_active_set'],
-                                            red: store.compareMinMaxValue['is_active_set'].max == index,
-                                            green: store.compareMinMaxValue['is_active_set'].min == index
+                                            green: store.compareMinMaxValue['is_active_set'].max == index,
+                                            red: store.compareMinMaxValue['is_active_set'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_active_set'))"
                                     >
@@ -231,8 +231,8 @@
                                     <div class="col_total" :data-column="$t('message.compare_title_col_total')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['total'],
-                                            red: store.compareMinMaxValue['total'].max == index,
-                                            green: store.compareMinMaxValue['total'].min == index
+                                            green: store.compareMinMaxValue['total'].max == index,
+                                            red: store.compareMinMaxValue['total'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
                                     >
