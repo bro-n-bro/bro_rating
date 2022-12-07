@@ -119,7 +119,7 @@
                                             red: store.compareMinMaxValue['cost_endorsement'].max == index,
                                             green: store.compareMinMaxValue['cost_endorsement'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(validator[getValidatorInfo('greed')] * 100, 2) }))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('cost_endorsement')], 2) }}
                                     </div>
@@ -130,7 +130,7 @@
                                             green: store.compareMinMaxValue['validator_rank'].max == index,
                                             red: store.compareMinMaxValue['validator_rank'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_power'))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('validator_rank')], 0) }}
                                     </div>
@@ -141,7 +141,7 @@
                                             red: store.compareMinMaxValue['decentralization_endorsement'].max == index,
                                             green: store.compareMinMaxValue['decentralization_endorsement'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_decentralization', { validator_rank: $filters.toFixed(validator[getValidatorInfo('validator_rank')], 2) }))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('decentralization_endorsement')], 2) }}
                                     </div>
@@ -152,7 +152,7 @@
                                             red: store.compareMinMaxValue['ownership'].max == index,
                                             green: store.compareMinMaxValue['ownership'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_ownership'))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('ownership')] * 100, 2) }}%
                                     </div>
@@ -163,7 +163,7 @@
                                             red: store.compareMinMaxValue['confidence_endorsement'].max == index,
                                             green: store.compareMinMaxValue['confidence_endorsement'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_confidence', { ownership: $filters.toFixed(validator[getValidatorInfo('ownership')], 2) }))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('confidence_endorsement')], 2) }}
                                     </div>
@@ -174,7 +174,7 @@
                                             red: store.compareMinMaxValue['voted'].max == index,
                                             green: store.compareMinMaxValue['voted'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_voted', { voted: $filters.toFixed(validator[getValidatorInfo('voted')], 2) }))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('voted')], 2) }}
                                     </div>
@@ -185,7 +185,7 @@
                                             red: store.compareMinMaxValue['participation_endorsement'].max == index,
                                             green: store.compareMinMaxValue['participation_endorsement'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_participation'))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('participation_endorsement')], 2) }}
                                     </div>
@@ -196,7 +196,7 @@
                                             red: store.compareMinMaxValue['blurring'].max == index,
                                             green: store.compareMinMaxValue['blurring'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_blurring'))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('blurring')] * 100, 2) }}%
                                     </div>
@@ -207,7 +207,11 @@
                                             red: store.compareMinMaxValue['reliability'].max == index,
                                             green: store.compareMinMaxValue['reliability'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_reliability', {
+                                            staked: $filters.toFixed(validator[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent, 0),
+                                            delegator_shares: $filters.toFixed(validator[getValidatorInfo('delegator_shares')] / store.networks[store.currentNetwork].exponent, 0),
+                                            token: store.networks[store.currentNetwork].token_name
+                                        }))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('reliability')], 2) }}
                                     </div>
@@ -218,7 +222,7 @@
                                             red: store.compareMinMaxValue['is_active_set'].max == index,
                                             green: store.compareMinMaxValue['is_active_set'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_active_set'))"
                                     >
                                         <span v-if="validator[getValidatorInfo('is_active_set')]">{{ $t('message.compare_yes') }}</span>
                                         <span v-else>{{ $t('message.compare_no') }}</span>
@@ -241,7 +245,7 @@
                                             red: store.compareMinMaxValue['rank'].max == index,
                                             green: store.compareMinMaxValue['rank'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('rank')], 0) }}
                                     </div>
