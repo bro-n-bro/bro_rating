@@ -139,9 +139,15 @@
 
     @media print, (max-width: 479px)
     {
+        .notifications .data
+        {
+            padding: 10px;
+        }
+
+
         .notifications .icon
         {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .notifications .icon + *

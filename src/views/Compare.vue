@@ -903,6 +903,12 @@
 
     @media print, (max-width: 479px)
     {
+        .compare .data
+        {
+            padding: 20px 10px 10px;
+        }
+
+
         .compare .block_title
         {
             font-size: 24px;

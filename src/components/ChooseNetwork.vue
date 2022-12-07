@@ -237,11 +237,6 @@
         height: 5px;
     }
 
-    header .choose_network .mini_modal .scroll
-    {
-        max-height: calc(100vh - 134px);
-    }
-
     .choose_network .mini_modal .scroll > * + *
     {
         margin-top: 8px;
@@ -350,6 +345,12 @@
     }
 
 
+    header .choose_network .mini_modal .scroll
+    {
+        max-height: calc(100vh - 134px);
+    }
+
+
 
     @media print, (max-width: 767px)
     {
@@ -371,8 +372,13 @@
     {
         .choose_network
         {
-            width: 100%;
             margin-top: 20px;
+        }
+
+
+        header .choose_network
+        {
+            width: 100%;
         }
     }
 

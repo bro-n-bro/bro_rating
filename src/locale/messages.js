@@ -2,6 +2,8 @@ export default {
     // English
     en: {
         message: {
+            'page_title': 'Bro rating',
+
             // Home
             'home_title': "Bro rating",
             'home_desc': "Board was created by Bro_n_Bro validator<br> The best support for us - your delegations on Cyber, Osmo, NGM, Juno, Stars, Microtick, Gravity, Omniflix! Follow us on twitter on this and our other tools! 👊",

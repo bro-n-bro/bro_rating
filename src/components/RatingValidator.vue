@@ -328,8 +328,8 @@
         display: block;
         overflow: hidden;
 
-        width: calc(100% - 32px);
-        max-width: 216px;
+        width: calc(100% - 78px);
+        max-width: 215px;
 
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -431,7 +431,27 @@
 
 
 
+    @media print, (max-width: 1899px)
+    {
+        .rating .validator .col_moniker .logo + *
+        {
+            max-width: none;
+        }
+    }
+
+
+
     @media print, (max-width: 1359px)
+    {
+        .rating .validator .col_moniker .logo + *
+        {
+            max-width: 216px;
+        }
+    }
+
+
+
+    @media print, (max-width: 1279px)
     {
         .rating .validator
         {
@@ -466,16 +486,17 @@
 
         .rating .validator .col_score
         {
-            width: 33.333%;
+            width: 37.5%;
             min-width: 0;
 
             justify-content: flex-start;
             order: 1;
         }
 
+
         .rating .validator .col_moniker
         {
-            width: 100%;
+            width: 62.5%;
             min-width: 0;
             margin-top: 4px;
 
@@ -484,19 +505,12 @@
             flex-wrap: wrap;
         }
 
-        .rating .validator .col_power
+        .rating .validator .col_moniker .logo + *
         {
-            width: 33.333%;
-            min-width: 0;
-
-            justify-content: flex-start;
-            order: 2;
+            max-width: calc(100% - 78px);
         }
 
-        .rating .validator .col_power div
-        {
-            margin: 0;
-        }
+
 
         .rating .validator .col_cost,
         .rating .validator .col_decentralization,
@@ -539,6 +553,28 @@
             text-transform: none;
 
             opacity: .5;
+        }
+    }
+
+
+
+    @media print, (max-width: 1023px)
+    {
+        .rating .validator .col_score,
+        .rating .validator .col_cost,
+        .rating .validator .col_decentralization,
+        .rating .validator .col_confidence,
+        .rating .validator .col_participation,
+        .rating .validator .col_reliability,
+        .rating .validator .col_total
+        {
+            width: 50%;
+        }
+
+        .rating .validator .col_moniker
+        {
+            width: 100%;
+            margin-top: 20px;
         }
     }
 

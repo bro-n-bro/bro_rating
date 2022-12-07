@@ -4,9 +4,16 @@
 
 
 <script setup>
-    import { computed } from 'vue'
+    import { computed, onMounted, inject } from 'vue'
     import { useRoute } from 'vue-router'
 
     const route = useRoute(),
-        layout = computed(() => route.meta.layout || 'home-layout')
+        layout = computed(() => route.meta.layout || 'home-layout'),
+        i18n = inject('i18n')
+
+
+    onMounted(() => {
+        // Set title
+        document.title = i18n.global.t('message.page_title')
+    })
 </script>

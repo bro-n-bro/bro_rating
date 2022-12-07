@@ -118,6 +118,7 @@
     header .logo .mini_modal
     {
         position: absolute;
+        z-index: 19;
         top: 100%;
         left: 0;
 
@@ -178,7 +179,7 @@
     {
         header .notifications
         {
-            width: calc(100% - 524px);
+            width: calc(100% - 562px);
         }
     }
 
@@ -194,7 +195,7 @@
 
         header .notifications
         {
-            width: calc(100% - 484px);
+            width: calc(100% - 522px);
         }
     }
 

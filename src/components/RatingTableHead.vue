@@ -379,6 +379,7 @@
         pointer-events: none;
     }
 
+
     .pinned_items .btn span
     {
         position: relative;
@@ -387,10 +388,9 @@
         display: block;
         overflow: hidden;
 
-        max-width: 130px;
-
         text-overflow: ellipsis;
     }
+
 
     .pinned_items .btn svg
     {
@@ -425,7 +425,7 @@
 
 
 
-    @media print, (max-width: 1359px)
+    @media print, (max-width: 1279px)
     {
         .titles
         {
@@ -433,10 +433,29 @@
         }
 
 
+        .table_head
+        {
+            padding-right: 0;
+        }
+
+        .table_head.with_pinned
+        {
+            padding: 6px 0 6px 10px;
+
+            border-radius: 10px;
+        }
+
+
         .pinned_items
         {
             border: none;
             border-radius: 8px;
+        }
+
+
+        .pinned_items .btn span
+        {
+            max-width: 200px;
         }
     }
 
@@ -446,7 +465,7 @@
     {
         .pinned_items .btn span
         {
-            max-width: 122px;
+            max-width: 140px;
         }
     }
 

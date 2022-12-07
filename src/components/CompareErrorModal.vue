@@ -128,4 +128,29 @@
         opacity: 1;
     }
 
+
+    @media print, (max-width: 479px)
+    {
+        .compare_error
+        {
+            bottom: 20px;
+
+            padding-top: 16px;
+            padding-right: 44px;
+            padding-bottom: 16px;
+        }
+
+
+        .compare_error .close_btn
+        {
+            top: 16px;
+        }
+
+
+        .compare_error .title
+        {
+            font-size: 14px;
+        }
+    }
+
 </style>

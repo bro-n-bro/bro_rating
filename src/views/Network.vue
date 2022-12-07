@@ -233,7 +233,22 @@
 
 
 
-    @media print, (max-width: 1359px)
+    @media print, (max-width: 1439px)
+    {
+        .rating .list
+        {
+            max-height: calc(100vh - 286px);
+        }
+
+        .rating .list.mini
+        {
+            max-height: calc(100vh - 330px);
+        }
+    }
+
+
+
+    @media print, (max-width: 1279px)
     {
         .rating .list,
         .rating .list.mini
@@ -298,19 +313,6 @@
 
             margin-left: 20px;
         }
-
-
-        .rating .validator .col_score,
-        .rating .validator .col_power,
-        .rating .validator .col_cost,
-        .rating .validator .col_decentralization,
-        .rating .validator .col_confidence,
-        .rating .validator .col_participation,
-        .rating .validator .col_reliability,
-        .rating .validator .col_total
-        {
-            width: 50%;
-        }
     }
 
 
@@ -337,7 +339,8 @@
         }
 
 
-        .rating .list
+        .rating .list,
+        .rating .list.mini
         {
             margin-left: 0;
         }
