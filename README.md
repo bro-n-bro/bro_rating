@@ -39,13 +39,13 @@ Each hero decides which commission he wants to grab from their delegators. The m
 ```python
 def get_cost_optimization_endorsement(
         cost_optimization,
-        cost_optimization_sum,
+        cost_optimization_max,
         ):
-    return int(cost_optimization / cost_optimization_sum * ALLOCATION * COST_OPTIMIZATION)
+    return int(cost_optimization / cost_optimization_max * ALLOCATION * COST_OPTIMIZATION)
 ```
 
 where:
-`cost_optimization_sum` is the sum of `cost_optimization` for all heroes
+`cost_optimization_sum` is the max point of `cost_optimization` for all validators
 `cost_optimization` is:
 
 ```python
@@ -78,8 +78,8 @@ def get_decentralization(rank):
 Then, distribute tokens:
 
 ```python
-def get_decentralization_endorsement(decentralization, decentralization_sum):
-    return int((decentralization / decentralization_sum) * ALLOCATION * DECENTRALIZATION)
+def get_decentralization_endorsement(decentralization, decentralization_msx):
+    return int((decentralization / decentralization_msx) * ALLOCATION * DECENTRALIZATION)
 ```
 
 ## Confidence
@@ -100,8 +100,8 @@ def get_confidence(ownership):
 And the distribution is:
 
 ```python
-def get_confidence_endorsement(confidence, confidence_sum):
-    return int((confidence / confidence_sum) * ALLOCATION * CONFIDENCE)
+def get_confidence_endorsement(confidence, confidence_max):
+    return int((confidence / confidence_max) * ALLOCATION * CONFIDENCE)
 ```
 
 ## Reliability
@@ -112,7 +112,8 @@ This criterion should help to understand the sustainability of the hero node set
 
 ```python
 def get_reliability(staked, delegator_shares):
-    return staked / delegator_shares
+    tokens_blurring = staked / delegator_shares
+    return tokens_blurring ** 32
 ```
 
 The token loss is very serious misconduct. If the validator didn't lose anything, the `tokens_blurring` will be equal to 1.
@@ -120,8 +121,8 @@ The token loss is very serious misconduct. If the validator didn't lose anything
 The distribution is:
 
 ```python
-def get_reliability_endorsement(reliability, reliability_sum):
-    return int((reliability / reliability_sum) * ALLOCATION * RELIABILITY)
+def get_reliability_endorsement(reliability, reliability_max):
+    return int((reliability / reliability_max) * ALLOCATION * RELIABILITY)
 ```
 
 ## Participation
@@ -131,15 +132,18 @@ This criterion shows the participation of the validator in governance proposals 
 ```python
 import math
 
-def get_superintelligence(power):
-    return math.log10(power + 1)
+def get_participation(votes):
+    return math.log10(votes + 1)
 ```
 
 The distribution is:
 
 ```python
-def get_superintelligence_endorsement(superintelligence, superintelligence_sum):
-    return int((superintelligence / superintelligence_sum) * ALLOCATION * SUPERINTELLIGENCE)
+def get_participation_endorsement(superintelligence, superintelligence_max):
+    if superintelligence_max == 0.0:
+        return 0
+    else:
+        return (superintelligence / superintelligence_max) * ALLOCATION * PARTICIPATION
 ```
 
 ## Services
