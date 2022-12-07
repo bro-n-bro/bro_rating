@@ -27,6 +27,7 @@ def create_table(cur, network):
         ownership number,
         voted number,
         isjailed bool,
+        logo_path text,
         validator_rank number,
         cost_optimization number,
         cost_endorsement number,
@@ -40,6 +41,7 @@ def create_table(cur, network):
         reliability_endorsement number,
         total number,
         rank number,
+        is_in_set bool,
         diff number
     )''')
 

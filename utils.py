@@ -27,6 +27,7 @@ async def get_validators(session, network):
         'ownership',
         'voted',
         'isjailed',
+        'logo_path'
     ])
 
 
@@ -36,6 +37,14 @@ async def get_data(session, network, validators, props):
         tasks.append(asyncio.ensure_future(get_validator_data(network, v, props, session)))
     res = await asyncio.gather(*tasks)
     return res
+
+
+async def get_active_set(session, network):
+    url = network['lcd_api'] + '/cosmos/staking/v1beta1/params'
+    async with session.get(url) as resp:
+        active_set = await resp.json()
+        active_set = int(active_set['params']['max_validators'])
+    return active_set
 
 
 async def get_validator_data(network, validator, props, session):
@@ -55,6 +64,16 @@ async def get_validator_data(network, validator, props, session):
                 )),
             ]
     data = await asyncio.gather(*tasks)
+    if network['name'] != 'bostrom':
+        logo_path = network['logo_path'] + validator['operator_address'] + '.png'
+    else:
+        url = network['logo_path'] + validator['description']['identity'] + '&fields=pictures'
+        async with session.get(url) as resp:
+            try:
+                res = await resp.json()
+                logo_path = res['them'][0]['pictures']['primary']['url']
+            except Exception as e:
+                logo_path = ''
     return (
         validator['description']['moniker'],
         validator['operator_address'],
@@ -63,7 +82,8 @@ async def get_validator_data(network, validator, props, session):
         float(validator['commission']['commission_rates']['rate']),
         data[0],
         data[1],
-        validator['jailed']
+        validator['jailed'],
+        logo_path
     )
 
 
@@ -119,45 +139,43 @@ async def get_address_voted(lcd_api: str, address: str, last_proposals: list, se
 async def processor(session, network: dict):
     start = time.time()
     create_table(network)
-    # try:
     validators_df = await get_validators(session, network)
+    active_set = await get_active_set(session, network)
     validators_df.drop(validators_df[validators_df.isjailed==True].index, inplace=True)
-    validators_df['validator_rank'] = validators_df['staked'].rank(ascending=False)
+    validators_df['validator_rank'] = validators_df['staked'].rank(ascending=False, method='dense')
     validators_df['cost_optimization'] = validators_df.apply(lambda x: get_cost_optimization(x['greed']), axis=1)
     validators_df['cost_endorsement'] = validators_df.apply(
-        lambda x: get_cost_optimization_endorsement(x['cost_optimization'], validators_df['cost_optimization'].sum()), axis=1)
+        lambda x: get_cost_optimization_endorsement(x['cost_optimization'], validators_df['cost_optimization'].max()), axis=1)
     validators_df['decentralization'] = validators_df.apply(
         lambda x: get_decentralization(x['validator_rank']), axis=1)
     validators_df['decentralization_endorsement'] = validators_df.apply(
-        lambda x: get_decentralization_endorsement(x['decentralization'], validators_df['decentralization'].sum()), axis=1)
+        lambda x: get_decentralization_endorsement(x['decentralization'], validators_df['decentralization'].max()), axis=1)
     validators_df['confidence'] = validators_df.apply(
         lambda x: get_confidence(x['ownership']), axis=1)
     validators_df['confidence_endorsement'] = validators_df.apply(
-        lambda x: get_confidence_endorsement(x['confidence'], validators_df['confidence'].sum()), axis=1)
+        lambda x: get_confidence_endorsement(x['confidence'], validators_df['confidence'].max()), axis=1)
     validators_df['participation'] = validators_df.apply(
         lambda x: get_participation(x['voted']), axis=1)
     validators_df['participation_endorsement'] = validators_df.apply(
-        lambda x: get_participation_endorsement(x['participation'], validators_df['participation'].sum()), axis=1)
+        lambda x: get_participation_endorsement(x['participation'], validators_df['participation'].max()), axis=1)
     validators_df['reliability'] = validators_df.apply(
         lambda x: get_reliability(x['staked'], x['delegator_shares']), axis=1)
     validators_df['reliability_endorsement'] = validators_df.apply(
-        lambda x: get_reliability_endorsement(x['reliability'], validators_df['reliability'].sum()), axis=1)
+        lambda x: get_reliability_endorsement(x['reliability'], validators_df['reliability'].max()), axis=1)
     validators_df['total'] = validators_df['cost_endorsement'] + validators_df['decentralization_endorsement'] + \
                          validators_df['confidence_endorsement'] + validators_df['reliability_endorsement'] + \
                          validators_df['participation_endorsement']
-    validators_df['rank'] = validators_df['total'].rank(ascending=False)
+    validators_df['rank'] = validators_df['total'].rank(ascending=False, method='dense')
     validators_df = validators_df.sort_values(by=['total'], ascending=False).reset_index(drop=True)
     validators_df['timestamp'] = datetime.utcnow().isoformat()
+    validators_df['is_active_set'] = validators_df['validator_rank'].apply(lambda x: True if x in list(range(1, active_set + 1)) else False)
     try:
         old_df = get_network_data(network)
         validators_df['diff'] = validators_df['rank'] - old_df['rank']
         validators_df["diff"] = validators_df["diff"].fillna(0)
     except Exception as e:
+        print(e)
         validators_df['diff'] = 0
     save_to_db(network, validators_df)
     stop = time.time()
     print(network['name'], stop - start)
-    # except Exception as e:
-    #     print(e)
-    #     print(network['name'], 'passed')
-    #     pass
