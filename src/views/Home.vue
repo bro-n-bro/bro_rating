@@ -2,9 +2,7 @@
     <section class="home_block">
         <div class="cont">
             <div class="data">
-                <div class="title animate fadeInUp" v-animate>
-                    {{ $t('message.home_title') }}
-                </div>
+                <div class="title animate fadeInUp" v-html="$t('message.home_title')" v-animate></div>
 
                 <div class="desc animate fadeInUp delay" v-html="$t('message.home_desc')" v-animate></div>
 
@@ -375,6 +373,8 @@
         width: 100%;
     }
 }
+
+
 
 
 

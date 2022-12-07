@@ -6,7 +6,7 @@ export default {
 
             // Home
             'home_title': "Bro rating",
-            'home_desc': "Validator's rating created by Bro_n_Bro. Bro rating is aimed at community needs with regard to an appropriate funds decentralization in different Cosmos networks.",
+            'home_desc': "Validator's rating created by Bro_n_Bro.<br> Bro rating is aimed at community needs with regard to an appropriate funds decentralization in different Cosmos networks.",
 
             // Compare
             'compare_title': 'Comparison result',

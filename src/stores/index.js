@@ -59,7 +59,7 @@ export const useGlobalStore = defineStore('global', {
             },
             'gravity': {
                 name: 'Gravity bridge',
-                token: 'GRAVITION',
+                token: 'GRAV',
                 alias: 'gravity',
                 mintscanAlias: 'gravity-bridge',
                 exponent: 1000000,
