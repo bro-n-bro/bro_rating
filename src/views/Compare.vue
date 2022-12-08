@@ -105,8 +105,8 @@
                                     <div class="col_greed" :data-column="$t('message.compare_title_col_greed')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['greed'],
-                                            green: store.compareMinMaxValue['greed'].max == index,
-                                            red: store.compareMinMaxValue['greed'].min == index
+                                            red: store.compareMinMaxValue['greed'].max == index,
+                                            green: store.compareMinMaxValue['greed'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
                                     >
@@ -116,8 +116,8 @@
                                     <div class="col_cost" :data-column="$t('message.compare_title_col_cost')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['cost_endorsement'],
-                                            red: store.compareMinMaxValue['cost_endorsement'].max == index,
-                                            green: store.compareMinMaxValue['cost_endorsement'].min == index
+                                            green: store.compareMinMaxValue['cost_endorsement'].max == index,
+                                            red: store.compareMinMaxValue['cost_endorsement'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(validator[getValidatorInfo('greed')] * 100, 2) }))"
                                     >
@@ -138,8 +138,8 @@
                                     <div class="col_decentralization" :data-column="$t('message.compare_title_col_decentralization')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['decentralization_endorsement'],
-                                            red: store.compareMinMaxValue['decentralization_endorsement'].max == index,
-                                            green: store.compareMinMaxValue['decentralization_endorsement'].min == index
+                                            green: store.compareMinMaxValue['decentralization_endorsement'].max == index,
+                                            red: store.compareMinMaxValue['decentralization_endorsement'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_decentralization', { validator_rank: $filters.toFixed(validator[getValidatorInfo('validator_rank')], 2) }))"
                                     >
@@ -193,8 +193,8 @@
                                     <div class="col_blurring" :data-column="$t('message.compare_title_col_blurring')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['blurring'],
-                                            red: store.compareMinMaxValue['blurring'].max == index,
-                                            green: store.compareMinMaxValue['blurring'].min == index
+                                            green: store.compareMinMaxValue['blurring'].max == index,
+                                            red: store.compareMinMaxValue['blurring'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_blurring'))"
                                     >
@@ -204,8 +204,8 @@
                                     <div class="col_reliability" :data-column="$t('message.compare_title_col_reliability')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['reliability'],
-                                            red: store.compareMinMaxValue['reliability'].max == index,
-                                            green: store.compareMinMaxValue['reliability'].min == index
+                                            green: store.compareMinMaxValue['reliability'].max == index,
+                                            red: store.compareMinMaxValue['reliability'].min == index
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_reliability', {
                                             staked: $filters.toFixed(validator[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent, 0),
@@ -321,7 +321,9 @@
         display: flex;
         flex-direction: column;
 
-        margin-bottom: 20px;
+        width: 1516px;
+        max-width: 100%;
+        margin: 0 auto 20px;
 
         flex: 1 0 auto;
     }

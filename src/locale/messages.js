@@ -72,7 +72,12 @@ export default {
             'compare_btn': 'Compare',
             'see_results_btn': 'See results',
             'delegate_btn': 'Delegate',
-            'back_btn': 'Back to Validators list'
+            'back_btn': 'Back to Validators list',
+
+
+            // Footer
+            'footer_contact': 'Contact',
+            'footer_support': 'Support'
         }
     }
 }

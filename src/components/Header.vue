@@ -1,47 +1,71 @@
 <template>
-    <header>
-        <div class="cont row">
-            <div class="logo" v-click-out="clickOut">
-                <div class="btn" @click.prevent="showDropdown = !showDropdown">
-                    <img src="/logo.svg" alt="">
+    <div class="header_wrap">
+        <header>
+            <div class="cont row">
+                <div class="logo" v-click-out="clickOut">
+                    <div class="btn" @click.prevent="showDropdown = !showDropdown">
+                        <img src="/logo.svg" alt="">
 
-                    <svg class="arr"><use xlink:href="/sprite.svg#ic_arr_ver"></use></svg>
+                        <svg class="arr"><use xlink:href="/sprite.svg#ic_arr_ver"></use></svg>
+                    </div>
+
+                    <div class="mini_modal" v-show="showDropdown">
+                        <div><a href="https://bronbro.io/" target="_blank" rel="noopener">
+                            <img src="/bro_logo.svg" alt="">
+                        </a></div>
+
+                        <!-- <div><a href="/" target="_blank" rel="noopener">
+                            <img src="/bro_app_logo.svg" alt="">
+                        </a></div> -->
+
+                        <div><a href="https://monitor.bronbro.io/" target="_blank" rel="noopener">
+                            <img src="/bro_stats_logo.svg" alt="">
+                        </a></div>
+                    </div>
                 </div>
 
-                <div class="mini_modal" v-show="showDropdown">
-                    <div><a href="https://bronbro.io/" target="_blank" rel="noopener">
-                        <img src="/bro_logo.svg" alt="">
-                    </a></div>
+                <!-- Notifications -->
+                <Notifications class="animate fadeInUp" v-animate />
 
-                    <!-- <div><a href="/" target="_blank" rel="noopener">
-                        <img src="/bro_app_logo.svg" alt="">
-                    </a></div> -->
-
-                    <div><a href="https://monitor.bronbro.io/" target="_blank" rel="noopener">
-                        <img src="/bro_stats_logo.svg" alt="">
-                    </a></div>
-                </div>
+                <!-- Choose network -->
+                <ChooseNetwork class="animate fadeInRight" v-animate :links="true" />
             </div>
-
-            <!-- Notifications -->
-            <Notifications class="animate fadeInUp" v-animate />
-
-            <!-- Choose network -->
-            <ChooseNetwork class="animate fadeInRight" v-animate :links="true" />
-        </div>
-    </header>
+        </header>
+    </div>
 </template>
 
 
 <script setup>
-    import { ref, watchEffect } from 'vue'
+    import { ref, watchEffect, onMounted } from 'vue'
 
     // Components
     import ChooseNetwork  from '../components/ChooseNetwork.vue'
     import Notifications  from '../components/Notifications.vue'
 
-
     var showDropdown = ref(false)
+
+
+    onMounted(() => {
+        // Sticky header
+        const header = document.querySelector('header'),
+            headerWrap = document.querySelector('.header_wrap')
+
+        headerWrap.style.height = header.offsetHeight + 'px'
+
+        headerWrap.setHeightEvent = () => setTimeout(() => {
+            headerWrap.style.height = 'auto'
+            headerWrap.style.height = header.offsetHeight + 'px'
+        })
+
+        header.stickyEvent = () => setTimeout(() => {
+            window.scrollY > 0
+                ? header.classList.add('stuck')
+                : header.classList.remove('stuck')
+        })
+
+        document.addEventListener('scroll', header.stickyEvent)
+        document.addEventListener('resize', headerWrap.setHeightEvent)
+    })
 
 
     watchEffect(() => showDropdown.value = false)
@@ -55,16 +79,30 @@
 
 
 <style scoped>
+    .header_wrap
+    {
+        margin-bottom: 20px;
+    }
+
+
     header
     {
-        position: relative;
+        position: fixed;
         z-index: 20;
         top: 0;
         left: 0;
 
         width: 100%;
-        margin-bottom: 20px;
         padding: 20px 0;
+
+        transition: padding .2s linear;
+    }
+
+    header.stuck
+    {
+        padding: 0;
+
+        background: var(--bg);
     }
 
 
@@ -203,6 +241,25 @@
 
     @media print, (max-width: 1023px)
     {
+        .header_wrap
+        {
+            height: auto !important;
+        }
+
+
+        header
+        {
+            position: relative;
+
+            padding: 10px 0;
+        }
+
+        header.stuck
+        {
+            padding: 10px 0;
+        }
+
+
         header .notifications
         {
             width: 100%;

@@ -5,6 +5,9 @@
     <!-- Router view -->
     <RouterView />
 
+    <!-- Footer -->
+    <Footer />
+
     <!-- Compare error modal -->
     <CompareErrorModal v-if="store.showCompareErrorModal" />
 </template>
@@ -17,6 +20,7 @@
 
     // Components
     import Header from '../components/Header.vue'
+    import Footer from '../components/Footer.vue'
     import CompareErrorModal from '../components/CompareErrorModal.vue'
 
 
