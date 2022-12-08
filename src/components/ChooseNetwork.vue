@@ -19,7 +19,7 @@
 
         <div class="mini_modal" v-show="showDropdown">
             <div class="scroll">
-                <template v-if="props.links">
+                <!-- <template v-if="props.links"> -->
                 <div v-for="(network, index) in store.networks" :key="index">
                     <router-link class="network" :class="{ active: store.currentNetwork == network.alias }"
                         :to="{ name: 'Network', query: { network: network.alias } }"
@@ -37,7 +37,7 @@
                         <svg class="icon"><use xlink:href="/sprite.svg#ic_check"></use></svg>
                     </router-link>
                 </div>
-                </template>
+                <!-- </template>
 
                 <template v-else>
                 <div v-for="(network, index) in store.networks" :key="index">
@@ -54,7 +54,7 @@
                         <svg class="icon"><use xlink:href="/sprite.svg#ic_check"></use></svg>
                     </button>
                 </div>
-                </template>
+                </template> -->
             </div>
         </div>
     </div>
@@ -65,8 +65,7 @@
     import { ref, watchEffect } from 'vue'
     import { useGlobalStore } from '@/stores'
 
-    const props = defineProps(['links']),
-        store = useGlobalStore()
+    const store = useGlobalStore()
 
     var showDropdown = ref(false)
 

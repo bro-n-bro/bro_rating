@@ -7,13 +7,24 @@
                 <div class="desc animate fadeInUp delay" v-html="$t('message.home_desc')" v-animate></div>
 
                 <!-- Choose network -->
-                <ChooseNetwork class="animate fadeInUp delay3" v-animate :links="true" />
+                <!-- <ChooseNetwork class="animate fadeInUp delay3" v-animate /> -->
 
-                <!-- <div class="link animate fadeInUp delay4" v-animate>
-                    <router-link :to="{ name: 'Network', query: { network: store.currentNetwork } }" :class="{ active: store.currentNetwork.length }">
-                        {{ $t('message.see_results_btn') }}
-                    </router-link>
-                </div> -->
+                <div class="networks">
+                    <div class="row">
+                        <div v-for="(network, index) in store.networks" :key="index">
+                            <router-link class="network" :to="{ name: 'Network', query: { network: network.alias } }">
+                                <div class="logo">
+                                    <img :src="`/${network.alias}_logo.png`" alt="">
+                                </div>
+
+                                <div>
+                                    <div class="name">{{ network.name }}</div>
+                                    <div class="token">{{ network.token }}</div>
+                                </div>
+                            </router-link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -26,18 +37,16 @@
 
 
 <script setup>
-    import { inject } from 'vue'
     import { useGlobalStore } from '@/stores'
 
     // Components
-    import ChooseNetwork  from '../components/ChooseNetwork.vue'
+    // import ChooseNetwork  from '../components/ChooseNetwork.vue'
 
-    const store = useGlobalStore(),
-        i18n = inject('i18n')
+    const store = useGlobalStore()
 </script>
 
 
-<style>
+<style scoped>
 .home_block
 {
     position: relative;
@@ -45,7 +54,7 @@
 
     display: flex;
 
-    padding: 162px 0 60px;
+    padding: 60px 0;
 
     flex: 1 0 auto;
     justify-content: center;
@@ -79,45 +88,122 @@
 }
 
 
-.home_block .choose_network
+/* .home_block .choose_network
 {
+    margin: 30px auto 0;
+} */
+
+
+
+.home_block .networks
+{
+    width: 824px;
+    max-width: 100%;
     margin: 30px auto 0;
 }
 
 
-.home_block .link
+.home_block .networks .row
 {
-    margin-top: 40px;
+    margin-bottom: -10px;
+    margin-left: -10px;
+
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.home_block .networks .row > *
+{
+    width: calc(25% - 10px);
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 
-.home_block .link a
+.home_block .networks .network
 {
     color: currentColor;
-    line-height: 60px;
+
+    display: flex;
+
+    width: 100%;
+    height: 60px;
+    padding: 9px;
+
+    transition: background .2s linear;
+    text-decoration: none;
+
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: #141414;
+
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+
+.home_block .networks .network .logo
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 40px;
+    height: 40px;
+    margin-right: 14px;
+
+    border-radius: 50%;
+}
+
+.home_block .networks .network .logo img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
 
     display: block;
 
-    width: 235px;
-    max-width: 100%;
-    height: 60px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
 
-    transition: background .2s linear;
-    text-align: center;
-    text-decoration: none;
-    pointer-events: none;
+    border-radius: 50%;
 
-    border-radius: 12px;
-    background: #141414;
+    object-fit: cover;
 }
 
-.home_block .link a.active
+.home_block .networks .network .logo + *
 {
-    pointer-events: auto;
-
-    background: #950fff;
+    width: calc(100% - 54px);
 }
+
+
+.home_block .networks .network .name
+{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+
+.home_block .networks .network .token
+{
+    color: #555;
+    font-size: 12px;
+    line-height: 15px;
+
+    margin-top: 6px;
+
+    text-transform: uppercase;
+}
+
+
+.home_block .networks .network:hover
+{
+    background: #353535;
+}
+
 
 
 .home_block .bg_left
@@ -183,7 +269,8 @@
         margin-top: 28px;
     }
 
-    .home_block .choose_network
+
+    /* .home_block .choose_network
     {
         margin-top: 40px;
     }
@@ -199,7 +286,7 @@
     .home_block .choose_network .mini_modal .scroll
     {
         max-height: 310px;
-    }
+    } */
 }
 
 
@@ -273,7 +360,13 @@
     }
 
 
-    .home_block .choose_network
+    .home_block .networks .row > *
+    {
+        width: calc(33.333% - 10px);
+    }
+
+
+    /* .home_block .choose_network
     {
         margin-top: 30px;
     }
@@ -288,18 +381,7 @@
     .home_block .choose_network .mini_modal .scroll
     {
         max-height: 257px;
-    }
-
-
-    .home_block .link
-    {
-        margin-top: 30px;
-    }
-
-    .home_block .link a
-    {
-        width: 264px;
-    }
+    } */
 }
 
 
@@ -307,7 +389,8 @@
 {
     .home_block
     {
-        padding-top: 134px;
+        padding-top: 124px;
+        padding-bottom: 40px;
     }
 
 
@@ -327,17 +410,23 @@
     }
 
 
-    .home_block .choose_network .mini_modal
+    .home_block .networks .row > *
+    {
+        width: calc(50% - 10px);
+    }
+
+
+    .home_block .networks .network .name
+    {
+        font-size: 17px;
+    }
+
+
+    /* .home_block .choose_network .mini_modal
     {
         top: auto;
         bottom: calc(100% + 10px);
-    }
-
-
-    .home_block .link a
-    {
-        width: 224px;
-    }
+    } */
 }
 
 
@@ -357,37 +446,23 @@
     }
 
 
+    .home_block .networks .row
+    {
+        margin-left: 0;
+    }
+
+    .home_block .networks .row > *
+    {
+        width: 100%;
+        margin-left: 0;
+    }
+
+
     .home_block .mob_bg
     {
         bottom: 164px;
     }
-
-
-    .home_block .link
-    {
-        margin-top: 24px;
-    }
-
-    .home_block .link a
-    {
-        width: 100%;
-    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

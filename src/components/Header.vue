@@ -14,9 +14,9 @@
                             <img src="/bro_logo.svg" alt="">
                         </a></div>
 
-                        <!-- <div><a href="/" target="_blank" rel="noopener">
+                        <div><a href="https://app.bronbro.io/" target="_blank" rel="noopener">
                             <img src="/bro_app_logo.svg" alt="">
-                        </a></div> -->
+                        </a></div>
 
                         <div><a href="https://monitor.bronbro.io/" target="_blank" rel="noopener">
                             <img src="/bro_stats_logo.svg" alt="">
@@ -28,7 +28,7 @@
                 <Notifications class="animate fadeInUp" v-animate />
 
                 <!-- Choose network -->
-                <ChooseNetwork class="animate fadeInRight" v-animate :links="true" />
+                <ChooseNetwork class="animate fadeInRight" v-animate />
             </div>
         </header>
     </div>
