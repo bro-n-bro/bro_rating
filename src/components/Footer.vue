@@ -112,4 +112,29 @@
         color: #950fff;
     }
 
+
+
+    @media print, (max-width: 479px)
+    {
+        footer
+        {
+            padding-bottom: 30px;
+        }
+
+
+        footer .text{
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+        }
+
+
+        footer .socials
+        {
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+
 </style>

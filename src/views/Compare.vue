@@ -234,7 +234,7 @@
                                             green: store.compareMinMaxValue['total'].max == index,
                                             red: store.compareMinMaxValue['total'].min == index
                                         }"
-                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_greed'))"
+                                        @mouseover="emitter.emit('setNotification', $t('message.notice_col_total'))"
                                     >
                                         {{ $filters.toFixed(validator[getValidatorInfo('total')], 4) }}
                                     </div>
