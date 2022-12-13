@@ -1,5 +1,5 @@
 <template>
-    <div class="search">
+    <div class="search" v-click-out="clickOut">
         <button class="btn" @click.prevent="showDropdown = !showDropdown" :class="{ hide: showDropdown }">
             <svg class="icon"><use xlink:href="/sprite.svg#ic_search"></use></svg>
         </button>
@@ -52,12 +52,17 @@
         })
     })
 
-
     watch(showDropdown, value => {
         if(value) {
             setTimeout(() => document.querySelector('.search .input').focus())
         }
     })
+
+
+    // Сlick element outside
+    function clickOut() {
+        showDropdown.value = false
+    }
 
 
     // Get validator data from shema

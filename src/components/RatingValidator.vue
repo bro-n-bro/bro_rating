@@ -250,7 +250,7 @@
 
     .rating .validator .col_moniker .power svg
     {
-        color: #eb5757;
+        color: #464646;
 
         position: absolute;
         z-index: -1;

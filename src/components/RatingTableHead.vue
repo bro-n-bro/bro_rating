@@ -5,6 +5,10 @@
                 <span>{{ $t('message.title_col_score') }}</span>
 
                 <svg class="icon"><use xlink:href="/sprite.svg#ic_sort"></use></svg>
+
+                <div class="more_info">
+                    <a href="https://github.com/bro-n-bro/bro_rating#bro-score-by-bro_n_bro" target="_blank" rel="noopener nofollow">Get more info</a>
+                </div>
             </div>
 
             <div class="col_moniker" @click="sortData('validator_rank', $event)">
