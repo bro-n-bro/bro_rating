@@ -226,7 +226,7 @@
         justify-content: flex-start;
         align-items: center;
         align-content: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
 
 
@@ -329,7 +329,7 @@
         overflow: hidden;
 
         width: calc(100% - 78px);
-        max-width: 215px;
+        max-width: 100%;
 
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -431,21 +431,11 @@
 
 
 
-    @media print, (max-width: 1899px)
+    @media print, (max-width: 1403px)
     {
         .rating .validator .col_moniker .logo + *
         {
-            max-width: none;
-        }
-    }
-
-
-
-    @media print, (max-width: 1359px)
-    {
-        .rating .validator .col_moniker .logo + *
-        {
-            max-width: 216px;
+            max-width: 294px;
         }
     }
 
@@ -502,12 +492,6 @@
 
             justify-content: flex-start;
             order: 3;
-            flex-wrap: wrap;
-        }
-
-        .rating .validator .col_moniker .logo + *
-        {
-            max-width: calc(100% - 78px);
         }
 
 
