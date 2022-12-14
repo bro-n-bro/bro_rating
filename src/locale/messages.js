@@ -64,6 +64,13 @@ export default {
 
             'filter_title': 'Change visibility of columns',
 
+            // Search
+            'search_not_found': 'Nothing found',
+
+            // Filter active set
+            'filter_active_set': 'Active set',
+            'filter_inactive_set': 'Inactive set',
+
             // Placeholders
             'search_placeholder': 'Validator name',
             'choose_network_placeholder': 'Choose network',
@@ -73,7 +80,6 @@ export default {
             'see_results_btn': 'See results',
             'delegate_btn': 'Delegate',
             'back_btn': 'Back to Validators list',
-
 
             // Footer
             'footer_contact': 'Contact',

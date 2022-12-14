@@ -16,6 +16,7 @@
             </form>
 
             <div class="tips" v-if="query.length">
+                <template v-if="store.searchValidators.length">
                 <div class="tip" v-for="(validator, index) in store.searchValidators" :key="index" @click.prevent="scrollToValidator(validator[getValidatorInfo('opeartor_address')])">
                     <div class="logo">
                         <img :data-src="validator[getValidatorInfo('logo_path')]" alt="" @error="imageLoadError" v-lazyload>
@@ -24,6 +25,9 @@
 
                     <div>{{ validator[getValidatorInfo('moniker')] }}</div>
                 </div>
+                </template>
+
+                <div class="empty" v-else>{{ $t('message.search_not_found') }}</div>
             </div>
         </div>
     </div>
@@ -88,6 +92,7 @@
 
         // Scroll
         el.scrollIntoView({
+            block: 'nearest',
             behavior: 'smooth'
         })
 
@@ -101,8 +106,6 @@
     .search
     {
         position: relative;
-
-        margin-left: auto;
     }
 
 
@@ -267,7 +270,12 @@
         padding: 6px 4px;
 
         border-radius: 12px;
-        background: #141414;
+        background: #1c1c1c;
+    }
+
+    .search .tips::-webkit-scrollbar
+    {
+        border-radius: 5px;
     }
 
     .search .tips.show
@@ -278,6 +286,17 @@
     .search .tips > * + *
     {
         margin-top: 6px;
+    }
+
+
+    .search .tips .empty
+    {
+        font-size: 12px;
+        line-height: 15px;
+
+        padding: 6px;
+
+        text-align: center;
     }
 
 
@@ -368,13 +387,19 @@
 
     .search .tip:hover
     {
-        background: #191919;
+        background: #232323;
     }
 
 
 
     @media print, (max-width: 767px)
     {
+        .search .btn
+        {
+            width: 48px;
+        }
+
+
         .search .mini_modal
         {
             width: calc(100vw - 130px);

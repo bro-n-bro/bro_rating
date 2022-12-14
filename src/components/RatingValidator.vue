@@ -1,5 +1,8 @@
 <template>
-    <div class="validator" :class="{ 'pinned': props.validator.pinned }" :id="getValidatorInfo('opeartor_address')">
+    <div class="validator" :id="getValidatorInfo('opeartor_address')" :class="{
+        pinned: props.validator.pinned,
+        hide: getValidatorInfo('is_active_set') == 0 && store.filterActiveSet == 'active' || getValidatorInfo('is_active_set') == 1 && store.filterActiveSet == 'inactive'
+    }">
         <div class="col_score" @mouseover="emitter.emit('setNotification', $t('message.notice_col_score'))" :data-column="$t('message.title_col_score')" @click.prevent="toggleToCompare($event, getValidatorInfo('opeartor_address'))">
             <div class="checkbox">
                 <svg><use xlink:href="/sprite.svg#ic_check"></use></svg>
@@ -154,9 +157,9 @@
         flex-wrap: nowrap;
     }
 
-    .rating .validator + .validator
+    .rating .validator.hide
     {
-        border-top: 1px solid rgba(255, 255, 255, .05);
+        display: none;
     }
 
     .rating .validator:hover
@@ -167,6 +170,12 @@
     .rating .validator.pinned
     {
         background: rgba(149, 15, 255, .2);
+    }
+
+
+    .rating .validator + .validator
+    {
+        border-top: 1px solid rgba(255, 255, 255, .05);
     }
 
 
@@ -329,7 +338,7 @@
         overflow: hidden;
 
         width: calc(100% - 78px);
-        max-width: 100%;
+        max-width: 293px;
 
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -406,7 +415,7 @@
 
     .rating .validator.flashing
     {
-        animation: flashing .75s cubic-bezier(.075, .820, .165, 1.000) 5;
+        animation: flashing .75s cubic-bezier(.075, .820, .165, 1.000) 2;
         animation-delay: .75s;
     }
 
@@ -431,11 +440,31 @@
 
 
 
-    @media print, (max-width: 1403px)
+    @media print, (max-width: 1515px)
     {
         .rating .validator .col_moniker .logo + *
         {
-            max-width: 294px;
+            max-width: 337px;
+        }
+    }
+
+
+
+    @media print, (max-width: 1439px)
+    {
+        .rating .validator .col_moniker .logo + *
+        {
+            max-width: 289px;
+        }
+    }
+
+
+
+    @media print, (max-width: 1359px)
+    {
+        .rating .validator .col_moniker .logo + *
+        {
+            max-width: 209px;
         }
     }
 
@@ -448,7 +477,7 @@
             padding: 20px;
 
             border-radius: 16px;
-            background: rgba(255, 255, 255, .05);
+            background: #141414;
 
             flex-wrap: wrap;
             align-items: flex-start;

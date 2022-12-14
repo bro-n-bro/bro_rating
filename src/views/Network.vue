@@ -19,6 +19,13 @@
 
                     <!-- Filter -->
                     <RatingFilter />
+
+                    <a href="https://github.com/bro-n-bro/bro_rating#bro-score-by-bro_n_bro" target="_blank" rel="noopener nofollow" class="info_link">
+                        <svg><use xlink:href="/sprite.svg#ic_notice"></use></svg>
+                    </a>
+
+                    <!-- Filter active set -->
+                    <RatingFilterActiveSet />
                 </div>
 
                 <!-- Table head -->
@@ -45,6 +52,7 @@
     // Components
     import Search from '../components/Search.vue'
     import RatingFilter from '../components/RatingFilter.vue'
+    import RatingFilterActiveSet from '../components/RatingFilterActiveSet.vue'
     import Validator from '../components/RatingValidator.vue'
     import TableHead from '../components/RatingTableHead.vue'
 
@@ -118,6 +126,11 @@
         flex-wrap: wrap;
     }
 
+    .rating .head > * + *
+    {
+        margin-left: 10px;
+    }
+
 
 
     .rating .block_title
@@ -136,6 +149,42 @@
 
         margin-right: auto;
         margin-left: 24px;
+    }
+
+
+
+    .rating .info_link
+    {
+        color: #fff;
+
+        display: flex;
+
+        width: 52px;
+        height: 45px;
+
+        transition: background .2s linear;
+        text-decoration: none;
+
+        border-radius: 12px;
+        background: #141414;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .rating .info_link svg
+    {
+        display: block;
+
+        width: 24px;
+        height: 24px;
+    }
+
+    .rating .info_link:hover
+    {
+        background: #950fff;
     }
 
 
@@ -186,6 +235,11 @@
     .rating .list.mini
     {
         max-height: calc(100vh - 340px);
+    }
+
+    .rating .list::-webkit-scrollbar
+    {
+        border-radius: 5px;
     }
 
 
@@ -301,17 +355,21 @@
         {
             font-size: 28px;
             line-height: 34px;
+
+            margin-right: auto;
         }
 
 
         .rating .last_update
         {
-            font-size: 12px;
+            font-size: 13px;
 
-            position: relative;
-            top: 4px;
+            width: 100%;
+            margin-top: 4px;
+            margin-bottom: 10px;
+            margin-left: 0;
 
-            margin-left: 20px;
+            order: 3;
         }
     }
 
@@ -326,16 +384,14 @@
         }
 
 
-        .rating .last_update
+        .rating .filter_active_set
         {
-            font-size: 13px;
-
             width: 100%;
-            margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             margin-left: 0;
 
-            order: 3;
+            justify-content: center;
+            order: 5;
         }
 
 
@@ -361,10 +417,29 @@
 
     @media print, (max-width: 479px)
     {
+        .rating .head > * + *
+        {
+            margin-left: 8px;
+        }
+
+
         .rating .block_title
         {
             font-size: 24px;
             line-height: 30px;
+        }
+
+
+        .rating .last_update,
+        .rating .filter_active_set
+        {
+            margin-left: 0;
+        }
+
+
+        .rating .info_link
+        {
+            width: 48px;
         }
     }
 

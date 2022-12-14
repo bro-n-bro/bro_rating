@@ -138,12 +138,6 @@
 
 
 <style scoped>
-    .filter
-    {
-        margin-left: 10px;
-    }
-
-
     .filter > .btn
     {
         display: flex;
@@ -192,10 +186,11 @@
 
         width: 360px;
         max-height: calc(100vh - 237px);
-        padding: 20px 4px 20px 20px;
+        margin-top: 10px;
+        padding: 20px;
 
         border-radius: 24px;
-        background: #0d0d0d;
+        background: #1c1c1c;
 
         overscroll-behavior-y: contain;
     }
@@ -204,6 +199,8 @@
     {
         width: 5px;
         height: 5px;
+
+        border-radius: 5px;
     }
 
 
@@ -224,12 +221,12 @@
         display: flex;
 
         width: 100%;
-        padding: 10px 6px;
+        padding: 10px;
 
         text-align: left;
 
         border-radius: 8px;
-        background: #141414;
+        background: #282828;
 
         justify-content: space-between;
         align-items: center;
@@ -283,11 +280,10 @@
     }
 
 
+
     .compare .filter
     {
         position: relative;
-
-        margin-left: 0;
     }
 
 
@@ -302,8 +298,9 @@
         right: auto;
         left: -10px;
 
-        max-height: 436px;
+        max-height: 446px;
         margin-top: 10px;
+        padding-right: 15px;
 
         border-radius: 8px 2px 2px 8px;
     }
@@ -381,11 +378,19 @@
 
     @media print, (max-width: 479px)
     {
+        .filter > .btn
+        {
+            width: 48px;
+        }
+
+
         .filter .dropdown
         {
             width: 287px;
             padding-left: 10px;
         }
+
+
 
         .compare .filter .dropdown
         {
