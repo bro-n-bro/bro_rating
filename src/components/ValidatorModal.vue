@@ -386,7 +386,7 @@
         font-weight: 600;
         line-height: 100%;
 
-        margin-left: 2px;
+        margin-left: 6px;
     }
 
 
@@ -397,7 +397,7 @@
         display: flex;
 
         margin-left: 10px;
-        padding: 9px 13px;
+        padding: 8px 13px 10px;
 
         white-space: nowrap;
 
