@@ -8,6 +8,9 @@
     <!-- Footer -->
     <Footer />
 
+    <!-- Validator modal -->
+    <ValidatorModal v-if="store.showValidatorModal" />
+
     <!-- Compare error modal -->
     <CompareErrorModal v-if="store.showCompareErrorModal" />
 </template>
@@ -21,6 +24,7 @@
     // Components
     import Header from '../components/Header.vue'
     import Footer from '../components/Footer.vue'
+    import ValidatorModal from '../components/ValidatorModal.vue'
     import CompareErrorModal from '../components/CompareErrorModal.vue'
 
 
@@ -44,6 +48,24 @@
     // Event "close compare error modal"
     emitter.on('closeCompareErrorModal', () => {
         store.showCompareErrorModal = false
+    })
+
+
+    // Event "show validator modal"
+    emitter.on('showValidatorModal', validator => {
+        store.validatorInfo = validator
+        store.showValidatorModal = true
+
+        document.body.classList.add('lock')
+    })
+
+
+    // Event "close validator modal"
+    emitter.on('closeValidatorModal', () => {
+        store.validatorInfo = {}
+        store.showValidatorModal = false
+
+        document.body.classList.remove('lock')
     })
 
 

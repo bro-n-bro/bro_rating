@@ -427,6 +427,11 @@
         background: #950fff;
     }
 
+    .rating .compare_btn:hover
+    {
+        background: #7700e1;
+    }
+
 
 
     @media print, (max-width: 1279px)

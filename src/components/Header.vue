@@ -88,7 +88,7 @@
     header
     {
         position: fixed;
-        z-index: 20;
+        z-index: 101;
         top: 0;
         left: 0;
 
@@ -250,6 +250,7 @@
         header
         {
             position: relative;
+            z-index: 20;
 
             padding: 10px 0;
         }

@@ -740,11 +740,17 @@
         margin-top: 20px;
         padding: 14px;
 
+        transition: background .2s linear;
         text-align: center;
         text-decoration: none;
 
         border-radius: 10px;
         background: #950fff;
+    }
+
+    .compare .validator .delegate_btn:hover
+    {
+        background: #7700e1;
     }
 
 

@@ -47,7 +47,7 @@
     header
     {
         position: absolute;
-        z-index: 20;
+        z-index: 101;
         top: 0;
         left: 0;
 
@@ -159,6 +159,16 @@
         header .logo .btn img
         {
             height: 60px;
+        }
+    }
+
+
+
+    @media print, (max-width: 1023px)
+    {
+        header
+        {
+            z-index: 20;
         }
     }
 

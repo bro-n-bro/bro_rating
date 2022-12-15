@@ -17,7 +17,21 @@
             </span>
         </div>
 
-        <a target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'"
+        <div class="col_moniker" :data-column="$t('message.title_col_moniker')" @click.prevent="emitter.emit('showValidatorModal', validator)">
+            <div class="power">
+                {{ Math.floor(getValidatorInfo('validator_rank')) }}
+                <svg :class="{ green: getValidatorInfo('is_active_set') }"><use xlink:href="/sprite.svg#bg_rank"></use></svg>
+            </div>
+
+            <div class="logo">
+                <img :src="getValidatorInfo('logo_path')" alt="" @error="imageLoadError">
+                <svg class="icon"><use xlink:href="/sprite.svg#ic_user"></use></svg>
+            </div>
+
+            <div>{{ getValidatorInfo('moniker') }}</div>
+        </div>
+
+        <!-- <a target="_blank" rel="noopener nofollow" class="col_moniker" v-if="store.currentNetwork != 'bostrom'"
             :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${getValidatorInfo('opeartor_address')}`"
             @mouseover="emitter.emit('setNotification', $t('message.notice_col_moniker'))"
             :data-column="$t('message.title_col_moniker')"
@@ -33,9 +47,9 @@
             </div>
 
             <div>{{ getValidatorInfo('moniker') }}</div>
-        </a>
+        </a> -->
 
-        <a target="_blank" rel="noopener nofollow" class="col_moniker" v-else
+        <!-- <a target="_blank" rel="noopener nofollow" class="col_moniker" v-else
             :href="`https://cyb.ai/network/bostrom/hero/${getValidatorInfo('opeartor_address')}`"
             :data-column="$t('message.title_col_moniker')"
         >
@@ -50,7 +64,7 @@
             </div>
 
             <div>{{ getValidatorInfo('moniker') }}</div>
-        </a>
+        </a> -->
 
         <div class="col_cost" @mouseover="emitter.emit('setNotification', $t('message.notice_col_cost', { greed: $filters.toFixed(getValidatorInfo('greed') * 100, 2) }))" :data-column="$t('message.title_col_cost')">
             <span>{{ $filters.toFixed(getValidatorInfo('cost_endorsement'), 2) }}</span>
@@ -229,6 +243,7 @@
         font-size: 12px;
         line-height: 15px;
 
+        cursor: pointer;
         text-align: left;
         text-decoration: none;
 
@@ -236,6 +251,11 @@
         align-items: center;
         align-content: center;
         flex-wrap: wrap;
+    }
+
+    .rating .validator .col_moniker > *
+    {
+        pointer-events: none;
     }
 
 

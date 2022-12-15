@@ -83,7 +83,26 @@ export default {
 
             // Footer
             'footer_contact': 'Contact',
-            'footer_support': 'Support'
+            'footer_support': 'Support',
+
+            // Validator modal
+            'validator_modal_title': 'Validator details',
+
+            'validator_modal_active_set': 'Active',
+            'validator_modal_inactive_set': 'Inactive',
+
+            'validator_modal_operator_address_label': 'Operator Address',
+            'validator_modal_bro_score_label': 'Bro score',
+            'validator_modal_commission_label': 'Commission',
+            'validator_modal_ownership_label': 'Self Bonded/<br>Ownership',
+            'validator_modal_total_delegated_label': 'Total delegated amount',
+            'validator_modal_voted_label': 'Props voted',
+            'validator_modal_blurring_label': 'Tokens blurring',
+            'validator_modal_cost_label': 'Cost Optimisation',
+            'validator_modal_confidence_label': 'Confidence',
+            'validator_modal_decentralization_label': 'Decentralization',
+            'validator_modal_participation_label': 'Participation',
+            'validator_modal_reliability_label': 'Reliability'
         }
     }
 }
