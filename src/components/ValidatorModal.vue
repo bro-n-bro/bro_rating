@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="bro_score">
-                        {{ $t('message.validator_modal_bro_score_label') }}
+                        <span>{{ $t('message.validator_modal_bro_score_label') }}</span>
                         <b>{{ store.validatorInfo[getValidatorInfo('rank')] }}</b>
                     </div>
 
@@ -372,6 +372,12 @@
         border: 1px solid #950fff;
         border-radius: 24px;
         background: #141414;
+    }
+
+    .bro_score span
+    {
+        position: relative;
+        top: -1px;
     }
 
     .bro_score b

@@ -193,8 +193,8 @@
                                     <div class="col_blurring" :data-column="$t('message.compare_title_col_blurring')"
                                         :class="{
                                             identical: store.compareIdenticalOptions['blurring'],
-                                            green: store.compareMinMaxValue['blurring'].max == index,
-                                            red: store.compareMinMaxValue['blurring'].min == index
+                                            green: validator[getValidatorInfo('blurring')] == 1,
+                                            red: validator[getValidatorInfo('blurring')] != 1
                                         }"
                                         @mouseover="emitter.emit('setNotification', $t('message.notice_col_blurring'))"
                                     >
