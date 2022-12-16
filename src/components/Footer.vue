@@ -114,6 +114,16 @@
 
 
 
+    @media print, (max-width: 1279px)
+    {
+        .rating ~ footer
+        {
+            padding-bottom: 72px;
+        }
+    }
+
+
+
     @media print, (max-width: 479px)
     {
         footer
@@ -122,18 +132,22 @@
         }
 
 
-        footer .text{
-            justify-content: center;
-            text-align: center;
+        footer .text
+        {
             width: 100%;
+
+            text-align: center;
+
+            justify-content: center;
         }
 
 
         footer .socials
         {
-            justify-content: center;
-            margin-top: 20px;
             width: 100%;
+            margin-top: 20px;
+
+            justify-content: center;
         }
     }
 

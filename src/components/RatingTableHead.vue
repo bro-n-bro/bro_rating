@@ -449,16 +449,26 @@
 
         .table_head.with_pinned
         {
-            padding: 6px 0 6px 10px;
+            padding: 0;
 
-            border-radius: 10px;
+            border-radius: 0;
         }
 
 
         .pinned_items
         {
+            position: fixed;
+            z-index: 20;
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            padding: 8px;
+
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
+            border-radius: 0;
+            background: #1c1c1c;
         }
 
 

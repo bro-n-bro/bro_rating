@@ -304,6 +304,12 @@
 
     @media print, (max-width: 1279px)
     {
+        .rating .head
+        {
+            margin-bottom: 10px;
+        }
+
+
         .rating .list,
         .rating .list.mini
         {
@@ -319,11 +325,6 @@
             align-items: flex-start;
             align-content: flex-start;
             flex-wrap: wrap;
-        }
-
-        .rating .list.mini
-        {
-            margin-top: 10px;
         }
 
         .rating .list > *
