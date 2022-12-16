@@ -1,7 +1,7 @@
 <template>
     <section class="modal" id="validator_modal">
         <transition name="fadeUp" mode="out-in" appear type="animation">
-        <div class="modal_content">
+        <div class="modal_content" @click.self="emitter.emit('closeValidatorModal')">
             <div class="data">
                 <button class="close_btn" @click.prevent="emitter.emit('closeValidatorModal')">
                     <svg class="icon"><use xlink:href="/sprite.svg#ic_close2"></use></svg>
@@ -165,7 +165,7 @@
         </transition>
 
         <transition name="fade" mode="out-in" appear type="animation">
-        <div class="overlay" @click.prevent="emitter.emit('closeValidatorModal')"></div>
+        <div class="overlay"></div>
         </transition>
     </section>
 </template>
