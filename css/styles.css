@@ -418,7 +418,6 @@ button
     padding: 24px 20px;
 
     cursor: default;
-    pointer-events: auto;
 
     border-radius: 24px;
     background: #0d0d0d;
