@@ -73,9 +73,13 @@
                                 <div class="label" v-html="$t('message.validator_modal_ownership_label')"></div>
 
                                 <div class="val">
-                                    <span>{{ (store.validatorInfo[getValidatorInfo('ownership')] * store.validatorInfo[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent).toLocaleString() }}</span>
+                                    <span @mouseover="emitter.emit('setNotification', $t('message.notice_col_self_bonded'))">
+                                        {{ (store.validatorInfo[getValidatorInfo('ownership')] * store.validatorInfo[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent).toLocaleString() }}
+                                    </span>
                                     /
-                                    <span @mouseover="emitter.emit('setNotification', $t('message.notice_col_ownership'))">{{ $filters.toFixed(store.validatorInfo[getValidatorInfo('ownership')] * 100, 2) }}%</span>
+                                    <span @mouseover="emitter.emit('setNotification', $t('message.notice_col_ownership'))">
+                                        {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('ownership')] * 100, 2) }}%
+                                    </span>
                                 </div>
                             </div>
 
@@ -395,7 +399,6 @@
         line-height: 100%;
 
         display: flex;
-
 
         margin-left: 10px;
         padding: 8px 13px 10px;

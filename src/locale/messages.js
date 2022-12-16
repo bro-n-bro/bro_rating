@@ -47,6 +47,7 @@ export default {
             'notice_col_total': 'The sum of the criteria points.',
             'notice_col_voted': 'This criterion is about the number of votes ({voted}) for the last 5 ended proposals.',
             'notice_col_blurring': 'This criterion shows how many tokens were lost by the validator on the slashing in fractions.',
+            'notice_col_self_bonded': 'The number of tokens delegated to yourself.',
 
             // Rtaing
             'rating_block_title': 'Validators',
