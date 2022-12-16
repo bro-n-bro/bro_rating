@@ -41,10 +41,15 @@
                     </div>
 
                     <div class="active_set" :class="{ green: store.validatorInfo[getValidatorInfo('is_active_set')] }">
+                        <template v-if="store.validatorInfo[getValidatorInfo('is_active_set')]">
                         <svg class="icon"><use xlink:href="/sprite.svg#ic_check"></use></svg>
+                        <span>{{ $t('message.validator_modal_active_set') }}</span>
+                        </template>
 
-                        <span v-if="store.validatorInfo[getValidatorInfo('is_active_set')]">{{ $t('message.validator_modal_active_set') }}</span>
-                        <span v-else>{{ $t('message.validator_modal_inactive_set') }}</span>
+                        <template v-else>
+                        <svg class="icon"><use xlink:href="/sprite.svg#ic_notice"></use></svg>
+                        <span>{{ $t('message.validator_modal_inactive_set') }}</span>
+                        </template>
                     </div>
                 </div>
 
@@ -402,12 +407,12 @@
 
         margin-left: 10px;
         padding: 8px 13px 10px;
+        padding: 10px 14px;
 
         white-space: nowrap;
 
-        opacity: .3;
-        border: 1px solid #fff;
         border-radius: 24px;
+        background: #353535;
 
         justify-content: flex-start;
         align-items: center;
@@ -417,8 +422,9 @@
 
     .active_set.green
     {
+        padding: 9px 14px 11px;
+
         opacity: 1;
-        border-color: #1bc562;
         background: #1bc562;
     }
 
