@@ -396,6 +396,7 @@
 
         display: flex;
 
+
         margin-left: 10px;
         padding: 8px 13px 10px;
 
