@@ -41,7 +41,7 @@
 
                 <template v-else>
                 <div v-for="(network, index) in store.networks" :key="index">
-                    <button class="network" :class="{ active: store.currentNetwork == network.alias }" @click="setCurrentNetwirk(network.alias)">
+                    <button class="network" :class="{ active: store.currentNetwork == network.alias }" @click="setCurrentNetwork(network.alias)">
                         <div class="logo">
                             <img :src="`/${network.alias}_logo.png`" alt="">
                         </div>
@@ -80,10 +80,10 @@
 
 
     // Set current netwirk
-    function setCurrentNetwirk(currentNetwork) {
-        showDropdown.value = false
-        store.currentNetwork = currentNetwork
-    }
+    // function setCurrentNetwork(currentNetwork) {
+    //     showDropdown.value = false
+    //     store.currentNetwork = currentNetwork
+    // }
 </script>
 
 
