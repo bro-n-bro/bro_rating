@@ -79,7 +79,7 @@
 
                                 <div class="val">
                                     <span @mouseover="emitter.emit('setNotification', $t('message.notice_col_self_bonded'))">
-                                        {{ (store.validatorInfo[getValidatorInfo('ownership')] * store.validatorInfo[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent).toLocaleString() }}
+                                        {{ new Number($filters.toFixed(store.validatorInfo[getValidatorInfo('ownership')] * store.validatorInfo[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent, 0)).toLocaleString() }}
                                     </span>
                                     /
                                     <span @mouseover="emitter.emit('setNotification', $t('message.notice_col_ownership'))">
