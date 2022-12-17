@@ -337,9 +337,15 @@
 
         display: block;
 
-        width: 16px;
-        height: 16px;
+        width: 22px;
+        height: 22px;
         margin: auto;
+        transition: color .2s linear;
+    }
+
+    .info .name:hover .icon
+    {
+        color: #7700e1;
     }
 
 
