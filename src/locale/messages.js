@@ -103,7 +103,13 @@ export default {
             'validator_modal_confidence_label': 'Confidence',
             'validator_modal_decentralization_label': 'Decentralization',
             'validator_modal_participation_label': 'Participation',
-            'validator_modal_reliability_label': 'Reliability'
+            'validator_modal_reliability_label': 'Reliability',
+
+            // Feedback
+            'feedback_title': 'Report a bug here',
+            'feedback_desc': 'Share it with us',
+            'feedback_telegram_link': 'Telegram',
+            'feedback_github_link': 'Github',
         }
     }
 }

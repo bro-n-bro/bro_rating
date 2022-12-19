@@ -13,6 +13,9 @@
 
     <!-- Compare error modal -->
     <CompareErrorModal v-if="store.showCompareErrorModal" />
+
+    <!-- Feedback -->
+    <Feedback />
 </template>
 
 
@@ -26,6 +29,7 @@
     import Footer from '../components/Footer.vue'
     import ValidatorModal from '../components/ValidatorModal.vue'
     import CompareErrorModal from '../components/CompareErrorModal.vue'
+    import Feedback from '../components/Feedback.vue'
 
 
     const store = useGlobalStore(),

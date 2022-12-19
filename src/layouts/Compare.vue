@@ -7,6 +7,9 @@
 
     <!-- Footer -->
     <Footer />
+
+    <!-- Feedback -->
+    <Feedback />
 </template>
 
 
@@ -17,6 +20,7 @@
     // Components
     import Header from '../components/Header.vue'
     import Footer from '../components/Footer.vue'
+    import Feedback from '../components/Feedback.vue'
 
 
     const store = useGlobalStore(),
