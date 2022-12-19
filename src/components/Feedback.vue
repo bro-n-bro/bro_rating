@@ -249,4 +249,14 @@
         background: #950fff;
     }
 
+
+
+    @media print, (max-width: 767px)
+    {
+        .feedback
+        {
+            display: none;
+        }
+    }
+
 </style>

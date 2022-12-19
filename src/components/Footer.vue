@@ -72,7 +72,7 @@
     footer .socials
     {
         display: flex;
-
+        margin-right: 100px;
         margin-left: auto;
 
         justify-content: flex-start;
@@ -119,6 +119,16 @@
         .rating ~ footer
         {
             padding-bottom: 72px;
+        }
+    }
+
+
+
+    @media print, (max-width: 767px)
+    {
+        footer .socials
+        {
+            margin-right: 0;
         }
     }
 
