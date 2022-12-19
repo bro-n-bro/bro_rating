@@ -42,33 +42,12 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
 	const store = useGlobalStore()
 
-
-	// Clear logos
-	const oldLogos = document.querySelectorAll('.rating .validator .col_moniker .logo')
-
-	if (oldLogos) {
-		oldLogos.forEach(el => {
-			el.querySelector('img').classList.remove('hide')
-			el.style.backgroundColor = 'none'
-		})
-	}
-
-
-	// Table scroll to top
-	const ratingTable = document.querySelector('.rating .list')
-
-	if (ratingTable) {
-		ratingTable.scrollTop = 0
-	}
-
-
 	// Set current network
 	if (to.query.network) {
 		if (store.currentNetwork != to.query.network) {
 			store.currentNetwork = to.query.network
 		}
 	}
-
 
 	// Compare redirect
 	if (store.compareValidators.length < 2 && to.name == 'Compare') {

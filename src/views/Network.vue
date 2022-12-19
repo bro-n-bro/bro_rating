@@ -45,7 +45,7 @@
 
 
 <script setup>
-    import { ref, watchEffect } from 'vue'
+    import { inject, ref, watchEffect } from 'vue'
     import { useRoute } from 'vue-router'
     import { useGlobalStore } from '@/stores'
 
@@ -58,7 +58,8 @@
 
 
     const route = useRoute(),
-        store = useGlobalStore()
+        store = useGlobalStore(),
+        emitter = inject('emitter')
 
     var showLoader = ref(true)
 
@@ -67,8 +68,32 @@
         // Clear compare
         store.compareValidators = []
 
+
         // Get data
         await store.getRatingData(store.currentNetwork).then(() => showLoader.value = false)
+
+
+        // Clear logos
+        const oldLogos = document.querySelectorAll('.rating .validator .col_moniker .logo')
+
+        if (oldLogos) {
+            oldLogos.forEach(el => {
+                el.querySelector('img').classList.remove('hide')
+                el.style.backgroundColor = 'none'
+            })
+        }
+
+
+        // Table scroll to top
+        const ratingTable = document.querySelector('.rating .list')
+
+        if (ratingTable) {
+            ratingTable.scrollTop = 0
+        }
+
+
+        // Close validator modal
+        emitter.emit('closeValidatorModal')
     })
 </script>
 
@@ -382,6 +407,15 @@
         {
             font-size: 26px;
             line-height: 32px;
+        }
+
+
+        .rating .last_update
+        {
+            width: 100%;
+            margin-top: 10px;
+
+            text-align: center;
         }
 
 

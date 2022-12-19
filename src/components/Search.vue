@@ -392,6 +392,16 @@
 
 
 
+    @media print, (max-width: 1023px)
+    {
+        .search .mini_modal
+        {
+            width: 326px;
+        }
+    }
+
+
+
     @media print, (max-width: 767px)
     {
         .search .btn
@@ -402,7 +412,19 @@
 
         .search .mini_modal
         {
-            width: calc(100vw - 130px);
+            width: calc(100vw - 192px);
+        }
+    }
+
+
+
+    @media print, (max-width: 479px)
+    {
+        .search .mini_modal
+        {
+            right: -112px;
+
+            width: calc(100vw - 68px);
         }
     }
 

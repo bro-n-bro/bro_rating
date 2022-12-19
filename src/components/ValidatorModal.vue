@@ -101,8 +101,8 @@
                             <div class="feature">
                                 <div class="label">{{ $t('message.validator_modal_total_delegated_label') }}</div>
 
-                                <div class="val" @mouseover="emitter.emit('setNotification', $t('message.notice_col_total'))">
-                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('total')], 0) }}
+                                <div class="val" @mouseover="emitter.emit('setNotification', $t('message.notice_col_total_delegated'))">
+                                    {{ new Number($filters.toFixed(store.validatorInfo[getValidatorInfo('staked')] / store.networks[store.currentNetwork].exponent, 0)).toLocaleString() }}
                                 </div>
                             </div>
 
@@ -340,6 +340,7 @@
         width: 22px;
         height: 22px;
         margin: auto;
+
         transition: color .2s linear;
     }
 
@@ -453,8 +454,8 @@
 
     .features .row
     {
-        margin-bottom: -24px;
-        margin-left: -24px;
+        margin-bottom: -20px;
+        margin-left: -20px;
 
         align-items: stretch;
         align-content: stretch;
@@ -462,9 +463,9 @@
 
     .features .row > *
     {
-        width: calc(20% - 24px);
-        margin-bottom: 24px;
-        margin-left: 24px;
+        width: calc(20% - 20px);
+        margin-bottom: 20px;
+        margin-left: 20px;
     }
 
 
