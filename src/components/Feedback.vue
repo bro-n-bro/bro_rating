@@ -26,7 +26,7 @@
                     <svg class="arrow"><use xlink:href="/sprite.svg#ic_link_arrow"></use></svg>
                 </a></div>
 
-                <div><a href="https://github.com/bro-n-bro/bro.app/issues/new" target="_blank" rel="noopener nofollow">
+                <div><a href="https://github.com/bro-n-bro/bro_rating/issues/new" target="_blank" rel="noopener nofollow">
                     <svg class="icon"><use xlink:href="/sprite.svg#ic_github"></use></svg>
                     <span>{{ $t('message.feedback_github_link') }}</span>
                     <svg class="arrow"><use xlink:href="/sprite.svg#ic_link_arrow"></use></svg>
