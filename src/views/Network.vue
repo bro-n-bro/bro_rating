@@ -251,7 +251,6 @@
         overflow: auto;
 
         max-height: calc(100vh - 296px);
-        padding-right: 4px;
 
         flex: 1 0 auto;
         overscroll-behavior-y: contain;

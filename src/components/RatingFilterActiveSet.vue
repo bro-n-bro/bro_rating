@@ -67,7 +67,7 @@
         transition: background .2s linear;
 
         border-radius: 20px;
-        background: #141414;
+        background: #353535;
 
         justify-content: space-between;
         align-items: center;
@@ -114,12 +114,12 @@
 
     .filter_active_set .toggle .active_set.active ~ .circle
     {
-        transform: translateX(2px);
+        transform: translateX(4px);
     }
 
     .filter_active_set .toggle .inactive_set.active ~ .circle
     {
-        transform: translateX(42px);
+        transform: translateX(40px);
     }
 
 </style>

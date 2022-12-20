@@ -169,6 +169,7 @@
         align-items: stretch;
         align-content: stretch;
         flex-wrap: nowrap;
+        border-top: 1px solid rgba(255, 255, 255, .05);
     }
 
     .rating .validator.hide
@@ -184,12 +185,6 @@
     .rating .validator.pinned
     {
         background: rgba(149, 15, 255, .2);
-    }
-
-
-    .rating .validator + .validator
-    {
-        border-top: 1px solid rgba(255, 255, 255, .05);
     }
 
 

@@ -151,9 +151,9 @@
         position: relative;
         z-index: 3;
 
-        padding-right: 12px;
+        padding-right: 8px;
 
-        border-radius: 10px;
+        border-radius: 10px 10px 0 0;
         background: #141414;
     }
 
