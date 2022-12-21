@@ -92,7 +92,7 @@
                                 <div class="label">{{ $t('message.validator_modal_confidence_label') }}</div>
 
                                 <div class="val" @mouseover="emitter.emit('setNotification', $t('message.notice_col_confidence', { ownership: $filters.toFixed(store.validatorInfo[getValidatorInfo('ownership')], 2) }))">
-                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('confidence')], 2) }}
+                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('confidence_endorsement')], 2) }}
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                                 <div class="label">{{ $t('message.validator_modal_decentralization_label') }}</div>
 
                                 <div class="val" @mouseover="emitter.emit('setNotification', $t('message.notice_col_decentralization', { validator_rank: $filters.toFixed(store.validatorInfo[getValidatorInfo('validator_rank')], 2) }))">
-                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('decentralization')], 2) }}
+                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('decentralization_endorsement')], 2) }}
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                                 <div class="label">{{ $t('message.validator_modal_participation_label') }}</div>
 
                                 <div class="val" @mouseover="emitter.emit('setNotification', $t('message.notice_col_participation'))">
-                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('participation')], 2) }}
+                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('participation_endorsement')], 2) }}
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                     delegator_shares: $filters.toFixed(store.validatorInfo[getValidatorInfo('delegator_shares')] / store.networks[store.currentNetwork].exponent, 0),
                                     token: store.networks[store.currentNetwork].token_name
                                 }))">
-                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('reliability')], 2) }}
+                                    {{ $filters.toFixed(store.validatorInfo[getValidatorInfo('reliability_endorsement')], 2) }}
                                 </div>
                             </div>
                         </div>
