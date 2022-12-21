@@ -213,7 +213,7 @@
                                             token: store.networks[store.currentNetwork].token_name
                                         }))"
                                     >
-                                        {{ $filters.toFixed(validator[getValidatorInfo('reliability')], 2) }}
+                                        {{ $filters.toFixed(validator[getValidatorInfo('reliability_endorsement')], 2) }}
                                     </div>
 
                                     <div class="col_active_set" :data-column="$t('message.compare_title_col_active_set')"
