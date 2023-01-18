@@ -127,9 +127,7 @@
         let direction = event.target.classList.contains('ASC') ? 'DESC' : 'ASC'
 
         // Change class
-        document.querySelectorAll('.titles > *').forEach(el => el.classList.remove('active'))
-
-        event.target.classList.remove('ASC', 'DESC')
+        document.querySelectorAll('.titles > *').forEach(el => el.classList.remove('active', 'DESC', 'ASC'))
         event.target.classList.add(direction, 'active')
 
         // Updates logos

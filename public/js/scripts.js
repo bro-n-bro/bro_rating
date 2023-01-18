@@ -2,13 +2,15 @@
 addStylesheetURL('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap')
 
 
+// Window width
+WW = window.innerWidth || document.clientWidth || document.getElementsByTagName('body')[0].clientWidth
+
+
 document.addEventListener("DOMContentLoaded", function () {
-	// Window width
-	WW = window.innerWidth || document.clientWidth || document.getElementsByTagName('body')[0].clientWidth
-
-
 	// Is there support for touch events or is it an apple device
-	if (!is_touch_device() || !/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) document.documentElement.classList.add('custom_scroll')
+	if (!is_touch_device() && !navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i)) {
+		document.documentElement.classList.add('custom_scroll')
+	}
 
 
 	// Set the width of the scrollbar
@@ -16,35 +18,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 	// Mob. version
-	firstResize = false
+	fakeResize = false
+	fakeResize2 = true
 
 	if (document.body.clientWidth < 375) {
 		document.getElementsByTagName('meta')['viewport'].content = 'width=375, user-scalable=no'
-
-		firstResize = true
 	}
 })
 
 
 
 window.addEventListener('resize', function () {
-	let windowW = window.innerWidth || document.clientWidth || document.getElementsByTagName('body')[0].clientWidth
+	let windowW = window.outerWidth
 
 	if (typeof WW !== 'undefined' && WW != windowW) {
-		// Моб. версия
-		if (!firstResize) {
+		// Window width
+		WW = window.innerWidth || document.clientWidth || document.getElementsByTagName('body')[0].clientWidth
+
+
+		// Mob. version
+		if (!fakeResize) {
+			fakeResize = true
+			fakeResize2 = false
+
 			document.getElementsByTagName('meta')['viewport'].content = 'width=device-width, initial-scale=1, maximum-scale=1'
-
-			if (windowW < 375) document.getElementsByTagName('meta')['viewport'].content = 'width=375, user-scalable=no'
-
-			firstResize = true
-		} else {
-			firstResize = false
 		}
 
+		if (!fakeResize2) {
+			fakeResize2 = true
 
-		// Перезапись ширины окна
-		WW = window.innerWidth || document.clientWidth || document.getElementsByTagName('body')[0].clientWidth
+			if (windowW < 375) document.getElementsByTagName('meta')['viewport'].content = 'width=375, user-scalable=no'
+		} else {
+			fakeResize = false
+			fakeResize2 = true
+		}
 	}
 })
 
