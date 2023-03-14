@@ -22,9 +22,11 @@
 
                     <div class="info">
                         <div class="name">
-                            <a :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${store.validatorInfo[getValidatorInfo('opeartor_address')]}`" target="_blank" rel="noopener nofollow">
-                                <span>{{ store.validatorInfo[getValidatorInfo('moniker')] }}</span>
-                                <svg class="icon"><use xlink:href="/sprite.svg#ic_link_arrow"></use></svg>
+                            <div>{{ store.validatorInfo[getValidatorInfo('moniker')] }}</div>
+
+                            <a :href="`https://www.mintscan.io/${store.networks[store.currentNetwork].mintscanAlias}/validators/${store.validatorInfo[getValidatorInfo('opeartor_address')]}`" target="_blank" rel="noopener nofollow" class="link">
+                                <img src="/mintscan_logo.png" alt="">
+                                <span>{{ $t('message.validator_modal_mintscan_btn') }}</span>
                             </a>
                         </div>
 
@@ -313,40 +315,43 @@
         flex-wrap: wrap;
     }
 
+    .info .name > div
+    {
+        max-width: calc(100% - 122px);
+    }
 
-    .info .name a
+
+    .info .name .link
     {
         color: currentColor;
+        font-size: 14px;
+        line-height: 100%;
 
-        position: relative;
+        display: flex;
 
-        display: inline-block;
+        width: 112px;
+        height: 30px;
+        margin-left: 10px;
 
-        padding-right: 32px;
-
-        vertical-align: top;
         text-decoration: none;
+
+        border-radius: 10px;
+        background: #191919;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
     }
 
-    .info .name .icon
+    .info .name .link img
     {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-
         display: block;
 
-        width: 22px;
-        height: 22px;
-        margin: auto;
-
-        transition: color .2s linear;
-    }
-
-    .info .name:hover .icon
-    {
-        color: #7700e1;
+        width: 24px;
+        height: 20px;
+        margin-right: 8px;
+        margin-left: -4px;
     }
 
 
@@ -413,7 +418,6 @@
         display: flex;
 
         margin-left: 10px;
-        padding: 8px 13px 10px;
         padding: 10px 14px;
 
         white-space: nowrap;
@@ -574,8 +578,6 @@
         {
             font-size: 24px;
 
-            display: block;
-
             min-height: 0;
         }
 
@@ -702,6 +704,20 @@
         .info .name
         {
             font-size: 20px;
+        }
+
+        .info .name > div
+        {
+            width: 100%;
+            max-width: 100%;
+        }
+
+
+        .info .name .link
+        {
+            width: 100%;
+            height: 32px;
+            margin: 10px 0 0;
         }
 
 

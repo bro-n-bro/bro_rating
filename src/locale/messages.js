@@ -90,6 +90,8 @@ export default {
             // Validator modal
             'validator_modal_title': 'Validator details',
 
+            'validator_modal_mintscan_btn': 'Mintscan',
+
             'validator_modal_active_set': 'Active',
             'validator_modal_inactive_set': 'Inactive',
 
